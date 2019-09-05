@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="This file is the note from learning linux from the linux.vbird.org Wed Sep 26 10:22:37 CST 2018 Part1. Linux的规划与安装Chap2. 主机规划于磁盘分区 第一个分区(512B)：MBR: Master Boot Record(446B) 和 分区表（64B） 在MBR方式中，主分区只能有4个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="泽远的小站">
+<meta property="og:url" content="https://github.com/LeonLH/leonlh.github.io/2019/09/05/linux-private-dishes-from-vbird-copy/index.html">
+<meta property="og:site_name" content="泽远的小站">
+<meta property="og:description" content="This file is the note from learning linux from the linux.vbird.org Wed Sep 26 10:22:37 CST 2018 Part1. Linux的规划与安装Chap2. 主机规划于磁盘分区 第一个分区(512B)：MBR: Master Boot Record(446B) 和 分区表（64B） 在MBR方式中，主分区只能有4个">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-12T22:55:26.117Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="泽远的小站">
+<meta name="twitter:description" content="This file is the note from learning linux from the linux.vbird.org Wed Sep 26 10:22:37 CST 2018 Part1. Linux的规划与安装Chap2. 主机规划于磁盘分区 第一个分区(512B)：MBR: Master Boot Record(446B) 和 分区表（64B） 在MBR方式中，主分区只能有4个">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://github.com/LeonLH/leonlh.github.io/2019/09/05/linux-private-dishes-from-vbird-copy/">
+
+
+
+
+
+  <title> | 泽远的小站</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">泽远的小站</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Science and Perseverance</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/LeonLH/leonlh.github.io/2019/09/05/linux-private-dishes-from-vbird-copy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zeyuan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="泽远的小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-05T17:21:21+08:00">
+                2019-09-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>This file is the note from learning linux from the linux.vbird.org</p>
+<p>Wed Sep 26 10:22:37 CST 2018</p>
+<h1 id="Part1-Linux的规划与安装"><a href="#Part1-Linux的规划与安装" class="headerlink" title="Part1. Linux的规划与安装"></a>Part1. Linux的规划与安装</h1><h2 id="Chap2-主机规划于磁盘分区"><a href="#Chap2-主机规划于磁盘分区" class="headerlink" title="Chap2. 主机规划于磁盘分区"></a>Chap2. 主机规划于磁盘分区</h2><ol>
+<li>第一个分区(512B)：MBR: Master Boot Record(446B) 和 分区表（64B）<ol>
+<li>在MBR方式中，主分区只能有4个（64B只能记录8个数据，每组数据包括起始和结尾两个数据），扩展分区(只能有一个)——&gt;逻辑分区(可以有很多)。前四和号码留给主分区和扩展分区，所以逻辑分区的号码从5号开始；</li>
+<li>GPT: GUID partition talbe. GPT 分割模式，比原来的MBR分割模式的优点是，MBR的分区表(64)限制，所以最多有4个主分区或扩展分区，而GPT打破这一限制，使得主分区的个数可以多于4。</li>
+</ol>
+</li>
+<li>开机引导程序：<ol>
+<li>BIOS：CMOS里面记录着主板的电压等的一些信息，按下开机键，BIOS开始运行，首先读取MBR/GPT——&gt; boot loader——&gt;核心档案；<ul>
+<li>其中，boot loader就是MBR中写入的开机管理程序，它有如下功能：        <ol>
+<li>提供选单，就是多重开机的选项；</li>
+<li>转交loader，就是转交给别的loader以用来引导别的系统；</li>
+<li>载入核心档案，就是直接指向开机程序，开始启动OS；</li>
+</ol>
+</li>
+<li>boot loader 可以放在MBR或者boot sector中。</li>
+</ul>
+</li>
+<li>UEFI: Unified Extensible Firmware Interface. UEFI搭配GPT开机流程：<ul>
+<li>UEFI 存放在vfat分区内，UEFI 可以直接读取GPT分区表，GPT分区表可以支持更大的位数，所以主分区的个数可以多余4个。读取完分区表找到bootloader之后，流程与上述流程一样。</li>
+<li>GPT: GUID partition table. GUID, 全球唯一标识符。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<p>Tips:<br>    1. 挂载：把目录挂在磁盘分区上，要找分区上的内容进入该目录（挂在点）皆可以了。<br>    2. 磁盘分区：重要的目录单独作为一个分区，这样当根目录坏掉，比如坏轨时，就和以不影响其他分区的资料。以下是比较重要的目录，必要时候可以给他们单独分区：<br>        * /boot / /home /var Swap</p>
+<h2 id="Chap4-首次登入与线上求助"><a href="#Chap4-首次登入与线上求助" class="headerlink" title="Chap4. 首次登入与线上求助"></a>Chap4. 首次登入与线上求助</h2><p>Tips:<br>    1. <c-d> means End Of INPUT or End Of File, which is equal to quit/exit;<br>    2. <s-pageup>/<s-pagedown> means pageup/pagedown in terminal;<br>    3. <code>man executivefile</code> 查看手册，比<code>executivefile -h/--help</code> 显示的内容更有可读性, man还可以查看stl容器，比如<code>man std::vector</code>；<br>    4. man page<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">man -f gdb		//列出命令是gdb的man pages</span><br><span class="line">man -k gdb		//列出有gdb关键字(命令和描述中)的所有man pages</span><br><span class="line"></span><br><span class="line">whatis gdb		//相当于man -f</span><br><span class="line">apropos gdb		//相当于man -k</span><br><span class="line">				//上述两个命令，需要有建立whatis资料库才行，这需要root身份</span><br><span class="line">mandb			//建立whatis资料库(以root身份)</span><br></pre></td></tr></table></figure></s-pagedown></s-pageup></c-d></p>
+<pre><code>5. info page, 类似于文字模式的网页显示资料，有类似超链接的节点
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">info gdb		//进入info页面，进入之后，N-next，P-previous，U-up</span><br></pre></td></tr></table></figure>
+
+    * TAB---next hypertext link                RET---into current link
+    * l-----go back to last node            1...9-pick the 1st-9th item in this node&apos;s menu
+    * C-g---cancel the current operation    H-----get/quit help
+6. 资料同步写入硬盘---sync</code></pre><h1 id="Part2-Linux文件-目录与硬盘格式"><a href="#Part2-Linux文件-目录与硬盘格式" class="headerlink" title="Part2 Linux文件/目录与硬盘格式"></a>Part2 Linux文件/目录与硬盘格式</h1><h2 id="Chap6-Linux文件权限于目录配置"><a href="#Chap6-Linux文件权限于目录配置" class="headerlink" title="Chap6. Linux文件权限于目录配置"></a>Chap6. Linux文件权限于目录配置</h2><ol>
+<li>所有者/所属组/密码的记录文件：<ol>
+<li>/etc/passwd        记录的是账号</li>
+<li>/etc/shadow        记录的是密码</li>
+<li>/etc/group        记录的是群组</li>
+</ol>
+</li>
+<li>权限相关命令：<ol>
+<li>chgrp    改变文件所属组, -R递归</li>
+<li>chown    改变文件所有者, -R递归, 可以同时修改所有者和所属组两个信息，<code>chown ownername:groupname filename</code></li>
+<li>chmod    改变文件的权限, SUID，SGID，SBIT<ul>
+<li><code>chmod 644 filename</code></li>
+<li><code>chmod u/g/o/a  +/-/= r/w/x</code></li>
+</ul>
+</li>
+</ol>
+</li>
+<li>目录的写权限，是对目录清单进行修改的权限，即新建/删除/重命名/移动文件的权；目录的执行权限，是是否可以进入该目录；</li>
+</ol>
+<p>Tips</p>
+<ol>
+<li><p>为什么没有写权限的人，还是可以通过强制执行写入内容，只是写之后，文件的所有者变为了执行该操作的人？ 是因为没有写权限，强制写入时，vim会删除原文件，重建同名的文件，然后把内容写入，但是写入之后文件的所有者和所属组就都变成了执行该强制操作的人了。如果不希望此文件被写入或修改，可以将拥有该文件的目录的写权限对操作者禁止，别人删除不了文件也添加不了文件了，也不会发生上述情况。</p>
+</li>
+<li><p>Linux中的文件是否可以执行和它的文件名没有关系(windows 是用扩展名.exe或其他扩展名来判断文件是否可以执行), Linux中是用x这个权限来判断文件是否时可执行文件的。</p>
+</li>
+<li><p>FHS(Filesystem hierarchy standard)</p>
+<ol>
+<li><code>/</code> :与开机系统有关；</li>
+<li><code>/usr</code>: (unix software resource)与软件安装/执行有关；</li>
+<li><code>/var</code>:（variable）与系统运行过程有关；</li>
+</ol>
+</li>
+</ol>
+<p>##Chap6 Linux档案与目录管理</p>
+<ol>
+<li><p>几个命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">head/tail		//取出前几行/后几行</span><br><span class="line">od 				//非纯文字文件</span><br><span class="line">cat/tac/nl 		//nl添加行号</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>几种时间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">modification time (mtime) 		//内容资料变更时改变</span><br><span class="line">status time (ctime) 			//权限属性变更时改变</span><br><span class="line">access time (atime) 			//被访问后改变</span><br><span class="line">touch d/t/a						//修改上述三种时间</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>预设权限与隐藏属性  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">umask 			//预设权限需要减掉的权限值</span><br><span class="line">chattr			//设定文件隐藏属性</span><br><span class="line">lsattr			//显示文件隐藏属性</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>特殊权限, SUID, SGID, SBIT, 相当于在原本的x权限上提升。</p>
+<ol>
+<li><p>SUID s权限</p>
+<ul>
+<li>SUID仅对二进制文件有效；</li>
+<li>执行者对该文件要有x权限；</li>
+<li>本权限仅在程序的执行过程中有效；</li>
+<li>程序执行过程中，执行者的权限会变成owner的权限；</li>
+</ul>
+</li>
+<li><p>SGID s权限</p>
+<ul>
+<li><p>用于文件时：</p>
+</li>
+<li><p>SGID仅对二进制文件有效；</p>
+</li>
+<li><p>执行者对该文件要有x权限；</p>
+</li>
+<li><p>本权限仅在程序的执行过程中有效；</p>
+</li>
+<li><p>程序执行过程中，执行这权限会变成group的权限；</p>
+</li>
+<li><p>用于目录时：</p>
+</li>
+<li><p>用途：使用者在本目录有w权限，则使用这在该目录下新建的文件的所属组和目录的所属组相同；</p>
+</li>
+</ul>
+</li>
+<li><p>SBIT (Sticky Bit) ，仅对目录有效。</p>
+<ul>
+<li>当使用者对此目录具有w和x权限时，使用在该目录下新建的文件/目录，仅有自己和root可以删除；</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>查看文件属性：<code>file</code></p>
+</li>
+<li><p>搜索文件</p>
+<ol>
+<li><code>which executablefile</code>, -a ;        //可执行文件</li>
+<li><code>whereis filename</code>, [-lbmsu];    //在特定目录中寻赵文件 </li>
+<li><code>locate [-iclSr];                //在/var/lib/mlocate资料库中查找，带有关键字的资料，可用</code>updatedb`来更新资料库；</li>
+<li><code>find</code>,超级强大，可以加各种参数来限定查找的文件属性/user/size/权限等，但它是硬扫描，所以时间较慢；</li>
+</ol>
+</li>
+</ol>
+<p>##Chap7 磁盘与文件系统</p>
+<ol>
+<li><p>ext2/ext3/ext4, 从ext3开始支持文件日志功能</p>
+<ol>
+<li>Block Group —&gt; SuperBlock —&gt; inode + block</li>
+<li><code>dumpe2fs</code> 查看文件系统的描述资料 </li>
+<li><code>blkid</code> 列出UUID</li>
+<li><code>e2fsck</code> 一致性检查</li>
+</ol>
+</li>
+<li><p>xfs 不需要预先格式化, inode/block 是在使用的过程中动态产生。</p>
+<ol>
+<li><code>xfs_info</code> 查看文件系统的描述资料</li>
+</ol>
+</li>
+<li><p>硬盘与目录的容量du/df</p>
+<ol>
+<li><code>df</code> 列出文件系统的整体硬盘使用量, 对象是disk；</li>
+<li><code>du</code> 评估文件系统的硬盘施用量, 对象是file；</li>
+</ol>
+</li>
+<li><p>ln 可以做硬链接(hard link)/软链接(symbolic link)</p>
+<ol>
+<li>hard link 实际上就是在目录的block中写入文件名和文件的inode，一般不会造成空间减小，它不可以对目录操作；</li>
+<li>symbolic link 是新建了inode和block，内容相当于文件的绝对路径，它可以看成是windows下的快捷方式，它不可以对目录操作。  </li>
+</ol>
+</li>
+<li><p>硬盘分区：</p>
+<ol>
+<li><code>lsblk</code> 列出系统上的所有硬盘列表</li>
+<li><code>blkid</code> 列出UUID</li>
+<li><code>parted</code> 列出硬盘的分区类型和分区信息</li>
+<li>分区：gdisk(for GPT)/fdisk(for MBR)</li>
+<li><code>partprobe</code> 更新Linux核心的分区信息(/proc/partitions), 避免重启；</li>
+<li><code>mkfs</code> make filesystem 综合指令，具体哪种文件系统，还需要进一步确定，使用对应的指令，如<code>mkfs.xfs</code> <code>mkfs.ext4</code>,etc. </li>
+</ol>
+</li>
+<li><p>文件系统检验</p>
+<ol>
+<li><code>xfs_repair</code> 处理XFS文件系统；</li>
+<li><code>fsck.ext4</code> 处理EXT4文件系统；</li>
+</ol>
+</li>
+<li><p>挂载与卸载 mount/umount</p>
+<ol>
+<li>开机自动挂载，实际上就是在/etc/fstab文件中写入特定的分区信息，开机的时候，系统会检查fstab，根据它来挂载。此外，使用<code>mount -a</code>也会根据/etc/fstab来挂载；</li>
+<li>挂载DVD映象文件, <code>mount -o loop /tmp/CentOS-7.0-14.06_64-DVD.iso /data/centos_dvd</code>, 利用<code>mount loop</code>; </li>
+<li>制作loop文件，并将loop格式化为文件系统，最后将它挂载，这样就类似于一个新的分区(实际上不是, 只是loop文件); <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dd if=/dev/zero of=/srv/loopdev bs=1M count=512		//建立一个大块</span><br><span class="line">mkfs.xfs -f /srv/loopdev							//格式化</span><br><span class="line">blkid /srv/loopdev</span><br><span class="line">mount -o loop UUID=&quot;xxx&quot; /mnt 						//挂载</span><br><span class="line">df /mnt</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>不论分区表是GPT还是MBR都可以进行分区的工具，<code>parted</code> 它是非非交互式的，而fdisk/gdisk是交互式的，所以parted可以用来脚本文件中一次性建立很多分区；</p>
+</li>
+</ol>
+<h2 id="Chap8-文件的压缩与打包"><a href="#Chap8-文件的压缩与打包" class="headerlink" title="Chap8 文件的压缩与打包"></a>Chap8 文件的压缩与打包</h2><ol>
+<li><p>压缩文档的格式： *.tar, *.tar.gz, *.tgz, *.gz, *.Z, *.bz2, *.xz; </p>
+</li>
+<li><p>压缩软件： gzip, bzip2, xz, 打包： tar; </p>
+<ol>
+<li><p>gzip, -d 解压, zcat/zmore/zless/zgrep无需解压对压缩文件操作;</p>
+</li>
+<li><p>bzip2,-d 解压, bzcat/bzmore/bzless/bzgrep, 同上；</p>
+</li>
+<li><p>xz,   -d 解压，xzcat/xzmore/xzless/xzgrep, 同上；</p>
+</li>
+<li><p>tar 打包：</p>
+<ul>
+<li><p>压缩：            <code>tar -jcv -f filename</code>;</p>
+</li>
+<li><p>查看tar包中文件：    <code>tar -jtv -f filename.tar.bz2</code>;</p>
+</li>
+<li><p>解压：            <code>tar -jxv -f filename.tar.bz2</code> -C directoryname`;</p>
+</li>
+<li><p>上述j代表bz，可换为z/J，z代表gzip，J代表xz, 主要差异是在压缩比和时间上，一般来说，压缩比越大，时间越长；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">time tar -zpcv -f /root/etc.tar.gz  /etc</span><br><span class="line">time tar -jpcv -f /root/etc.tar.bz2 /etc</span><br><span class="line">time tar -Jpcv -f /root/etc.tar.xz  /etc</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>仅解压tar压缩包中单个文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -jtv -f /root/etc.tar.bz2 |grep &apos;shadow&apos;	//查看包含shadow的文件</span><br><span class="line">tar -jxv -f /root/etc.tar.bz2 etc/shadow 		//解压单个文件</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>几个参数：<br>  不包含某个目录：–exclude=filename(可以有路径)<br>  仅备份比某时刻更新的文件：–newer-mtime –newer(包含mtime和ctime)<br>  将资料流一边打包一边压缩到目标目录里去</p>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>文件系统的备份与还原(xfs文件系统为例)</p>
+<ol>
+<li>备份：xfsdump, 累计备份(incremental backups)</li>
+<li>还原：xfsrestore</li>
+</ol>
+</li>
+<li><p>制作映像文件</p>
+<ol>
+<li>普通iso文件：    <code>mkisofs</code></li>
+<li>可开机ios文件：</li>
+<li>光碟烧录工具：    <code>cdrecord/wodim</code></li>
+</ol>
+</li>
+<li><p>其他压缩与备份工具：</p>
+<ol>
+<li><p>dd, 可以将磁盘上的superblock/boot sector/meta data通通复制到目标文件中，因此不需要格式化。可以用来完整的备份磁盘。<br><code>dd if=&quot;input_file&quot; of=&quot;output_file&quot; bs=&quot;block_size&quot; count=&quot;number&quot;</code></p>
+</li>
+<li><p>cpio, 相当优秀的备份指令，不过需要搭配find类似指令读入要备份的文件名：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cpio -ovcB  &gt; [file|device] 		//备份</span><br><span class="line">cpio -ivcdu &lt; [file|device]			//还原</span><br><span class="line">cpio -ivct  &lt; [file|device] 		//查看</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+</li>
+</ol>
+<p>PS:<br>    1. <code>time</code> 可以列出命令运行时间；</p>
+<p>##Chap9 vim</p>
+<ol>
+<li>dos2unix/unix2dos, DOS下换行是CRLF，Linux下是LF，所以需要转换。</li>
+</ol>
+<p>##Chap10 认识与学习BASH</p>
+<ol>
+<li><p>alias lm=’ls -al’ How to make it work every time restart host? </p>
+</li>
+<li><p>显示变量：<code>echo $variablename</code> </p>
+</li>
+<li><p>变量设定规则：</p>
+<ol>
+<li><p>=； </p>
+</li>
+<li><p>=两端不能有空格；</p>
+</li>
+<li><p>开头不能是空格；</p>
+</li>
+<li><p>单引号/双引号：</p>
+<ul>
+<li>双引号保留原特性,具有变量置换功能；</li>
+<li>单引号内仅仅是字符串，不具有变量置换功能；</li>
+</ul>
+</li>
+<li><p>\ 转义字符将特殊符号变为普通符号；</p>
+</li>
+<li><p><code>指令</code> 或 $(指令) 可以返回指令的结果, 例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">version=$(uname -r)</span><br><span class="line">或 version=`uname -r`</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>扩增变量内容，用 “$变量名” 或 ${变量}, 例如：<br> <code>PATH=&quot;$PATH&quot;:/home/bin</code> 或 <code>PATH=${PATH}:/home/bin</code></p>
+</li>
+<li><p>以export把变量变成环境变量：<code>export PATH</code>;</p>
+</li>
+<li><p>大写系统变量，小写自定义变量；</p>
+</li>
+<li><p>取消变量：<code>unset variablename</code>;</p>
+</li>
+</ol>
+</li>
+<li><p>列出</p>
+<ol>
+<li>env 列出环境变量；</li>
+<li>set 列出所有变量；</li>
+<li>子进程会继承父进程的环境遍历，但不会继承父进程的自定义变量，此时就可以使用，<code>export  variablename</code> 来把自己的变量分享给后来调用的子进程。而且设置完成后，关于语系的设定还是要，好好学习操作一番才能理解，暂时不用着急着设定成为中文。另外，要熟练英文的书写，多练习，慢慢地要有用英文书写交流的能力，不改成中文也可以比较好的英文学习环境。</li>
+</ol>
+</li>
+<li><p>变量的读取/数组/声明；</p>
+<ol>
+<li><code>read [-tp] variable</code>                //读取变量</li>
+<li><code>declare/typeset [-aixr] variable</code>    //声明变量类型, -/+x可以设定取消成为环境变量，-r只读，-p可以列出</li>
+</ol>
+</li>
+<li><p>限定bash使用者使用的资源(可打开的文件数/大小，CPU，RAM)，ulimit:</p>
+</li>
+<li><p>变量的删除/取代/替换：</p>
+<ol>
+<li>删除：<code>${variable#/*local/bin}</code>;        // # 表示从左到右删除最短的那个相匹配的，## 表示从左到右删除最长的匹配的，%/%% 表示从右到左删除最短/最长的</li>
+<li>取代：<code>echo ${path/sbin/SBIN}</code>;        // 如果path和sbin之间是两条斜线，则所有符合的条件都会被取代</li>
+<li>判断设定默认值：</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">`username=$&#123;username-root&#125;`		// 如果没有被设定则username默认为root</span><br><span class="line">`username=$&#123;username:-root&#125;`	// 变量为空或者未设定，都以默认为值</span><br></pre></td></tr></table></figure>
+
+<ol start="8">
+<li><p>别名, 别名的设定与变量的设定基本是一样的</p>
+<ol>
+<li><code>alias aliasname=command</code>        //set alias</li>
+<li><code>unalias aliasname</code>                //unset alias</li>
+</ol>
+</li>
+<li><p>历史命令 history</p>
+<ol>
+<li><code>!command</code> 由最近的指令开始向上搜索第一个以command开头的指令并执行；</li>
+</ol>
+</li>
+<li><p>Login-shell, Load after login with tty1-tty6. Non-login shell load by exist bash calling. </p>
+</li>
+<li><p>Ubuntu’s directory is a little different from CentOS’s, so if you don’t find files in ubuntu which it exist in CentOS, Try <code>ls | grep keyword</code> and then read the relative manual. </p>
+</li>
+<li><p>Configuration of bash:</p>
+<ol>
+<li>/etc/profile /etc/profile.d/ /etc/locale.conf</li>
+<li>~/.bash_profile  ~/.bash_login ~/.bashrc /etc/bashrc ~/.profile</li>
+<li><code>source conf_file</code> loading the configuration</li>
+</ol>
+</li>
+<li><p>Login-shell will read above file as sequence, Non-login-shell will only load the ~/.bashrc</p>
+</li>
+<li><p>Put the right info and error info into one file by using <code>2&gt;&amp;1 file</code> or <code>&amp;&gt;</code>;</p>
+</li>
+<li><p>管道符后面的指令是要能接收 standard input 才可以，例如，less/more/head/tail</p>
+</li>
+<li><p>管道相关命令——常用工具：</p>
+<ul>
+<li>cut  -d|-f|-c ;                        //截断</li>
+<li>grep -a|-c|-i|-n|-v|–color=auto ;     //筛选，整行</li>
+<li>sort -f|-b|-M|-n|-r|-u|-t|-k ;        //排序</li>
+<li>uniq -i|-c ;                            //去重</li>
+<li>wc   -l|-w|-m ;                        //统计</li>
+<li>tee  -a ;                                //双向重定向</li>
+</ul>
+</li>
+<li><p>管道相关命令——字元转换命令：</p>
+<ul>
+<li>tr   -d|-s SET1;                         //删除或替换</li>
+<li>col  -x|-b                             //TAB-&gt;空白</li>
+<li>join -t|-i|-1|-2;                     //合并两个有相关性的文本</li>
+<li>paste -d file1 file2;                 //直接粘贴在后面，TAB隔开</li>
+<li>expand -t                             //TAB-&gt;N个空白</li>
+<li>split -b|-l file PREFIX                //分割文件</li>
+<li>xargs -O|-e|-p|-n command                //把文本分隔处理后，传给命令，可以实现一次传一个(几个)参数给名令</li>
+<li>减号 - 某些命令中可以代替stdin和stdout</li>
+</ul>
+</li>
+</ol>
+<p>Note:</p>
+<blockquote>
+<p>Note: Practice above command till I master it to a high level. </p>
+<p>type -a ls         // 查看ls的指令执行顺序</p>
+<p>/etc/issue 中记录着，登陆之前显示的信息，可以修改成各种格式（如，时间，本机版本等）;</p>
+<p>/etc/motd 记录着上述类似信息，只不过是出现在远程登陆端的显示界面上；</p>
+</blockquote>
+<h2 id="Chap11-正则表达式与文件格式化处理"><a href="#Chap11-正则表达式与文件格式化处理" class="headerlink" title="Chap11. 正则表达式与文件格式化处理"></a>Chap11. 正则表达式与文件格式化处理</h2><ol start="0">
+<li>Rex是以行为单位处理字符串的，Rex的练习要通过支持它的工具来练习，需要多练习思考这些工具的功能和作用，以及他们组合实现的功能和作用；</li>
+<li>[] 来搜索集合，例如，[a-z], [[:digit:]]…</li>
+<li>^ 在[]之内和在它之外是不同的，在里面表示反向选择，在外面表示以集合内某个字符开头；</li>
+<li>. 代表任意字符，不能是空； * 代表前一个字符重复任意次，可以为零次；</li>
+<li>字的长度范围{}, e.x. <code>o\{5,8\}</code> 表示o重复了5到8次；</li>
+<li>Learn the basic usage and find some exercises to practise to make me master it to a very high level. </li>
+<li>[Prac] sed (stream editor): sed [-n|e|f|r|i] [a|c|d|i|p|s] 需要掌握,通常用于一整行一整行的处理；</li>
+<li>[Prac] awk ‘条件类型1{动作1};条件类型2{动作2}…’ filename<ul>
+<li>以行为一次处理的单位，以栏位为最小处理的单位</li>
+<li>变量：$0, $1, $2, $3…,NF, NR, FS, …, BEGIN, END, …</li>
+<li>逻辑运算字符：&gt; &lt; &gt;= &lt;= == != </li>
+<li>注意每个动作与下一个条件之间的分号</li>
+</ul>
+</li>
+<li>档案对比工具：diff | cmp<ol>
+<li>diff [-b|B|i] from-file to-file 结果中：<ul>
+<li>c substitute</li>
+<li>d delete</li>
+<li>a addnew</li>
+<li>&lt; left-file</li>
+<li><blockquote>
+<p>right-file</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>cmp [-l] file1 file2, 对比的单位是位，diff对比的单位是行。</li>
+<li><code>patch [-R|p] &lt; patch-file</code>, 根据更新包把内容从旧内容更新成新内容，或者把新内容根据更新包还原成旧的内容：<ul>
+<li><code>diff -Naur passwd.old passwd.new &gt; passwd.patch</code>     //make update patch</li>
+<li><code>patch -pN &lt; patch-file</code>            //Update old file to new file according to patch file</li>
+<li><code>patch -R -pN &lt; patch-file</code>        //Reverse old file according to patch file</li>
+<li>the file should be named as file.old file.new file.patch</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>文件打印准备：例如，列出每页的页码，时间等信息。<code>pr</code></li>
+</ol>
+<p>Note:</p>
+<blockquote>
+<p>本章内容要多练，管道符grep/sed等工具的配合使用，还有Rex的语法规则，上述内容只有通过多次练习才能逐步掌握。</p>
+</blockquote>
+<h2 id="Chap12-学习Shell-Script"><a href="#Chap12-学习Shell-Script" class="headerlink" title="Chap12 学习Shell Script"></a>Chap12 学习Shell Script</h2><ol>
+<li><p>管理一部主机的工作：</p>
+<ul>
+<li>查询登陆文件；</li>
+<li>追踪流量；</li>
+<li>监控使用者使用主机状态；</li>
+<li>主机各项硬件设备状态；</li>
+<li>主机软件更新查询；</li>
+<li>使用的其他突然要求；</li>
+</ul>
+</li>
+<li><p>程序的基本资料：</p>
+<ul>
+<li>内容与功能；</li>
+<li>版本信息；</li>
+<li>作者联系方式；</li>
+<li>文件创建日期；</li>
+<li>历史记录；</li>
+<li>等</li>
+</ul>
+</li>
+<li><p>环境变量的设置：PATH 和 LANG</p>
+</li>
+<li><p>运算：<code>var=$((运算内容))</code></p>
+</li>
+<li><p>利用source执行脚本是在父程序中执行，而相对/绝对路径或bash filename的方法是调用一个新的bash，在该子bash下执行。</p>
+</li>
+<li><p>[D] SGID review;</p>
+</li>
+<li><p>test 判断文件类型/权限/更新时间/两个整数大小/字符串/多重判断</p>
+<ul>
+<li>文件类型：    -e|-f|-d|-b|-c|-S|-p|-L</li>
+<li>权限：        -r|-w|-x|-u|-g|-k|-s</li>
+<li>更新时间：    -nt|-ot|-ef</li>
+<li>两整数大小：    -eq|-ne|-gt|-lt|-ge|-le</li>
+<li>字符串：        -z|-n|==|!=</li>
+<li>多重判断：    -a|-o|!</li>
+</ul>
+</li>
+<li><p>判断符[]</p>
+<ul>
+<li>中括号内每个元件都需要有空白键来分隔；</li>
+<li>中括号内变量，最好用双引号括起来；</li>
+<li>中括号内常数，最好以单或双引号括起来；</li>
+</ul>
+</li>
+<li><p>预设变量：</p>
+<ul>
+<li>/path/to/scriptname     : $0</li>
+<li>op1                    : $1</li>
+<li>op2                    : $2</li>
+<li>op3                    : $3</li>
+<li>op4                    : $4</li>
+<li>$# | $@ | $*             : <strong>***</strong></li>
+<li>shift                    : 参数偏移</li>
+</ul>
+</li>
+<li><p>条件判断式，注意每个关键词(if, else…)之后有空格</p>
+<ol>
+<li><p>if … fi</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if [条件判断式]; then</span><br><span class="line">	语句</span><br><span class="line">else if [条件判断式]; then</span><br><span class="line">	语句</span><br><span class="line">else</span><br><span class="line">	语句</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>case … esac</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">case $变量 in</span><br><span class="line">&quot;value1&quot;)</span><br><span class="line">	语句</span><br><span class="line">	;;</span><br><span class="line">&quot;value2&quot;)</span><br><span class="line">	语句</span><br><span class="line">	;;</span><br><span class="line">&quot;value3&quot;)</span><br><span class="line">	语句</span><br><span class="line">	;;</span><br><span class="line">*)</span><br><span class="line">	语句</span><br><span class="line">	exit 1</span><br><span class="line">	;;</span><br><span class="line">esac</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>function, 由于shell脚本是从上到下执行的，所以函数要写在调用之前</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function funcname()&#123;</span><br><span class="line">	语句</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>循环: while do done(非固定循环), until do done(非固定循环), for…do…done(固定循环)</p>
+</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">while [条件]	# 条件满足进入循环 </span><br><span class="line">do</span><br><span class="line">	语句</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">until [条件]	# 条件满足跳出循环</span><br><span class="line">do</span><br><span class="line">	语句</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for var in con1 con2 con3 ...	# $(seq 1 100) OR &#123;1..100&#125;</span><br><span class="line">do</span><br><span class="line">	语句</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for ((init; condition; step length))</span><br><span class="line">do</span><br><span class="line">	Statement</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<ol start="11">
+<li>Debug<ol>
+<li>sh -n|-v|-x scriptname</li>
+</ol>
+</li>
+</ol>
+<p>Note: 学习脚本需要多看，多模仿，多修改别人的脚本，才会学习的快</p>
+<h2 id="Chap13-Linux账号管理与ACL权限"><a href="#Chap13-Linux账号管理与ACL权限" class="headerlink" title="Chap13 Linux账号管理与ACL权限"></a>Chap13 Linux账号管理与ACL权限</h2><ol>
+<li><p>加入群组，只需要在/etc/group的对应群组的行的最后一项上添加上要加入的用户名即可；加入之后，要切换(newgrp)到支持的群组才能进行相关的操作，切换群组；</p>
+</li>
+<li><p>账号管理：useradd/passwd/usermod/userdel</p>
+<ul>
+<li>useradd 在建立账号的时候至少会参考：/etc/default/useradd /etc/login.defs /etc/skel/*</li>
+<li>useradd is a low level method of create a user, Instead, adduser/deluser are more higher level.</li>
+<li>chage 修改密码的详细参数</li>
+<li>usermod 账号资料的微调</li>
+<li>id</li>
+<li>finger/chfn(change finger)/chsh(change shell)</li>
+</ul>
+</li>
+<li><p>添加与移除群组</p>
+<ul>
+<li>groupadd/groupmod/groupdel</li>
+<li>gpasswd<br><code>echo user1:passwd | /usr/sbin/chpasswd</code>    — change password without get into interactive mode. </li>
+</ul>
+</li>
+<li><p>acl</p>
+<ul>
+<li><code>setfacl [-bkRd] [{-m|-x} acl parameter] file/directoryname</code></li>
+<li>getfacl filename</li>
+</ul>
+</li>
+</ol>
+<p>Note: Chap13 未完待续</p>
+<h2 id="Chap14-磁盘配额与进阶文件系统管理"><a href="#Chap14-磁盘配额与进阶文件系统管理" class="headerlink" title="Chap14 磁盘配额与进阶文件系统管理"></a>Chap14 磁盘配额与进阶文件系统管理</h2><ol>
+<li></li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/05/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Zeyuan</p>
+              <p class="site-description motion-element" itemprop="description">Have a good time</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Part1-Linux的规划与安装"><span class="nav-number">1.</span> <span class="nav-text">Part1. Linux的规划与安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chap2-主机规划于磁盘分区"><span class="nav-number">1.1.</span> <span class="nav-text">Chap2. 主机规划于磁盘分区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chap4-首次登入与线上求助"><span class="nav-number">1.2.</span> <span class="nav-text">Chap4. 首次登入与线上求助</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Part2-Linux文件-目录与硬盘格式"><span class="nav-number">2.</span> <span class="nav-text">Part2 Linux文件/目录与硬盘格式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chap6-Linux文件权限于目录配置"><span class="nav-number">2.1.</span> <span class="nav-text">Chap6. Linux文件权限于目录配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chap8-文件的压缩与打包"><span class="nav-number">2.2.</span> <span class="nav-text">Chap8 文件的压缩与打包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chap11-正则表达式与文件格式化处理"><span class="nav-number">2.3.</span> <span class="nav-text">Chap11. 正则表达式与文件格式化处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chap12-学习Shell-Script"><span class="nav-number">2.4.</span> <span class="nav-text">Chap12 学习Shell Script</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chap13-Linux账号管理与ACL权限"><span class="nav-number">2.5.</span> <span class="nav-text">Chap13 Linux账号管理与ACL权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chap14-磁盘配额与进阶文件系统管理"><span class="nav-number">2.6.</span> <span class="nav-text">Chap14 磁盘配额与进阶文件系统管理</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zeyuan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
