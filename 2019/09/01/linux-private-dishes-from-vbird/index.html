@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="This file is the note from learning linux from the linux.vbird.org Wed Sep 26 10:22:37 CST 2018 Part1. Linux的规划与安装Chap2. 主机规划于磁盘分区 第一个分区(512B)：MBR: Master Boot Record(446B) 和 分区表（64B） 在MBR方式中，主分区只能有4个">
+<meta name="description" content="This file is a note for learning linux from website linux.vbird.org.Wed Sep 26 10:22:37 CST 2018 Part1. Linux的规划与安装Chap2. 主机规划于磁盘分区 第一个分区(512B)：MBR: Master Boot Record(446B) 和 分区表（64B） 在MBR方式中，主分区只能有4">
 <meta name="keywords" content="studynote">
 <meta property="og:type" content="article">
 <meta property="og:title" content="鸟哥的linux私房菜学习笔记">
 <meta property="og:url" content="https://github.com/LeonLH/leonlh.github.io/2019/09/01/linux-private-dishes-from-vbird/index.html">
 <meta property="og:site_name" content="泽远的小站">
-<meta property="og:description" content="This file is the note from learning linux from the linux.vbird.org Wed Sep 26 10:22:37 CST 2018 Part1. Linux的规划与安装Chap2. 主机规划于磁盘分区 第一个分区(512B)：MBR: Master Boot Record(446B) 和 分区表（64B） 在MBR方式中，主分区只能有4个">
+<meta property="og:description" content="This file is a note for learning linux from website linux.vbird.org.Wed Sep 26 10:22:37 CST 2018 Part1. Linux的规划与安装Chap2. 主机规划于磁盘分区 第一个分区(512B)：MBR: Master Boot Record(446B) 和 分区表（64B） 在MBR方式中，主分区只能有4">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-06T02:22:03.499Z">
+<meta property="og:updated_time" content="2019-09-06T02:39:27.744Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="鸟哥的linux私房菜学习笔记">
-<meta name="twitter:description" content="This file is the note from learning linux from the linux.vbird.org Wed Sep 26 10:22:37 CST 2018 Part1. Linux的规划与安装Chap2. 主机规划于磁盘分区 第一个分区(512B)：MBR: Master Boot Record(446B) 和 分区表（64B） 在MBR方式中，主分区只能有4个">
+<meta name="twitter:description" content="This file is a note for learning linux from website linux.vbird.org.Wed Sep 26 10:22:37 CST 2018 Part1. Linux的规划与安装Chap2. 主机规划于磁盘分区 第一个分区(512B)：MBR: Master Boot Record(446B) 和 分区表（64B） 在MBR方式中，主分区只能有4">
 
 
 
@@ -330,8 +330,7 @@
       
 
       
-        <p>This file is the note from learning linux from the linux.vbird.org</p>
-<p>Wed Sep 26 10:22:37 CST 2018</p>
+        <p>This file is a note for learning linux from website linux.vbird.org.<br>Wed Sep 26 10:22:37 CST 2018</p>
 <h1 id="Part1-Linux的规划与安装"><a href="#Part1-Linux的规划与安装" class="headerlink" title="Part1. Linux的规划与安装"></a>Part1. Linux的规划与安装</h1><h2 id="Chap2-主机规划于磁盘分区"><a href="#Chap2-主机规划于磁盘分区" class="headerlink" title="Chap2. 主机规划于磁盘分区"></a>Chap2. 主机规划于磁盘分区</h2><ol>
 <li>第一个分区(512B)：MBR: Master Boot Record(446B) 和 分区表（64B）<ol>
 <li>在MBR方式中，主分区只能有4个（64B只能记录8个数据，每组数据包括起始和结尾两个数据），扩展分区(只能有一个)——&gt;逻辑分区(可以有很多)。前四和号码留给主分区和扩展分区，所以逻辑分区的号码从5号开始；</li>
@@ -565,7 +564,7 @@
 </li>
 </ol>
 <p>PS:<br>    1. <code>time</code> 可以列出命令运行时间；</p>
-<p>##Chap9 vim</p>
+<h1 id="Part3-Shell和Shell脚本"><a href="#Part3-Shell和Shell脚本" class="headerlink" title="Part3. Shell和Shell脚本"></a>Part3. Shell和Shell脚本</h1><p>##Chap9 vim</p>
 <ol>
 <li>dos2unix/unix2dos, DOS下换行是CRLF，Linux下是LF，所以需要转换。</li>
 </ol>
@@ -819,7 +818,7 @@
 </li>
 </ol>
 <p>Note: 学习脚本需要多看，多模仿，多修改别人的脚本，才会学习的快</p>
-<h2 id="Chap13-Linux账号管理与ACL权限"><a href="#Chap13-Linux账号管理与ACL权限" class="headerlink" title="Chap13 Linux账号管理与ACL权限"></a>Chap13 Linux账号管理与ACL权限</h2><ol>
+<h1 id="Part4-Linux使用者管理"><a href="#Part4-Linux使用者管理" class="headerlink" title="Part4. Linux使用者管理"></a>Part4. Linux使用者管理</h1><h2 id="Chap13-Linux账号管理与ACL权限"><a href="#Chap13-Linux账号管理与ACL权限" class="headerlink" title="Chap13 Linux账号管理与ACL权限"></a>Chap13 Linux账号管理与ACL权限</h2><ol>
 <li><p>加入群组，只需要在/etc/group的对应群组的行的最后一项上添加上要加入的用户名即可；加入之后，要切换(newgrp)到支持的群组才能进行相关的操作，切换群组；</p>
 </li>
 <li><p>账号管理：useradd/passwd/usermod/userdel</p>
@@ -1014,7 +1013,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Part1-Linux的规划与安装"><span class="nav-number">1.</span> <span class="nav-text">Part1. Linux的规划与安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chap2-主机规划于磁盘分区"><span class="nav-number">1.1.</span> <span class="nav-text">Chap2. 主机规划于磁盘分区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chap4-首次登入与线上求助"><span class="nav-number">1.2.</span> <span class="nav-text">Chap4. 首次登入与线上求助</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Part2-Linux文件-目录与硬盘格式"><span class="nav-number">2.</span> <span class="nav-text">Part2 Linux文件/目录与硬盘格式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chap6-Linux文件权限于目录配置"><span class="nav-number">2.1.</span> <span class="nav-text">Chap6. Linux文件权限于目录配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chap8-文件的压缩与打包"><span class="nav-number">2.2.</span> <span class="nav-text">Chap8 文件的压缩与打包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chap11-正则表达式与文件格式化处理"><span class="nav-number">2.3.</span> <span class="nav-text">Chap11. 正则表达式与文件格式化处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chap12-学习Shell-Script"><span class="nav-number">2.4.</span> <span class="nav-text">Chap12 学习Shell Script</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chap13-Linux账号管理与ACL权限"><span class="nav-number">2.5.</span> <span class="nav-text">Chap13 Linux账号管理与ACL权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chap14-磁盘配额与进阶文件系统管理"><span class="nav-number">2.6.</span> <span class="nav-text">Chap14 磁盘配额与进阶文件系统管理</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Part1-Linux的规划与安装"><span class="nav-number">1.</span> <span class="nav-text">Part1. Linux的规划与安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chap2-主机规划于磁盘分区"><span class="nav-number">1.1.</span> <span class="nav-text">Chap2. 主机规划于磁盘分区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chap4-首次登入与线上求助"><span class="nav-number">1.2.</span> <span class="nav-text">Chap4. 首次登入与线上求助</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Part2-Linux文件-目录与硬盘格式"><span class="nav-number">2.</span> <span class="nav-text">Part2 Linux文件/目录与硬盘格式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chap6-Linux文件权限于目录配置"><span class="nav-number">2.1.</span> <span class="nav-text">Chap6. Linux文件权限于目录配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chap8-文件的压缩与打包"><span class="nav-number">2.2.</span> <span class="nav-text">Chap8 文件的压缩与打包</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Part3-Shell和Shell脚本"><span class="nav-number">3.</span> <span class="nav-text">Part3. Shell和Shell脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chap11-正则表达式与文件格式化处理"><span class="nav-number">3.1.</span> <span class="nav-text">Chap11. 正则表达式与文件格式化处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chap12-学习Shell-Script"><span class="nav-number">3.2.</span> <span class="nav-text">Chap12 学习Shell Script</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Part4-Linux使用者管理"><span class="nav-number">4.</span> <span class="nav-text">Part4. Linux使用者管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chap13-Linux账号管理与ACL权限"><span class="nav-number">4.1.</span> <span class="nav-text">Chap13 Linux账号管理与ACL权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chap14-磁盘配额与进阶文件系统管理"><span class="nav-number">4.2.</span> <span class="nav-text">Chap14 磁盘配额与进阶文件系统管理</span></a></li></ol></li></ol></div>
             
 
           </div>
