@@ -262,6 +262,349 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/LeonLH/leonlh.github.io/2019/09/06/coding-log-CL201903/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zeyuan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="泽远的小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/06/coding-log-CL201903/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-06T09:27:43+08:00">
+                2019-09-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Fri-Mar-8-08-48-17-CST-2019"><a href="#Fri-Mar-8-08-48-17-CST-2019" class="headerlink" title="Fri Mar  8 08:48:17 CST 2019"></a>Fri Mar  8 08:48:17 CST 2019</h3><ol>
+<li>[TBD] remote debug with gdb. </li>
+<li>[TBD] automaticly select if using shadowsocks according to GFWlist.</li>
+<li>[D] How to avoid dns poisoning in computer? Require: firefox version 62++, <a href="https://wangejiba.com/3913.html" target="_blank" rel="noopener">Ref</a><ol>
+<li>type <code>about:config</code> in the address bar;</li>
+<li>search <code>network.trr</code> in the search box;</li>
+<li>double click <code>network.trr.mode</code>, change the value from 0 to 2;</li>
+<li>double click <code>network.trr.uri</code>, change the value to some unpoisoned dns server, e.g. <code>https://mozill.cloudflare-dns/dns-query</code>;</li>
+<li>In addition, you can type <code>about:networking</code> in the address bar to select the dns options and check dns status.</li>
+<li>Thouth the above 1-4 steps, you have open the DoH function of firefox, which can avoid dns-poisoning. </li>
+</ol>
+</li>
+<li>[TBD] How to avoid dns poisoning in mobile and ipad? </li>
+<li>[TBD] How to read c++ manual, such as stl containers’ manual, in linux offline? </li>
+<li>[D] how to make it work when debugging program which have system call with gdb. <ol>
+<li>Don’t use system() untill you have to do! <a href="http://www.cplusplus.com/articles/j3wTURfi/" target="_blank" rel="noopener">Ref</a>. If you want to clear the screen, instead of using system(“clear”), you can try <code>cout &lt;&lt; &quot;\033[2J\033[1;1H&quot;;</code>. This is ANSI escape code<a href="https://en.wikipedia.org/wiki/ANSI_escape_code#Escape_sequences" target="_blank" rel="noopener">Ref</a>.</li>
+</ol>
+</li>
+<li>[D] How to write some code and test the code? <ol>
+<li>write one class and test that class, each class can have a function <code>test()</code> to test methods of its own. </li>
+</ol>
+</li>
+</ol>
+<h3 id="Sat-Mar-9-08-36-54-CST-2019"><a href="#Sat-Mar-9-08-36-54-CST-2019" class="headerlink" title="Sat Mar  9 08:36:54 CST 2019"></a>Sat Mar  9 08:36:54 CST 2019</h3><ol>
+<li><p>gdb Examining Memory</p>
+<ol>
+<li><code>x/nfu addr</code> e.g. <code>x/8cb</code></li>
+<li>if you print the value with <code>p value1</code>, then the <code>addr</code> will be set at the value’s address, you don’t need to type the address.</li>
+<li>if you type <code>x/4</code>, gdb will show the next 4 addr memory from last place you leave, type <code>enter</code> is repeat last command.</li>
+</ol>
+</li>
+<li><p>[TBD] istringstream     </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;sstream&gt;</span><br><span class="line">#include&lt;fstream&gt;</span><br><span class="line">#include&lt;string&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">	string tmp, tmp1;</span><br><span class="line">	fstream ifs(&quot;test.txt&quot;);</span><br><span class="line">	istringstream is;				// Doesn&apos;t work. </span><br><span class="line">	while(getline(ifs, tmp))&#123;</span><br><span class="line">		is.str(tmp);</span><br><span class="line">		//istringstream is;			// It works in here. </span><br><span class="line">		for(int i = 0; i &lt; 10; i++)&#123;</span><br><span class="line">			is &gt;&gt; tmp1; </span><br><span class="line">			cout &lt;&lt; tmp1 &lt;&lt; &quot; &quot;;</span><br><span class="line">		&#125;</span><br><span class="line">		cout &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>[TBD] make gdb tab 4 space. </p>
+</li>
+</ol>
+<h3 id="Sun-Mar-10-08-37-08-CST-2019"><a href="#Sun-Mar-10-08-37-08-CST-2019" class="headerlink" title="Sun Mar 10 08:37:08 CST 2019"></a>Sun Mar 10 08:37:08 CST 2019</h3><ol>
+<li>[D] How to make program stop when running with gdb? <code>CTRL-C</code> and then type <code>finish</code> to step out of function or type <code>bt</code>(backtrack) to show one line per frame. </li>
+<li>[D] Can poiter be coercion transformated from some inheritance class to his parent class? Yes, it can. </li>
+<li>[TBD] How to check the element in std::list? Or how to check the memory of the list? <ol>
+<li>For struct: It can be quickly checked by typing <code>p structname</code>;</li>
+<li>For class: using pretty-print or memory check with <code>x/nfu addr</code>;</li>
+</ol>
+</li>
+<li>[D] gdb, check the current line, type <code>info line</code></li>
+<li>[TBD] Find a special time to study gdb. </li>
+<li>[TBD] How to copy address in gdb without mouse? </li>
+</ol>
+<h3 id="Mon-Mar-11-08-39-44-CST-2019"><a href="#Mon-Mar-11-08-39-44-CST-2019" class="headerlink" title="Mon Mar 11 08:39:44 CST 2019"></a>Mon Mar 11 08:39:44 CST 2019</h3><ol>
+<li><p>[D]The <code>pstring</code> of pretty-print in gdb doesn’t work.</p>
+<ul>
+<li>solved by refering the gdb <a href="https://sourceware.org/gdb/wiki/STLSupport" target="_blank" rel="noopener">STLsupport</a></li>
+</ul>
+</li>
+<li><p>[TBD]GNU screen to copy the content in the screen:</p>
+<ol start="0">
+<li><code>screen</code> in command line to get into screen mode</li>
+<li>&lt;C-A-[&gt; —&gt; get into copy mode</li>
+<li><code>Enter</code> —&gt; start to select</li>
+<li>select some content</li>
+<li>Enter —&gt; finish select</li>
+<li>&lt;C-A-]&gt; —&gt; paste</li>
+</ol>
+</li>
+<li><p>[TBD] How to make istringstream’s outstream inject different data to different type? </p>
+<pre><code>* just output it with `&gt;&gt;`;</code></pre></li>
+<li><p>GDB needn’t re-file the file when source code is modified, The only thing you need to do is compile the source and re-run .out file.</p>
+</li>
+<li><p>[D] Print all variables:</p>
+<ul>
+<li><code>info variables</code> to list “All global and static variables”;</li>
+<li><code>info locals</code> to list “Local variables of current stack frame” including static variables in that function;</li>
+<li><code>info args</code> to list “Arguments of the current stack frame”.</li>
+</ul>
+</li>
+<li><p>[D] Dashboard:</p>
+<ol>
+<li><code>source ~/.gbdinit_dashboard</code> —&gt; load dashboard configuration;</li>
+<li><code>dashboard -output /dev/pts/8</code> —&gt; output to tty which is /dev/pts/8;</li>
+<li><code>dashboard memory watch addr 80</code>—&gt; watch addr and 80 lines after;</li>
+</ol>
+</li>
+<li><p>[TBD] typing exercises with gtypist especially in these characters: <code>\</code>, <code>-</code>, <code>+</code>, <code>&#39;</code>, <code>|</code>, etc. `</p>
+</li>
+<li><p>[D] use getchar() to make program puase:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cout &lt;&lt; &quot;Press any key to continue...&quot;;</span><br><span class="line">getchar();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>[D] gdb prompt </p>
+<ul>
+<li><code>set prompt &gt;&gt;</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="Tue-Mar-12-08-53-14-CST-2019"><a href="#Tue-Mar-12-08-53-14-CST-2019" class="headerlink" title="Tue Mar 12 08:53:14 CST 2019"></a>Tue Mar 12 08:53:14 CST 2019</h3><ol>
+<li>[TBD] How to name variable, struct, class function and class member?<ol>
+<li>[TBD] Naming from google C++ style guide:<ul>
+<li>General Naming Rules</li>
+<li>File Names</li>
+<li>Type Names</li>
+<li>Variables Names</li>
+<li>Constants Names</li>
+<li>Function Names</li>
+<li>Namespace Names</li>
+<li>Enumerator Names</li>
+<li>Macro Names</li>
+<li>Exceptions to Naming Rules</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="Wed-Mar-13-08-37-33-CST-2019"><a href="#Wed-Mar-13-08-37-33-CST-2019" class="headerlink" title="Wed Mar 13 08:37:33 CST 2019"></a>Wed Mar 13 08:37:33 CST 2019</h3><ol>
+<li><p>[D] How to read stl(standard template library) containers reference offline in linux:</p>
+<ol>
+<li>cpp header: e.g. <code>/usr/include/c++/7/bits</code></li>
+<li>current system don’t have the source code of containers, we should search in the internet.</li>
+</ol>
+</li>
+<li><p>[TBD] How to set tab width of gdb?     Maybe it can’t. </p>
+</li>
+<li><p>[TBD] 开发程序流程，提升效率；</p>
+<ol>
+<li>例如先写下模块之间的关系；</li>
+<li>每写一个模块之前，写下他的功能以及实现的特别之处(如无必要，则不写)；</li>
+</ol>
+</li>
+<li><p>[TBD] make all code to the google style c++;</p>
+</li>
+</ol>
+<h3 id="Sat-Mar-16-22-19-01-CST-2019"><a href="#Sat-Mar-16-22-19-01-CST-2019" class="headerlink" title="Sat Mar 16 22:19:01 CST 2019"></a>Sat Mar 16 22:19:01 CST 2019</h3><ol>
+<li>[TBD] Neteast-cloud-music can’t launch in when reboot ubuntu after installed:<ul>
+<li></li>
+</ul>
+</li>
+</ol>
+<h3 id="Wed-Mar-20-06-51-03-CST-2019"><a href="#Wed-Mar-20-06-51-03-CST-2019" class="headerlink" title="Wed Mar 20 06:51:03 CST 2019"></a>Wed Mar 20 06:51:03 CST 2019</h3><ol>
+<li>Grid window: <code>sudo apt-get install compizconfig-setting-manager</code>, and ensure that <code>Grid</code> is checked. </li>
+<li>[TBD] C++ scope:<ol>
+<li>scope resolution operator: <code>::</code></li>
+<li></li>
+</ol>
+</li>
+<li>[D] C++ keyword <code>static</code>:<ol>
+<li>static variables in function: <ol>
+<li>it gets allocated for the lifetime of the program. </li>
+</ol>
+</li>
+<li>static variables in class: <ol>
+<li>the static variables in a class are shared by the objects. </li>
+<li>class-wide field: they don’t belong to specific objects, they belong to the class.</li>
+</ol>
+</li>
+<li>static objects: similar to static variables. </li>
+<li>static member function: <ol>
+<li>can only access static members(data and members).</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>[D] C++ keyword <code>extern</code>:<ol>
+<li>declared in header: <code>extern type var_name</code></li>
+<li>defined once in one of source file: <code>type var_name</code></li>
+<li>can be used in all files which includes header.    </li>
+</ol>
+<ul>
+<li>outmost level of program. </li>
+<li>must be defined in some place which is visiable to all.</li>
+</ul>
+</li>
+<li>[TBD] backup the important file of ubuntu. </li>
+<li>How to make C++ puase? <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cin.ignore();	//extract and discard characters</span><br><span class="line">cin.get();</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="Thu-Mar-21-07-55-13-CST-2019"><a href="#Thu-Mar-21-07-55-13-CST-2019" class="headerlink" title="Thu Mar 21 07:55:13 CST 2019"></a>Thu Mar 21 07:55:13 CST 2019</h3><ol>
+<li>There can’t be a space after <code>\\</code>, if you want to use it to break current line to avoid make your program lines longer than 80. </li>
+<li>[TBD] After sort, the list is refector. How can I sort the list without changing the list? </li>
+<li>function pointer:<ul>
+<li>the return and parameters are same, only the name of function is different, all these function can be pointed by a function pointer.</li>
+<li>this pointer can represent above similar functions. </li>
+</ul>
+</li>
+<li>polymorphism of c++:<ol>
+<li>You have different classes with a function of the same name, and even the same parameters, but with different implementations. </li>
+<li>virtual function:<ol>
+<li>defined in a base class</li>
+<li>with another version in a derived class</li>
+<li>don’t want compiler to make static linkage signal for itself</li>
+</ol>
+<ul>
+<li>dynamic linkage or later binding</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>[TBD] Refactor student-software to implement polymorphism. </li>
+</ol>
+<h3 id="Fri-Mar-22-09-09-02-CST-2019"><a href="#Fri-Mar-22-09-09-02-CST-2019" class="headerlink" title="Fri Mar 22 09:09:02 CST 2019"></a>Fri Mar 22 09:09:02 CST 2019</h3><ol>
+<li>[TBD] Master the skill of quickly reading document and extracting useful informations. </li>
+<li>[TBD] Open file with their defualt application in ubuntu.</li>
+<li>linux software option usage: <ol>
+<li>Usage example 1: Option: -B, –block-size=SIZE<ul>
+<li>du B MB file/directory</li>
+<li>du –block-size=MB</li>
+</ul>
+</li>
+<li>Usage example 2: Option: -d, –max-depth=N<ul>
+<li>du d 2 filename</li>
+<li>du –max-depth=2</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>[TBD] linux time: atime, access, use, ctime, status, etc.</li>
+<li>[TBD] re-learn BASH and ShellScript</li>
+</ol>
+<h3 id="Sat-Mar-23-12-24-05-CST-2019"><a href="#Sat-Mar-23-12-24-05-CST-2019" class="headerlink" title="Sat Mar 23 12:24:05 CST 2019"></a>Sat Mar 23 12:24:05 CST 2019</h3><ol>
+<li>Read git-tutorial for 3.5 hours.</li>
+</ol>
+<h3 id="Sun-Mar-24-09-22-07-CST-2019"><a href="#Sun-Mar-24-09-22-07-CST-2019" class="headerlink" title="Sun Mar 24 09:22:07 CST 2019"></a>Sun Mar 24 09:22:07 CST 2019</h3><ol>
+<li>access specifier: public, private, protected</li>
+<li>Reading C++ primier for 3 hours. </li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/LeonLH/leonlh.github.io/2019/09/06/coding-log-CL201909/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1603,7 +1946,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
