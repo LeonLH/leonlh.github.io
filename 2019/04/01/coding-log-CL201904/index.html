@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="CodingLog,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Mon Apr  1 08:39:59 CST 2019 linux command: nm —&amp;gt; list symbols from object file.  Usage: nm -C student-list.o   Virtual function of base class must have defination, even it’s a pure virtual functio">
+<meta name="keywords" content="CodingLog">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2019年4月编程日志">
+<meta property="og:url" content="https://github.com/LeonLH/leonlh.github.io/2019/04/01/coding-log-CL201904/index.html">
+<meta property="og:site_name" content="泽远的小站">
+<meta property="og:description" content="Mon Apr  1 08:39:59 CST 2019 linux command: nm —&amp;gt; list symbols from object file.  Usage: nm -C student-list.o   Virtual function of base class must have defination, even it’s a pure virtual functio">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-09-08T03:56:36.538Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2019年4月编程日志">
+<meta name="twitter:description" content="Mon Apr  1 08:39:59 CST 2019 linux command: nm —&amp;gt; list symbols from object file.  Usage: nm -C student-list.o   Virtual function of base class must have defination, even it’s a pure virtual functio">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://github.com/LeonLH/leonlh.github.io/2019/04/01/coding-log-CL201904/">
+
+
+
+
+
+  <title>2019年4月编程日志 | 泽远的小站</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">泽远的小站</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Science and Perseverance</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/LeonLH/leonlh.github.io/2019/04/01/coding-log-CL201904/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zeyuan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="泽远的小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">2019年4月编程日志</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-01T00:00:00+08:00">
+                2019-04-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Mon-Apr-1-08-39-59-CST-2019"><a href="#Mon-Apr-1-08-39-59-CST-2019" class="headerlink" title="Mon Apr  1 08:39:59 CST 2019"></a>Mon Apr  1 08:39:59 CST 2019</h3><ol>
+<li><p>linux command: nm —&gt; list symbols from object file.</p>
+<ul>
+<li>Usage: <code>nm -C student-list.o</code></li>
+</ul>
+</li>
+<li><p>Virtual function of base class must have defination, even it’s a pure virtual function. </p>
+<ul>
+<li>defination and declaration of pure virtual function:   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">virtual void Input()&#123;&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>when using delete to free memory, the class must have defination of destructor, I don’t know why;</p>
+</li>
+</ol>
+<h3 id="Tue-Apr-2-08-39-02-CST-2019"><a href="#Tue-Apr-2-08-39-02-CST-2019" class="headerlink" title="Tue Apr  2 08:39:02 CST 2019"></a>Tue Apr  2 08:39:02 CST 2019</h3><ol>
+<li><p>const object call const functions, const object cannot call non-const functions.</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">static int ByAverage(const StudentData *p1, const StudentData *p2)&#123;</span><br><span class="line">	const object call const function</span><br><span class="line">	return p1-&gt;AverageScore() &lt; p2-&gt;AverageScore();</span><br><span class="line">&#125;</span><br><span class="line">float ArtsData::AverageScore() const&#123;			// const function</span><br><span class="line">	float res = 0;</span><br><span class="line">	res = chin + engl + math + hist + geog;</span><br><span class="line">	return res/5;</span><br><span class="line">&#125;</span><br><span class="line">float ScienceData::AverageScore() const&#123;		// const function</span><br><span class="line">	float res = 0;</span><br><span class="line">	res = chin + engl + math;</span><br><span class="line">	res += biol + chem + phys;</span><br><span class="line">	return res/6;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Virtual Function(late binding or dynamic binding)</p>
+<ol>
+<li><code>_vptr</code>, hidden pointer, point to a virtual table <code>vTable</code><ol>
+<li>There is a member variable <code>_vptr</code> in base class</li>
+<li>There is a <code>_vptr</code> in derived class which is derived from base class </li>
+<li>both base class and derived class have a <code>vTable</code></li>
+</ol>
+</li>
+<li><code>vTable</code>, <ol>
+<li><code>vTable</code> is an array store <code>Function pointer</code> </li>
+<li><code>Function pointer</code> point to the apropriate function, the function can be in both base class and derived class. </li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>name@address</p>
+</li>
+<li><p>istream/ostream is a buffer used for input or output</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>method</th>
+<th>source</th>
+<th>destination</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>cout</td>
+<td>buffer</td>
+<td>device</td>
+<td>buffer—&gt;device</td>
+</tr>
+<tr>
+<td>cin</td>
+<td>device</td>
+<td>buffer</td>
+<td>device—&gt;buffer</td>
+</tr>
+<tr>
+<td>ofstream</td>
+<td>buffer</td>
+<td>file</td>
+<td></td>
+</tr>
+<tr>
+<td>ifstream</td>
+<td>file</td>
+<td>buffer</td>
+<td></td>
+</tr>
+<tr>
+<td>ostringstream</td>
+<td>buffer</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>istringstream</td>
+<td>string</td>
+<td>buffer</td>
+<td></td>
+</tr>
+</tbody></table>
+<ul>
+<li>from source to destination</li>
+<li>buffer is stream, buffer is associate with device/file/string</li>
+<li>use <code>&gt;&gt;</code> to put content from buffer</li>
+<li>use <code>&lt;&lt;</code> to extract content from buffer</li>
+</ul>
+<h3 id="Wed-Apr-3-08-38-18-CST-2019"><a href="#Wed-Apr-3-08-38-18-CST-2019" class="headerlink" title="Wed Apr  3 08:38:18 CST 2019"></a>Wed Apr  3 08:38:18 CST 2019</h3><ol>
+<li>Delete my header file named B by using <code>mv A to B</code> to overload the original file. It’s important to save files and datas automaticlly.</li>
+<li>Notice the consistency of string sequence when loading and saving files.</li>
+</ol>
+<h3 id="Thu-Apr-4-08-36-53-CST-2019"><a href="#Thu-Apr-4-08-36-53-CST-2019" class="headerlink" title="Thu Apr  4 08:36:53 CST 2019"></a>Thu Apr  4 08:36:53 CST 2019</h3><ol>
+<li>if <code>cin &gt;&gt; int_num</code> a string, what happens? It will set the buffer flag as an Error.<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int num;</span><br><span class="line">cin &gt;&gt; num;					// Enter a string &quot;asdf&quot;</span><br><span class="line">cin.clear();				// Clear all the error flags</span><br><span class="line">cin.ignore(10000, &apos;\n&apos;);	// Ignore 10000 characters but stops</span><br><span class="line">							// if encounters a newline</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>or I can use <code>cin.fail()</code> to check if badbit or failbits is set.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">	int num = 0;</span><br><span class="line">	cout &lt;&lt; &quot;Please input a number: &quot;;</span><br><span class="line">	cin &gt;&gt; num;</span><br><span class="line">	while(true)&#123;</span><br><span class="line">		if(cin.fail())&#123;</span><br><span class="line">			cout &lt;&lt; &quot;You have to enter an interger!&quot; &lt;&lt; endl;</span><br><span class="line">			cin.clear(); 			// clear error flags</span><br><span class="line">			cin.ignore(99999, &apos;\n&apos;);</span><br><span class="line">			cin &gt;&gt; num;</span><br><span class="line">		&#125;</span><br><span class="line">		else&#123;</span><br><span class="line">			cout &lt;&lt; &quot;You have input a: &quot; &lt;&lt; num &lt;&lt; endl;</span><br><span class="line">			break;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Mon-Apr-8-07-14-22-CST-2019"><a href="#Mon-Apr-8-07-14-22-CST-2019" class="headerlink" title="Mon Apr  8 07:14:22 CST 2019"></a>Mon Apr  8 07:14:22 CST 2019</h3><ol>
+<li><p>Connect to my ubuntu with ssh:</p>
+<ul>
+<li><code>sudo apt-get    install openssh-server</code>    —&gt; ssh.service</li>
+<li><code>sudo systemctl status ssh</code> —&gt;     check ssh status</li>
+<li><code>ssh username@host</code>         —&gt;     connecting</li>
+</ul>
+</li>
+<li><p>Separate <strong>interface</strong> from <strong>implementation</strong> helps multiplexing of code, it can be achieved like this way:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bool RemoveAllHelper();		// implements specific function</span><br><span class="line">void RemoveAll();			// interface with users</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Vim case sensitive ignore or not:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:set ignorecase				// ignorecase</span><br><span class="line">:set noignorecase			// case sensitive</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>backup with rsync:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo rsync -aAXv --delete --dry-run --exclude=/dev/* --exclude=/proc/* --exclude=/sys/* --exclude=/tmp/* --exclude=/run/* --exclude=/mnt/* --exclude=/media/* --exclude=&quot;swapfile&quot; --exclude=&quot;lost+found&quot; / /media/leon/backup/20190407laptop		// dry run means simulate to test</span><br><span class="line">sudo rsync -aAXv --delete --exclude=/dev/* --exclude=/proc/* --exclude=/sys/* --exclude=/tmp/* --exclude=/run/* --exclude=/mnt/* --exclude=/media/* --exclude=&quot;swapfile&quot; --exclude=&quot;lost+found&quot; / /media/leon/backup/20190407laptop					// real run</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="Tue-Apr-9-07-22-58-CST-2019"><a href="#Tue-Apr-9-07-22-58-CST-2019" class="headerlink" title="Tue Apr  9 07:22:58 CST 2019"></a>Tue Apr  9 07:22:58 CST 2019</h3><ol>
+<li>[TBD]Adjust the width of splited vim window:<ol>
+<li>resize window:<ul>
+<li><code>:Nq</code> —&gt; quit the Ntd window(window are numbered from top-left to bottom-right).</li>
+<li><code>z{n}&lt;CR&gt;</code> / <code>:res[ize] (+)N</code> —&gt; modify the height<ul>
+<li><code>&lt;C-W&gt; +/-/=</code>            —&gt; increase/decrease/defualt</li>
+</ul>
+</li>
+<li><code>vertical res[ize] (+)N</code>    —&gt; modify the width<ul>
+<li><code>&lt;C-W&gt; &lt;/&gt;/|</code></li>
+</ul>
+</li>
+<li><code>set (no)equalalways</code>/ <code>set (no)ea</code>     —&gt; set new window always the same or not</li>
+</ul>
+</li>
+<li>moving windows around:<ul>
+<li><code>C-W H/J/K/L</code>             —&gt; move to left/down/up/right</li>
+<li><code>C-W x</code>                     —&gt; exchange with next one</li>
+<li><code>[N] C-W T</code>                 —&gt; send to Nth/next tab</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Vim tags:<ul>
+<li><code>:[N]ta</code>                         —&gt; jump to Nth tag</li>
+<li><code>{N}gt</code>/<code>{N}&lt;C-PageDown}&gt;</code>    —&gt; goto next N tags</li>
+</ul>
+</li>
+<li>[TBD]Automatic test:</li>
+<li>[TBD]How to avoid your code of a line excceeds 80 characters? </li>
+<li>[TBD]Design patterns:<ol>
+<li>design class: hierarchy, attributes and method</li>
+<li>operation flow: complex system</li>
+</ol>
+</li>
+<li>merge experiment-branch to master and make all the things in master to the content of experiment-branch:<ul>
+<li><code>git merge [-s &lt;strategy&gt;] [-X &lt;strategy-option&gt;]</code></li>
+<li>assuming you are in the master branch, you can type:<code>git merge -s recursive -X theirs experiment-branch-name</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="Wed-Apr-10-08-35-40-CST-2019"><a href="#Wed-Apr-10-08-35-40-CST-2019" class="headerlink" title="Wed Apr 10 08:35:40 CST 2019"></a>Wed Apr 10 08:35:40 CST 2019</h3><ol>
+<li>[Tips] Each time you search a command in google, then you should write it down, and when you are in rest, read the manual of the certain meaning of that command;</li>
+<li>The routine for writing a program is as following:<ol>
+<li>Writing down the description/workflow/etc of program as more as you can think of.</li>
+<li>Think about the class I needs, Writing the <strong>attributes</strong> and <strong>method</strong> of these class.</li>
+<li>Think about the relationship between them. Drawing the <strong>hierarchy graph</strong> of all the class.</li>
+<li>Drawing down the <strong>work flow graph</strong>.</li>
+</ol>
+</li>
+<li>[TBD] Program source root directory, how to allocate for test?</li>
+<li>[TBD] How to write test source for each class, and how the enter is arranged? </li>
+</ol>
+<h3 id="Fri-Apr-12-08-35-37-CST-2019"><a href="#Fri-Apr-12-08-35-37-CST-2019" class="headerlink" title="Fri Apr 12 08:35:37 CST 2019"></a>Fri Apr 12 08:35:37 CST 2019</h3><ol>
+<li>How to turn off the ycm Semantics Analysis or Identifier Completer or Diagnostic Signs? Because it alway interrupts my thought when I’m coding. How to turn compile on/off manully?<ol>
+<li>Both Semantic Analysis and Identifier Completer turn off: <code>g:ycm_auto_trigger=0</code></li>
+<li>Identifier Completer turn off: <code>let g:ycm_min_num_of_chars_for_completion=99</code></li>
+<li>Diagnostic ui(gutter signs, text highlighting, diagnostic echo, auto location list): <ol>
+<li><code>g:ycm_show_diagnostics_ui</code></li>
+<li><code>g:ycm_enable_diagnostic_signs</code></li>
+<li><code>g:ycm_enable_diagnostic_highlighting</code></li>
+<li><code>g:ycm_echo_current_diagnostic</code></li>
+<li><code>g:ycm_always_populate_location_list</code></li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Open files vertically in vim from command line: <code>vim -O file1 file2</code></li>
+<li>[TBD] Modularization some frequency tools such as: clean screen, system puase, etc. </li>
+<li>[TBD] Auto-maticlly make according the your file without writing makefile for each program.</li>
+<li>[TBD] The sequence of member function in class, how to arrange their order to make my brain clear? </li>
+<li>[TBD] GDB auto update changed source, or should it be load manually by type <code>file *.out</code>?</li>
+</ol>
+<h3 id="Sat-Apr-13-06-29-44-CST-2019"><a href="#Sat-Apr-13-06-29-44-CST-2019" class="headerlink" title="Sat Apr 13 06:29:44 CST 2019"></a>Sat Apr 13 06:29:44 CST 2019</h3><ol>
+<li>[TBD] Constructor, user constructor or attributes of class to construct class to an object? </li>
+<li>When reading cpp_primier_fifth_edition, there is some tricky to use:<ol>
+<li>using link with <code>f</code> followed by a link number to go to link page, and then <strong>find the topic you want to check</strong>(The books’ title is pretty small even small than normal fonts so be careful to find it).</li>
+<li>Using <code>/</code> to find topic you are confused, such as <code>/constructor</code></li>
+<li>GDB: delete more than one breakpoint at the same time, <code>d num1 num2</code></li>
+</ol>
+</li>
+</ol>
+<h3 id="Mon-Apr-15-05-41-54-CST-2019"><a href="#Mon-Apr-15-05-41-54-CST-2019" class="headerlink" title="Mon Apr 15 05:41:54 CST 2019"></a>Mon Apr 15 05:41:54 CST 2019</h3><ol>
+<li><p>Can <code>build</code> build a makefile?</p>
+<ul>
+<li><a href="https://www.cs.swarthmore.edu/~newhall/unixhelp/howto_makefiles.html" target="_blank" rel="noopener">Using make and writing Makefiles</a></li>
+</ul>
+<ol>
+<li><p>CMake generates makefiles for different platform. (usually the source use lots of libraries and platform-specified compilation issues).</p>
+</li>
+<li><p>For small projects, writing makefiles by hand is likely easier.</p>
+</li>
+<li><p>Creating a Makefile:</p>
+<ul>
+<li><p>Example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># comment</span><br><span class="line"># (note: the &lt;tab&gt; in the command line is necessy for make to work)</span><br><span class="line">target: dependency1 dependency2</span><br><span class="line">	&lt;tab&gt; command</span><br><span class="line"></span><br><span class="line"># for example:</span><br><span class="line"># target entry to build program executable from program and mylib</span><br><span class="line"># object files</span><br><span class="line">program: program.o mylib.o</span><br><span class="line">	g++ -o program program.o mylib.o</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>a more generic simple makefile(uses makefile variables)</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># the compiler: gcc for c, g++ for c++</span><br><span class="line">CC = gcc</span><br><span class="line"></span><br><span class="line"># compiler flags:</span><br><span class="line"># -g adds debugging information to the executable file</span><br><span class="line"># -Wall turns on most, but not all, compiler warnings</span><br><span class="line">GFLAGS = -g -Wall</span><br><span class="line"></span><br><span class="line"># the build target executable:</span><br><span class="line">TARGET = myprog</span><br><span class="line"></span><br><span class="line">all: $(TARGET)</span><br><span class="line">$(TARGET): $(TARGET).c</span><br><span class="line">	$(CC) $(CFLAGS) -o $(TARGET) $(TARGET).c</span><br><span class="line"></span><br><span class="line">clean:</span><br><span class="line">	$(RM) $(TARGET)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>an example of building an executable from multiple .o files:</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"># &apos;make depend&apos; uses makedepend to automatically generate dependencies </span><br><span class="line">#               (dependencies are added to end of Makefile)</span><br><span class="line"># &apos;make&apos;        build executable file &apos;mycc&apos;</span><br><span class="line"># &apos;make clean&apos;  removes all .o and executable files</span><br><span class="line">#</span><br><span class="line"></span><br><span class="line"># define the C compiler to use</span><br><span class="line">CC = gcc</span><br><span class="line"></span><br><span class="line"># define any compile-time flags</span><br><span class="line">CFLAGS = -Wall -g</span><br><span class="line"></span><br><span class="line"># define any directories containing header files other than /usr/include</span><br><span class="line">#</span><br><span class="line">INCLUDES = -I/home/newhall/include  -I../include</span><br><span class="line"></span><br><span class="line"># define library paths in addition to /usr/lib</span><br><span class="line">#   if I wanted to include libraries not in /usr/lib I&apos;d specify</span><br><span class="line">#   their path using -Lpath, something like:</span><br><span class="line">LFLAGS = -L/home/newhall/lib  -L../lib</span><br><span class="line"></span><br><span class="line"># define any libraries to link into executable:</span><br><span class="line">#   if I want to link in libraries (libx.so or libx.a) I use the -llibname </span><br><span class="line">#   option, something like (this will link in libmylib.so and libm.so:</span><br><span class="line">LIBS = -lmylib -lm</span><br><span class="line"></span><br><span class="line"># define the C source files</span><br><span class="line">SRCS = emitter.c error.c init.c lexer.c main.c symbol.c parser.c</span><br><span class="line"></span><br><span class="line"># define the C object files </span><br><span class="line">#</span><br><span class="line"># This uses Suffix Replacement within a macro:</span><br><span class="line">#   $(name:string1=string2)</span><br><span class="line">#         For each word in &apos;name&apos; replace &apos;string1&apos; with &apos;string2&apos;</span><br><span class="line"># Below we are replacing the suffix .c of all words in the macro SRCS</span><br><span class="line"># with the .o suffix</span><br><span class="line">#</span><br><span class="line">OBJS = $(SRCS:.c=.o)</span><br><span class="line"></span><br><span class="line"># define the executable file </span><br><span class="line">MAIN = mycc</span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"># The following part of the makefile is generic; it can be used to </span><br><span class="line"># build any executable just by changing the definitions above and by</span><br><span class="line"># deleting dependencies appended to the file from &apos;make depend&apos;</span><br><span class="line">#</span><br><span class="line"></span><br><span class="line">.PHONY: depend clean</span><br><span class="line"></span><br><span class="line">all:    $(MAIN)</span><br><span class="line">		@echo  Simple compiler named mycc has been compiled</span><br><span class="line"></span><br><span class="line">$(MAIN): $(OBJS) </span><br><span class="line">		$(CC) $(CFLAGS) $(INCLUDES) -o $(MAIN) $(OBJS) $(LFLAGS) $(LIBS)</span><br><span class="line"></span><br><span class="line"># this is a suffix replacement rule for building .o&apos;s from .c&apos;s</span><br><span class="line"># it uses automatic variables $&lt;: the name of the prerequisite of</span><br><span class="line"># the rule(a .c file) and $@: the name of the target of the rule (a .o file) </span><br><span class="line"># (see the gnu make manual section about automatic variables)</span><br><span class="line">.c.o:</span><br><span class="line">		$(CC) $(CFLAGS) $(INCLUDES) -c $&lt;  -o $@</span><br><span class="line"></span><br><span class="line">clean:</span><br><span class="line">		$(RM) *.o *~ $(MAIN)</span><br><span class="line"></span><br><span class="line">depend: $(SRCS)</span><br><span class="line">		makedepend $(INCLUDES) $^</span><br><span class="line"></span><br><span class="line"># DO NOT DELETE THIS LINE -- make depend needs it</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>How to make confirmation before remove file?</p>
+</li>
+<li><p>Must <strong>give a git commit</strong> after everyday work</p>
+</li>
+<li><p>What is different between include and lib?</p>
+<ul>
+<li>include     —&gt;     uncompiled object code including <code>.h</code> and <code>.cpp</code> files</li>
+<li>lib         —&gt;     compiled object code usually <code>.a</code> or <code>.so</code> file</li>
+</ul>
+</li>
+<li><p>[TBD] The different between <code>.a</code> and <code>.so</code>:<a href="http://www.yolinux.com/TUTORIALS/LibraryArchives-StaticAndDynamic.html" target="_blank" rel="noopener">Ref this page</a></p>
+<ul>
+<li><code>.a</code>: Static libraries, Library of object code which is linked with, and becomes part of the application.</li>
+<li><code>.so</code>: Dynamically linked shared object libraries. It can be used in two ways:<ul>
+<li>Dynamically linked at run time. The libraries must be aviliable during compile/link phase. The shared objects are not included into the executable component but are tied to the execution.</li>
+<li>Dynamically loaded/unloaded and linked during execution using the dynamic linking loader system functions.</li>
+</ul>
+</li>
+<li>Library naming conventions:<ul>
+<li>Libraries are typically named with the prefix “lib”. The command line reference to the library will not contain the library prefix or suffix. Such as, <code>gcc src.cpp -lm -lpthread</code>, which inclusion is math library and thread library. They are found in /usr/lib/libm.a and /usr/lib/libpthread.a. </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>[TBD] When I using <code>ln ~/workspace/cpp/mytools tools</code>, I was told “hard link not allowed for directory”, Why and How to impletment the same functions? </p>
+</li>
+<li><p>[TBD] What the meaning of <code>&lt;Bar&gt;</code> in vimrc, I found <a href="https://vi.stackexchange.com/questions/2286/what-does-bar-mean" target="_blank" rel="noopener">This page</a>, but didn’t read it. </p>
+</li>
+</ol>
+<h3 id="Tue-Apr-16-06-21-12-CST-2019"><a href="#Tue-Apr-16-06-21-12-CST-2019" class="headerlink" title="Tue Apr 16 06:21:12 CST 2019"></a>Tue Apr 16 06:21:12 CST 2019</h3><ol>
+<li><code>ls -R</code> list directory recursively.</li>
+<li>[TBD] Ubuntu unattended upgr:<a href="https://unix.stackexchange.com/questions/374748/ubuntu-update-error-waiting-for-unattended-upgr-to-exit" target="_blank" rel="noopener">Ref page</a></li>
+<li><code>xdg-open</code> open a file or URL in the user’s preferred application.</li>
+<li><a href="https://devhints.io/bash#functions" target="_blank" rel="noopener">bash shell cheat sheet</a>, human readable document <a href="https://wiki.bash-hackers.org/start" target="_blank" rel="noopener">Bash Hackers Wiki</a></li>
+<li>A cheat sheet is good for beginning a new skill.</li>
+</ol>
+<h3 id="Fri-Apr-19-08-45-55-CST-2019"><a href="#Fri-Apr-19-08-45-55-CST-2019" class="headerlink" title="Fri Apr 19 08:45:55 CST 2019"></a>Fri Apr 19 08:45:55 CST 2019</h3><ol>
+<li>Search word under cursor in vim: <code>*</code>, and then you press <code>n/N</code> to the next/prev occurence. </li>
+<li>emacs, the most powerful front-end of gdb in command line. </li>
+<li>Usage of ctags with vim:<ol>
+<li>&lt;C-]&gt; : Jump to the tag underneath the cursor</li>
+<li><c-t> : Jump back up in the tag stack</c-t></li>
+<li><code>:ts</code> : List all of the definition of the last tag</li>
+<li><code>:tn/p</code>: Go the next/previous definition for the last tag</li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CodingLog/" rel="tag"># CodingLog</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/01/coding-log-CL201903/" rel="next" title="2019年3月编程日志">
+                <i class="fa fa-chevron-left"></i> 2019年3月编程日志
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/06/coding-log-backup-WL201909/" rel="prev" title="2019年9月工作日志">
+                2019年9月工作日志 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Zeyuan</p>
+              <p class="site-description motion-element" itemprop="description">Have a good time</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Mon-Apr-1-08-39-59-CST-2019"><span class="nav-number">1.</span> <span class="nav-text">Mon Apr  1 08:39:59 CST 2019</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tue-Apr-2-08-39-02-CST-2019"><span class="nav-number">2.</span> <span class="nav-text">Tue Apr  2 08:39:02 CST 2019</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Wed-Apr-3-08-38-18-CST-2019"><span class="nav-number">3.</span> <span class="nav-text">Wed Apr  3 08:38:18 CST 2019</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Thu-Apr-4-08-36-53-CST-2019"><span class="nav-number">4.</span> <span class="nav-text">Thu Apr  4 08:36:53 CST 2019</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mon-Apr-8-07-14-22-CST-2019"><span class="nav-number">5.</span> <span class="nav-text">Mon Apr  8 07:14:22 CST 2019</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tue-Apr-9-07-22-58-CST-2019"><span class="nav-number">6.</span> <span class="nav-text">Tue Apr  9 07:22:58 CST 2019</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Wed-Apr-10-08-35-40-CST-2019"><span class="nav-number">7.</span> <span class="nav-text">Wed Apr 10 08:35:40 CST 2019</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fri-Apr-12-08-35-37-CST-2019"><span class="nav-number">8.</span> <span class="nav-text">Fri Apr 12 08:35:37 CST 2019</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sat-Apr-13-06-29-44-CST-2019"><span class="nav-number">9.</span> <span class="nav-text">Sat Apr 13 06:29:44 CST 2019</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mon-Apr-15-05-41-54-CST-2019"><span class="nav-number">10.</span> <span class="nav-text">Mon Apr 15 05:41:54 CST 2019</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tue-Apr-16-06-21-12-CST-2019"><span class="nav-number">11.</span> <span class="nav-text">Tue Apr 16 06:21:12 CST 2019</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fri-Apr-19-08-45-55-CST-2019"><span class="nav-number">12.</span> <span class="nav-text">Fri Apr 19 08:45:55 CST 2019</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zeyuan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

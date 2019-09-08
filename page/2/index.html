@@ -262,7 +262,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/LeonLH/leonlh.github.io/2018/09/01/coding-log-CL201809/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/LeonLH/leonlh.github.io/2019/02/01/coding-log-backup-CL201902/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zeyuan">
@@ -281,7 +281,3115 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/01/coding-log-CL201809/" itemprop="url">2018年9月编程日志</a></h1>
+                <a class="post-title-link" href="/2019/02/01/coding-log-backup-CL201902/" itemprop="url">2019年2月编程日志</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-01T00:00:00+08:00">
+                2019-02-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Tue-Feb-19-09-10-55-CST-2019"><a href="#Tue-Feb-19-09-10-55-CST-2019" class="headerlink" title="Tue Feb 19 09:10:55 CST 2019"></a>Tue Feb 19 09:10:55 CST 2019</h3><ol>
+<li>I must repeat many times of the simgle project such as StudInfoManaSys, thus I can improve my skill of using C++ and get more familiar with the features of C++.</li>
+<li>For multi-file program, we should use makefile to compile and link multiple files, and each time I changed time file I should only compile the changed one and still run the last executive file. </li>
+<li>Inorder to avoidmultiple definition of class member functions we should:<ol>
+<li>(if necessary) add <code>#include &quot;filename.h&quot;</code> to .cpp file;</li>
+<li>should add <code>#pragma once</code> to each of .h files;</li>
+</ol>
+</li>
+</ol>
+<h3 id="Thu-Feb-21-08-00-28-CST-2019"><a href="#Thu-Feb-21-08-00-28-CST-2019" class="headerlink" title="Thu Feb 21 08:00:28 CST 2019"></a>Thu Feb 21 08:00:28 CST 2019</h3><ol>
+<li>Try the layout of workspace 3*3, the leftest column space is work, the middle column is related materials and study-note, the rightest is some fixed area such as worklog etc. </li>
+</ol>
+<h3 id="Mon-Feb-25-23-10-35-CST-2019"><a href="#Mon-Feb-25-23-10-35-CST-2019" class="headerlink" title="Mon Feb 25 23:10:35 CST 2019"></a>Mon Feb 25 23:10:35 CST 2019</h3><ol>
+<li>[TBD] How to turn-off my laptop fan? </li>
+</ol>
+<h3 id="Tue-Feb-26-08-35-24-CST-2019"><a href="#Tue-Feb-26-08-35-24-CST-2019" class="headerlink" title="Tue Feb 26 08:35:24 CST 2019"></a>Tue Feb 26 08:35:24 CST 2019</h3><ol>
+<li><p>Usage of getline:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">char s[15];				// #include &lt;iostream&gt;</span><br><span class="line">						// std:basic_istream::getline</span><br><span class="line">cin.getline(s, 10);		// cin.getline(char* s, streamsize n)</span><br><span class="line">cout &lt;&lt; s;				// extract from input and store them </span><br><span class="line">						// into c-string. </span><br><span class="line"></span><br><span class="line">string str;				// #include &lt;string&gt;</span><br><span class="line">getline(cin, str); 		// std::getline(basic_string)</span><br><span class="line">						// getline(stream &amp;is, string s)</span><br><span class="line">cout &lt;&lt; s;          	// Get line form stream into string</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>[TBD] Is it feasible to store different kind of pointer into the same list?</p>
+</li>
+</ol>
+<h3 id="Thu-Feb-28-08-37-00-CST-2019"><a href="#Thu-Feb-28-08-37-00-CST-2019" class="headerlink" title="Thu Feb 28 08:37:00 CST 2019"></a>Thu Feb 28 08:37:00 CST 2019</h3><ol>
+<li><p>[TBD] <code>system(clear)</code> doesn’t work when debug with gdb, how to solve it?  </p>
+<ol>
+<li>This problem involves thread debug, because if you call the system function, it will begin a new thread as a child of current thread.</li>
+</ol>
+</li>
+<li><p>The workspace layout is arrange as this way(represent with index of matrix):</p>
+<ol>
+<li>1st line is primary workspace:<ol>
+<li>(1, 1) is <strong>main</strong> workspace;</li>
+<li>(1, 2) is <strong>temporary</strong> workspace, There are always temporary files stored here;</li>
+<li>(1, 3) is <strong>log</strong> workspace;</li>
+</ol>
+</li>
+<li>2nd line is test space, it store some test files in the same column of the 1st and 2nd row;</li>
+<li>3rd line is <strong>study</strong> workspace, such as some tutorial/manual/textbook/etc.<ol>
+<li>(3, 1) is empty;</li>
+<li>(3, 2) is python;</li>
+<li>(3, 3) is uml tutorial;</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>Usage of info:</p>
+<ol>
+<li>Basic Usage:<ol>
+<li><code>Up/Down</code> Move up/down one line</li>
+<li><code>PgUp/PgDown</code> Scroll back/forward one screenful.</li>
+<li><code>Home/End</code> Go to the beginning/end of this node.</li>
+<li><code>TAB</code> next hypertext link, <code>Enter</code> follow hypertext link;</li>
+<li><code>l</code> last seen node, <code>[/]</code> previous/next node in doc.</li>
+<li><code>p/n</code> previous/next node in this level.</li>
+<li><code>u/t/d</code> go up one level / go to top level / go to main DIR</li>
+<li><code>/</code> search, <code>{/}</code> previous/next occurance.</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/LeonLH/leonlh.github.io/2019/01/01/coding-log-CL201901/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zeyuan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="泽远的小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/01/coding-log-CL201901/" itemprop="url">2019年1月编程日志</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-01T00:00:00+08:00">
+                2019-01-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Mon-Jan-7-10-19-56-CST-2019"><a href="#Mon-Jan-7-10-19-56-CST-2019" class="headerlink" title="Mon Jan  7 10:19:56 CST 2019"></a>Mon Jan  7 10:19:56 CST 2019</h3><p><strong>Workflow:</strong></p>
+<ol>
+<li><p>Install YCM to my ubuntu:(Takes One and a half days)<br>At the beginning, the method is all from github’s ReadMe page of YouCompleteMe. And I add some key points that I’ve encountered. </p>
+<ol>
+<li>Before installation, you must make sure <ol>
+<li>Your system can use apt-get normally, which means you’ve opened all of 3 options in Install updates from: in the software&amp;Updates section;</li>
+<li>Make sure all the software(vim, python2/3) meet the needs;</li>
+</ol>
+</li>
+<li>Following the Linux 64-bit Installation steps:<ol>
+<li>Install YouCompleteMe with Vundle, It may take a while justbe patient;</li>
+<li>Install development tools, CMake, and Python headers;</li>
+<li>Compiling YCM with semantic support for C-family languages;<ul>
+<li>Note: This step will generate ycm_core.so file, otherwise, It means you have some mistake before this step. </li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Provide the compilation flags for you project to YCM:<ol>
+<li>adding the following option to your .vimrc file: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let g:ycm_global_ycm_extra_conf=&apos;~/.vim/bundle/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py&apos;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>[TBD] How to monitor current network speed of unbuntu?</p>
+</li>
+</ol>
+<h3 id="Tue-Jan-8-08-38-06-CST-2019"><a href="#Tue-Jan-8-08-38-06-CST-2019" class="headerlink" title="Tue Jan  8 08:38:06 CST 2019"></a>Tue Jan  8 08:38:06 CST 2019</h3><p><strong>Daliy Target:</strong></p>
+<ul>
+<li><input disabled type="checkbox"> Conclude book “The Design and Analysis of Algorithms” for at least <strong>One</strong> Chapter;</li>
+<li><input disabled type="checkbox"> Review Basic algorithms code, such as sort, search. </li>
+</ul>
+<p><strong>Workflow:</strong></p>
+<ol>
+<li><p>Install vim-markdown-preview script:</p>
+<ol>
+<li>Requirements:<ol>
+<li>grip: <code>pip install grip</code>;<ul>
+<li>put <code>let vim_markdown_preview_github=1</code> in .vimrc;</li>
+</ul>
+</li>
+<li>xdotool: <code>sudo apt-get install xdotool</code>;</li>
+<li>chrome</li>
+</ol>
+</li>
+<li>Inatall it with Vundle:<ul>
+<li>Add <code>Plugin &#39;JamshedVesuna/vim-markdown-preview&#39;</code> to .vimrc.</li>
+<li>open vim and type <code>:PluginInstall</code>;</li>
+</ul>
+</li>
+<li>Usage: <code>ctrl-p</code> to invoking the plugin to show html page in chrome.</li>
+</ol>
+</li>
+<li><p>[D] User defined completion(^U^P^N) Back at original. </p>
+<ul>
+<li>Problem solved by adding <code>set shortmess+=c</code> in .vimrc, this problem maybe caused by YCM script and related to vim’s feature called shortmess. </li>
+<li>After add the <code>plasticboy/vim-markdown</code> and <code>godlygeek/tabular</code> scripts, This problem is return. Then I note off the <code>set shortmess+=c</code>, the problem solved.</li>
+</ul>
+</li>
+<li><p>Add a vim script <code>plasticboy/vim-markdown</code>, it can make .md file looks pretty good, and can conceal the link string between the parenthesis.</p>
+<ul>
+<li>It can conceal asterisk/underline/link-string/etc. </li>
+<li>It can fold the file of markdown files. </li>
+</ul>
+</li>
+<li><p>[TBD] Install Input App to make input of Chinese character more effective on ubuntu. </p>
+</li>
+</ol>
+<h3 id="Wed-Jan-9-07-52-35-CST-2019"><a href="#Wed-Jan-9-07-52-35-CST-2019" class="headerlink" title="Wed Jan  9 07:52:35 CST 2019"></a>Wed Jan  9 07:52:35 CST 2019</h3><p><strong>Daily Target</strong>:</p>
+<ul>
+<li><input checked disabled type="checkbox"> Reading textbook for at least two hours. </li>
+<li><input checked disabled type="checkbox"> First leetcode, easy, 35min;</li>
+<li><input checked disabled type="checkbox"> Second leetcode, hard, 2H;</li>
+<li><input checked disabled type="checkbox"> Third leetcode, medium, 2H;</li>
+</ul>
+<p><strong>Workflow</strong>:</p>
+<ol>
+<li>[TBD] 对于那些算法里面是大于还是大于等于，包不包括等于号的问题，找专门的时间总结一下；</li>
+<li>One of the key point of solving leetcode problem is to find out a typical test data;</li>
+<li>Condition break point in gdb: <code>break filename.cpp:10 if i == 5</code>;</li>
+<li>[TBD] The characteristic of map and set; </li>
+<li>You must learn form someone who’s idea_of_algorithm/skill_of_codingis greater than you, Only in this way, you can grow faster. You shouldn’t work on your own, It’s harmful for time because it’s too slow, you should learn to stand on the shoulder of giant. </li>
+</ol>
+<h3 id="Thu-Jan-10-11-13-01-CST-2019"><a href="#Thu-Jan-10-11-13-01-CST-2019" class="headerlink" title="Thu Jan 10 11:13:01 CST 2019"></a>Thu Jan 10 11:13:01 CST 2019</h3><p><strong>Daily Target</strong>:</p>
+<ul>
+<li><input checked disabled type="checkbox"> 2 hours textbook</li>
+<li><input checked disabled type="checkbox"> first leetcode, 3.5H, medium, Self</li>
+<li><input disabled type="checkbox"> second leetcode</li>
+<li><input disabled type="checkbox"> third leetcode</li>
+</ul>
+<p><strong>Workflow</strong>:</p>
+<ol>
+<li>It seems simple, but when you are implementing the it, It turns out that not that simple as you thought. </li>
+<li>First, you need to remember all of the classic problem and classic solution. You must be very familiar to above things, then you can easily migrate to other issues. </li>
+<li>The vector’s practice is over today, tommorow I will work on “sort” category. </li>
+<li>[TBD] leetcode #55 Jump Game, may need dynamic programming or backtracking to solve it, you should return to it when you’ve review the knowledge accordingly. </li>
+</ol>
+<h3 id="Fri-Jan-11-11-13-16-CST-2019"><a href="#Fri-Jan-11-11-13-16-CST-2019" class="headerlink" title="Fri Jan 11 11:13:16 CST 2019"></a>Fri Jan 11 11:13:16 CST 2019</h3><p><strong>Daily Target</strong></p>
+<ul>
+<li><input checked disabled type="checkbox"> 3 hours sort learning. </li>
+<li><input disabled type="checkbox"> first leetcode </li>
+<li><input disabled type="checkbox"> second leetcode</li>
+<li><input disabled type="checkbox"> third leetcode </li>
+</ul>
+<p><strong>Workflow</strong>:</p>
+<ol>
+<li>[TBD] Where should I get test set and corresponding result for my sort algorithms. Otherwise, I cannot make sure my algorithms is bug-free. In another words, How to test my sort algorithms with many test set?</li>
+<li>[TBD] Write a software to test my sort algorithms which can automaticly usig different test examples and return the result of error result.</li>
+<li>View a pointer like an array in GDB: <code>p *array@nlen</code></li>
+<li>When to use <code>for(::){}</code> and when to use <code>while(){}</code> :<ul>
+<li>use while:<ol>
+<li>if I have already initialize the iterator;</li>
+<li>if the condition of loop is some special value, like 1;</li>
+<li>if the increment is a little complex;</li>
+</ol>
+</li>
+<li>use for:<ol>
+<li>if the loop is simple, and for quickly implementing loop;</li>
+<li>for some standard algorithms, it can make program concise;</li>
+</ol>
+</li>
+<li>To summarize:<ul>
+<li>If the program is complicated, use while, otherwise, use for.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="Sat-Jan-12-14-24-38-CST-2019"><a href="#Sat-Jan-12-14-24-38-CST-2019" class="headerlink" title="Sat Jan 12 14:24:38 CST 2019"></a>Sat Jan 12 14:24:38 CST 2019</h3><p><strong>Daily Target</strong>:</p>
+<ul>
+<li><input checked disabled type="checkbox"> 2 Hours reading.</li>
+<li><input disabled type="checkbox"> sort finished. </li>
+<li><input disabled type="checkbox"> checking for sort algorithms. </li>
+</ul>
+<p><strong>Workflow</strong>;</p>
+<ol>
+<li>[D] Install an input app on ubuntu. </li>
+</ol>
+<p><strong>Thought</strong>:</p>
+<h3 id="Sun-Jan-13-06-30-06-CST-2019"><a href="#Sun-Jan-13-06-30-06-CST-2019" class="headerlink" title="Sun Jan 13 06:30:06 CST 2019"></a>Sun Jan 13 06:30:06 CST 2019</h3><p><strong>Workflow</strong>:</p>
+<ol>
+<li>[TBD] formalize vbird_linux note in markdown form. </li>
+</ol>
+<h3 id="Tue-Jan-15-07-42-32-CST-2019"><a href="#Tue-Jan-15-07-42-32-CST-2019" class="headerlink" title="Tue Jan 15 07:42:32 CST 2019"></a>Tue Jan 15 07:42:32 CST 2019</h3><p><strong>Daily Target</strong>:</p>
+<ul>
+<li><input checked disabled type="checkbox"> 3.5 hours reading textbook;</li>
+<li><input checked disabled type="checkbox"> The rest of sort;</li>
+</ul>
+<ol>
+<li><code>ln</code> the source path is relative to link path, you must use link directory as a referrence standard. <ul>
+<li><code>ln -s relative_path_to_link_directory/source link_directory/</code></li>
+<li><code>ln -s absolute_path_of_source/source link_directory</code></li>
+</ul>
+</li>
+<li>The time of practice for typing shouldn’t be assigned at normal time of daily working.  It should be arranged at the time when I am not busy or the time which is fragnmented time. </li>
+<li></li>
+</ol>
+<h3 id="Wed-Jan-16-07-43-00-CST-2019"><a href="#Wed-Jan-16-07-43-00-CST-2019" class="headerlink" title="Wed Jan 16 07:43:00 CST 2019"></a>Wed Jan 16 07:43:00 CST 2019</h3><p><strong>Daily Target</strong>:</p>
+<ul>
+<li><input checked disabled type="checkbox"> 3.5 hours textbook review</li>
+<li><input checked disabled type="checkbox"> tree part I</li>
+<li><input disabled type="checkbox"> tree part II</li>
+<li><input disabled type="checkbox"> tree part III</li>
+</ul>
+<ol>
+<li>Memorization is an important skill in learning things. </li>
+<li>When using <code>vim-markdown-preview</code>, must manually copy the link from chrome to firefox once, then typing <code>Ctrl-P</code> can be effective, otherwise it wouldn’t works on firefox but only on chrome. </li>
+<li>When doing the practice of tree, the first job is to initialize a tree or build a tree, but this is a little more difficult than traversing a tree. So be familiar to initialization of a tree, then you can operate it in many operations.</li>
+<li>Must be familiar to the grammer of cpp, recoding the works I’ve done before. </li>
+</ol>
+<h3 id="Thu-Jan-17-14-30-12-CST-2019"><a href="#Thu-Jan-17-14-30-12-CST-2019" class="headerlink" title="Thu Jan 17 14:30:12 CST 2019"></a>Thu Jan 17 14:30:12 CST 2019</h3><p><strong>Daily Target</strong>:</p>
+<ul>
+<li>[] 3.5 hours textbook reading. </li>
+<li>[] tree part II</li>
+<li>[] tree part III</li>
+</ul>
+<p><strong>Workflow</strong>:</p>
+<ol>
+<li>You must write many times about the basic algorithms, such as In/Pre/Post/LevelOrderRecusive/IterativeTraversal to a tree. It’s important and worth many time training. </li>
+<li>The comment is very important when you review the code you’ve wrote before. </li>
+</ol>
+<h3 id="Fri-Jan-18-06-21-02-CST-2019"><a href="#Fri-Jan-18-06-21-02-CST-2019" class="headerlink" title="Fri Jan 18 06:21:02 CST 2019"></a>Fri Jan 18 06:21:02 CST 2019</h3><p><strong>Daily Target</strong>:</p>
+<ul>
+<li>[] </li>
+<li></li>
+</ul>
+<p><strong>Workflow</strong>:</p>
+<ol>
+<li>I don’t know if I’m right about this thing which is I wrote some codes about 200 lines for a single leetcode problem and takes more than 5 hours usually. This thing must be wrong, a leetcode problem should be finished within 2 hours, which I think is pretty normal. So just make sure you can finish it within two hours. </li>
+<li>[TBD] The Technological process of writing a software:<ol>
+<li>Writing down the </li>
+</ol>
+</li>
+</ol>
+<h3 id="Sat-Jan-19-13-02-06-CST-2019"><a href="#Sat-Jan-19-13-02-06-CST-2019" class="headerlink" title="Sat Jan 19 13:02:06 CST 2019"></a>Sat Jan 19 13:02:06 CST 2019</h3><p><strong>Workflow</strong>:</p>
+<ol>
+<li>Make sure the line is less than 80 characters long, when it comes to nearly end of line, you need linefeed <strong>Both</strong> in Cpp and python’s code.</li>
+<li></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/LeonLH/leonlh.github.io/2019/01/01/coding-log-backup-CL201901/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zeyuan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="泽远的小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/01/coding-log-backup-CL201901/" itemprop="url">2019年1月编程日志</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-01T00:00:00+08:00">
+                2019-01-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Mon-Jan-7-10-19-56-CST-2019"><a href="#Mon-Jan-7-10-19-56-CST-2019" class="headerlink" title="Mon Jan  7 10:19:56 CST 2019"></a>Mon Jan  7 10:19:56 CST 2019</h3><p><strong>Workflow:</strong></p>
+<ol>
+<li><p>Install YCM to my ubuntu:(Takes One and a half days)<br>At the beginning, the method is all from github’s ReadMe page of YouCompleteMe. And I add some key points that I’ve encountered. </p>
+<ol>
+<li>Before installation, you must make sure <ol>
+<li>Your system can use apt-get normally, which means you’ve opened all of 3 options in Install updates from: in the software&amp;Updates section;</li>
+<li>Make sure all the software(vim, python2/3) meet the needs;</li>
+</ol>
+</li>
+<li>Following the Linux 64-bit Installation steps:<ol>
+<li>Install YouCompleteMe with Vundle, It may take a while justbe patient;</li>
+<li>Install development tools, CMake, and Python headers;</li>
+<li>Compiling YCM with semantic support for C-family languages;<ul>
+<li>Note: This step will generate ycm_core.so file, otherwise, It means you have some mistake before this step. </li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Provide the compilation flags for you project to YCM:<ol>
+<li>adding the following option to your .vimrc file: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let g:ycm_global_ycm_extra_conf=&apos;~/.vim/bundle/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py&apos;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>[TBD] How to monitor current network speed of unbuntu?</p>
+</li>
+</ol>
+<h3 id="Tue-Jan-8-08-38-06-CST-2019"><a href="#Tue-Jan-8-08-38-06-CST-2019" class="headerlink" title="Tue Jan  8 08:38:06 CST 2019"></a>Tue Jan  8 08:38:06 CST 2019</h3><p><strong>Daliy Target:</strong></p>
+<ul>
+<li><input disabled type="checkbox"> Conclude book “The Design and Analysis of Algorithms” for at least <strong>One</strong> Chapter;</li>
+<li><input disabled type="checkbox"> Review Basic algorithms code, such as sort, search. </li>
+</ul>
+<p><strong>Workflow:</strong></p>
+<ol>
+<li><p>Install vim-markdown-preview script:</p>
+<ol>
+<li>Requirements:<ol>
+<li>grip: <code>pip install grip</code>;<ul>
+<li>put <code>let vim_markdown_preview_github=1</code> in .vimrc;</li>
+</ul>
+</li>
+<li>xdotool: <code>sudo apt-get install xdotool</code>;</li>
+<li>chrome</li>
+</ol>
+</li>
+<li>Inatall it with Vundle:<ul>
+<li>Add <code>Plugin &#39;JamshedVesuna/vim-markdown-preview&#39;</code> to .vimrc.</li>
+<li>open vim and type <code>:PluginInstall</code>;</li>
+</ul>
+</li>
+<li>Usage: <code>ctrl-p</code> to invoking the plugin to show html page in chrome.</li>
+</ol>
+</li>
+<li><p>[D] User defined completion(^U^P^N) Back at original. </p>
+<ul>
+<li>Problem solved by adding <code>set shortmess+=c</code> in .vimrc, this problem maybe caused by YCM script and related to vim’s feature called shortmess. </li>
+<li>After add the <code>plasticboy/vim-markdown</code> and <code>godlygeek/tabular</code> scripts, This problem is return. Then I note off the <code>set shortmess+=c</code>, the problem solved.</li>
+</ul>
+</li>
+<li><p>Add a vim script <code>plasticboy/vim-markdown</code>, it can make .md file looks pretty good, and can conceal the link string between the parenthesis.</p>
+<ul>
+<li>It can conceal asterisk/underline/link-string/etc. </li>
+<li>It can fold the file of markdown files. </li>
+</ul>
+</li>
+<li><p>[TBD] Install Input App to make input of Chinese character more effective on ubuntu. </p>
+</li>
+</ol>
+<h3 id="Wed-Jan-9-07-52-35-CST-2019"><a href="#Wed-Jan-9-07-52-35-CST-2019" class="headerlink" title="Wed Jan  9 07:52:35 CST 2019"></a>Wed Jan  9 07:52:35 CST 2019</h3><p><strong>Daily Target</strong>:</p>
+<ul>
+<li><input checked disabled type="checkbox"> Reading textbook for at least two hours. </li>
+<li><input checked disabled type="checkbox"> First leetcode, easy, 35min;</li>
+<li><input checked disabled type="checkbox"> Second leetcode, hard, 2H;</li>
+<li><input checked disabled type="checkbox"> Third leetcode, medium, 2H;</li>
+</ul>
+<p><strong>Workflow</strong>:</p>
+<ol>
+<li>[TBD] 对于那些算法里面是大于还是大于等于，包不包括等于号的问题，找专门的时间总结一下；</li>
+<li>One of the key point of solving leetcode problem is to find out a typical test data;</li>
+<li>Condition break point in gdb: <code>break filename.cpp:10 if i == 5</code>;</li>
+<li>[TBD] The characteristic of map and set; </li>
+<li>You must learn form someone who’s idea_of_algorithm/skill_of_codingis greater than you, Only in this way, you can grow faster. You shouldn’t work on your own, It’s harmful for time because it’s too slow, you should learn to stand on the shoulder of giant. </li>
+</ol>
+<h3 id="Thu-Jan-10-11-13-01-CST-2019"><a href="#Thu-Jan-10-11-13-01-CST-2019" class="headerlink" title="Thu Jan 10 11:13:01 CST 2019"></a>Thu Jan 10 11:13:01 CST 2019</h3><p><strong>Daily Target</strong>:</p>
+<ul>
+<li><input checked disabled type="checkbox"> 2 hours textbook</li>
+<li><input checked disabled type="checkbox"> first leetcode, 3.5H, medium, Self</li>
+<li><input disabled type="checkbox"> second leetcode</li>
+<li><input disabled type="checkbox"> third leetcode</li>
+</ul>
+<p><strong>Workflow</strong>:</p>
+<ol>
+<li>It seems simple, but when you are implementing the it, It turns out that not that simple as you thought. </li>
+<li>First, you need to remember all of the classic problem and classic solution. You must be very familiar to above things, then you can easily migrate to other issues. </li>
+<li>The vector’s practice is over today, tommorow I will work on “sort” category. </li>
+<li>[TBD] leetcode #55 Jump Game, may need dynamic programming or backtracking to solve it, you should return to it when you’ve review the knowledge accordingly. </li>
+</ol>
+<h3 id="Fri-Jan-11-11-13-16-CST-2019"><a href="#Fri-Jan-11-11-13-16-CST-2019" class="headerlink" title="Fri Jan 11 11:13:16 CST 2019"></a>Fri Jan 11 11:13:16 CST 2019</h3><p><strong>Daily Target</strong></p>
+<ul>
+<li><input checked disabled type="checkbox"> 3 hours sort learning. </li>
+<li><input disabled type="checkbox"> first leetcode </li>
+<li><input disabled type="checkbox"> second leetcode</li>
+<li><input disabled type="checkbox"> third leetcode </li>
+</ul>
+<p><strong>Workflow</strong>:</p>
+<ol>
+<li>[TBD] Where should I get test set and corresponding result for my sort algorithms. Otherwise, I cannot make sure my algorithms is bug-free. In another words, How to test my sort algorithms with many test set?</li>
+<li>[TBD] Write a software to test my sort algorithms which can automaticly usig different test examples and return the result of error result.</li>
+<li>View a pointer like an array in GDB: <code>p *array@nlen</code></li>
+<li>When to use <code>for(::){}</code> and when to use <code>while(){}</code> :<ul>
+<li>use while:<ol>
+<li>if I have already initialize the iterator;</li>
+<li>if the condition of loop is some special value, like 1;</li>
+<li>if the increment is a little complex;</li>
+</ol>
+</li>
+<li>use for:<ol>
+<li>if the loop is simple, and for quickly implementing loop;</li>
+<li>for some standard algorithms, it can make program concise;</li>
+</ol>
+</li>
+<li>To summarize:<ul>
+<li>If the program is complicated, use while, otherwise, use for.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="Sat-Jan-12-14-24-38-CST-2019"><a href="#Sat-Jan-12-14-24-38-CST-2019" class="headerlink" title="Sat Jan 12 14:24:38 CST 2019"></a>Sat Jan 12 14:24:38 CST 2019</h3><p><strong>Daily Target</strong>:</p>
+<ul>
+<li><input checked disabled type="checkbox"> 2 Hours reading.</li>
+<li><input disabled type="checkbox"> sort finished. </li>
+<li><input disabled type="checkbox"> checking for sort algorithms. </li>
+</ul>
+<p><strong>Workflow</strong>;</p>
+<ol>
+<li>[D] Install an input app on ubuntu. </li>
+</ol>
+<p><strong>Thought</strong>:</p>
+<h3 id="Sun-Jan-13-06-30-06-CST-2019"><a href="#Sun-Jan-13-06-30-06-CST-2019" class="headerlink" title="Sun Jan 13 06:30:06 CST 2019"></a>Sun Jan 13 06:30:06 CST 2019</h3><p><strong>Workflow</strong>:</p>
+<ol>
+<li>[TBD] formalize vbird_linux note in markdown form. </li>
+</ol>
+<h3 id="Tue-Jan-15-07-42-32-CST-2019"><a href="#Tue-Jan-15-07-42-32-CST-2019" class="headerlink" title="Tue Jan 15 07:42:32 CST 2019"></a>Tue Jan 15 07:42:32 CST 2019</h3><p><strong>Daily Target</strong>:</p>
+<ul>
+<li><input checked disabled type="checkbox"> 3.5 hours reading textbook;</li>
+<li><input checked disabled type="checkbox"> The rest of sort;</li>
+</ul>
+<ol>
+<li><code>ln</code> the source path is relative to link path, you must use link directory as a referrence standard. <ul>
+<li><code>ln -s relative_path_to_link_directory/source link_directory/</code></li>
+<li><code>ln -s absolute_path_of_source/source link_directory</code></li>
+</ul>
+</li>
+<li>The time of practice for typing shouldn’t be assigned at normal time of daily working.  It should be arranged at the time when I am not busy or the time which is fragnmented time. </li>
+<li></li>
+</ol>
+<h3 id="Wed-Jan-16-07-43-00-CST-2019"><a href="#Wed-Jan-16-07-43-00-CST-2019" class="headerlink" title="Wed Jan 16 07:43:00 CST 2019"></a>Wed Jan 16 07:43:00 CST 2019</h3><p><strong>Daily Target</strong>:</p>
+<ul>
+<li><input checked disabled type="checkbox"> 3.5 hours textbook review</li>
+<li><input checked disabled type="checkbox"> tree part I</li>
+<li><input disabled type="checkbox"> tree part II</li>
+<li><input disabled type="checkbox"> tree part III</li>
+</ul>
+<ol>
+<li>Memorization is an important skill in learning things. </li>
+<li>When using <code>vim-markdown-preview</code>, must manually copy the link from chrome to firefox once, then typing <code>Ctrl-P</code> can be effective, otherwise it wouldn’t works on firefox but only on chrome. </li>
+<li>When doing the practice of tree, the first job is to initialize a tree or build a tree, but this is a little more difficult than traversing a tree. So be familiar to initialization of a tree, then you can operate it in many operations.</li>
+<li>Must be familiar to the grammer of cpp, recoding the works I’ve done before. </li>
+</ol>
+<h3 id="Thu-Jan-17-14-30-12-CST-2019"><a href="#Thu-Jan-17-14-30-12-CST-2019" class="headerlink" title="Thu Jan 17 14:30:12 CST 2019"></a>Thu Jan 17 14:30:12 CST 2019</h3><p><strong>Daily Target</strong>:</p>
+<ul>
+<li>[] 3.5 hours textbook reading. </li>
+<li>[] tree part II</li>
+<li>[] tree part III</li>
+</ul>
+<p><strong>Workflow</strong>:</p>
+<ol>
+<li>You must write many times about the basic algorithms, such as In/Pre/Post/LevelOrderRecusive/IterativeTraversal to a tree. It’s important and worth many time training. </li>
+<li>The comment is very important when you review the code you’ve wrote before. </li>
+</ol>
+<h3 id="Fri-Jan-18-06-21-02-CST-2019"><a href="#Fri-Jan-18-06-21-02-CST-2019" class="headerlink" title="Fri Jan 18 06:21:02 CST 2019"></a>Fri Jan 18 06:21:02 CST 2019</h3><p><strong>Daily Target</strong>:</p>
+<ul>
+<li>[] </li>
+<li></li>
+</ul>
+<p><strong>Workflow</strong>:</p>
+<ol>
+<li>I don’t know if I’m right about this thing which is I wrote some codes about 200 lines for a single leetcode problem and takes more than 5 hours usually. This thing must be wrong, a leetcode problem should be finished within 2 hours, which I think is pretty normal. So just make sure you can finish it within two hours. </li>
+<li>[TBD] The Technological process of writing a software:<ol>
+<li>Writing down the </li>
+</ol>
+</li>
+</ol>
+<h3 id="Sat-Jan-19-13-02-06-CST-2019"><a href="#Sat-Jan-19-13-02-06-CST-2019" class="headerlink" title="Sat Jan 19 13:02:06 CST 2019"></a>Sat Jan 19 13:02:06 CST 2019</h3><p><strong>Workflow</strong>:</p>
+<ol>
+<li>Make sure the line is less than 80 characters long, when it comes to nearly end of line, you need linefeed <strong>Both</strong> in Cpp and python’s code.</li>
+<li></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/LeonLH/leonlh.github.io/2018/12/01/coding-log-CL201812/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zeyuan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="泽远的小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/01/coding-log-CL201812/" itemprop="url">2018年12月编程日志</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-01T00:00:00+08:00">
+                2018-12-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Mon-Dec-17-07-08-04-CST-2018"><a href="#Mon-Dec-17-07-08-04-CST-2018" class="headerlink" title="Mon Dec 17 07:08:04 CST 2018"></a>Mon Dec 17 07:08:04 CST 2018</h3><ol>
+<li>17 days have passed since December. I just remember to write worklog here. WorkLog is a good habit to maintain, and it worth a lifelong time to keep. So don’t forget it anymore. </li>
+<li>Just begin work don’t waste any time. </li>
+<li>xdg-open: open a file or URL in the user’s preferred application, it equals to double click to the file;</li>
+<li>xset dpms force off: turn off screen;</li>
+</ol>
+<h3 id="Tue-Dec-18-16-47-05-CST-2018"><a href="#Tue-Dec-18-16-47-05-CST-2018" class="headerlink" title="Tue Dec 18 16:47:05 CST 2018"></a>Tue Dec 18 16:47:05 CST 2018</h3><ol>
+<li>k380+ipadmini seems not very well when coding, but it’s good for typing, It can be used only to writing some little practice. And it also good for writing worklog;</li>
+<li>Practise for more after cutting nails tomorrow. </li>
+<li>Review code is important to keep in mind of algorithms. </li>
+</ol>
+<h3 id="Thu-Dec-20-06-42-50-CST-2018"><a href="#Thu-Dec-20-06-42-50-CST-2018" class="headerlink" title="Thu Dec 20 06:42:50 CST 2018"></a>Thu Dec 20 06:42:50 CST 2018</h3><p>TBD:</p>
+<ul>
+<li><input disabled type="checkbox"> .m file cancel .m file’s CellComment by editing either octave.vim or matlab.vim. </li>
+</ul>
+<h3 id="Mon-Dec-24-07-03-38-CST-2018"><a href="#Mon-Dec-24-07-03-38-CST-2018" class="headerlink" title="Mon Dec 24 07:03:38 CST 2018"></a>Mon Dec 24 07:03:38 CST 2018</h3><p>TBD:</p>
+<ul>
+<li><input disabled type="checkbox"> test with my own image on the K-means image compress. </li>
+<li>[] </li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/LeonLH/leonlh.github.io/2018/12/01/coding-log-backup-CL201812/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zeyuan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="泽远的小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/01/coding-log-backup-CL201812/" itemprop="url">2018年12月编程日志</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-01T00:00:00+08:00">
+                2018-12-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Mon-Dec-17-07-08-04-CST-2018"><a href="#Mon-Dec-17-07-08-04-CST-2018" class="headerlink" title="Mon Dec 17 07:08:04 CST 2018"></a>Mon Dec 17 07:08:04 CST 2018</h3><ol>
+<li>17 days have passed since December. I just remember to write worklog here. WorkLog is a good habit to maintain, and it worth a lifelong time to keep. So don’t forget it anymore. </li>
+<li>Just begin work don’t waste any time. </li>
+<li>xdg-open: open a file or URL in the user’s preferred application, it equals to double click to the file;</li>
+<li>xset dpms force off: turn off screen;</li>
+</ol>
+<h3 id="Tue-Dec-18-16-47-05-CST-2018"><a href="#Tue-Dec-18-16-47-05-CST-2018" class="headerlink" title="Tue Dec 18 16:47:05 CST 2018"></a>Tue Dec 18 16:47:05 CST 2018</h3><ol>
+<li>k380+ipadmini seems not very well when coding, but it’s good for typing, It can be used only to writing some little practice. And it also good for writing worklog;</li>
+<li>Practise for more after cutting nails tomorrow. </li>
+<li>Review code is important to keep in mind of algorithms. </li>
+</ol>
+<h3 id="Thu-Dec-20-06-42-50-CST-2018"><a href="#Thu-Dec-20-06-42-50-CST-2018" class="headerlink" title="Thu Dec 20 06:42:50 CST 2018"></a>Thu Dec 20 06:42:50 CST 2018</h3><p>TBD:</p>
+<ul>
+<li><input disabled type="checkbox"> .m file cancel .m file’s CellComment by editing either octave.vim or matlab.vim. </li>
+</ul>
+<h3 id="Mon-Dec-24-07-03-38-CST-2018"><a href="#Mon-Dec-24-07-03-38-CST-2018" class="headerlink" title="Mon Dec 24 07:03:38 CST 2018"></a>Mon Dec 24 07:03:38 CST 2018</h3><p>TBD:</p>
+<ul>
+<li><input disabled type="checkbox"> test with my own image on the K-means image compress. </li>
+<li>[] </li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/LeonLH/leonlh.github.io/2018/11/01/coding-log-CL201811/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zeyuan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="泽远的小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/01/coding-log-CL201811/" itemprop="url">2018年11月编程日志</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-01T00:00:00+08:00">
+                2018-11-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<p>title: 2018年9月编程日志<br>date: 2018-09-01</p>
+<h2 id="tags-CodingLog"><a href="#tags-CodingLog" class="headerlink" title="tags: CodingLog"></a>tags: CodingLog</h2><p>Thu Nov  1 08:35:57 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li>[] 3 leetcode     |##</li>
+<li>[] 2H vbird         |</li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li>Recursion:<ol>
+<li>利用自己的的返回值，把返回值当成是已知变量来操作；</li>
+<li>从思维上要把当前过程当作是整个过程的最后一步，结束当前过程就解决了整个问题。这一点上与iteration的方法有很大不同，iteration是把当前过程当作是整个步骤的中间一步，然后考虑首尾条件进行遍历。</li>
+</ol>
+</li>
+<li>[TBD] Take practice of Tree’s releative operation for more.  </li>
+<li>[TBD] Review code ‘create tree with inorder and preorder’, and Reference others code of the same problem. </li>
+<li>If your train of thought isn’t very clear, Writing down the steps of processing can make you strengthen out a way of thinging.</li>
+<li>[TBD] Review code of ‘good way to levelorder traversal each level’s tree’. Some fundermental mothed like this must be recorded in my code file.</li>
+</ol>
+<p>Fri Nov  2 13:23:34 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li>[] 2 leetcode     |#</li>
+<li>[] 2H vbird        | </li>
+</ul>
+<ol>
+<li>[D] cpp function <code>getline</code>;</li>
+<li>[TBD] When return value is the type of <code>istream&amp;</code>, What does it mean? </li>
+<li>[TBD] How to quickly make comment to cpp with vim? </li>
+<li>[TBD] Test istringstream/ostringstream.</li>
+</ol>
+<p>Sun Nov  4 14:36:57 CST 2018</p>
+<p>Workflow:</p>
+<ol>
+<li>[D] solve the linux’s font’s problem. </li>
+<li>[TBD] Backtracing  </li>
+</ol>
+<p>Mon Nov  5 09:31:23 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li><input checked disabled type="checkbox"> 2 leetcode        |##</li>
+<li>[] 2H vbird </li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li>Mapping keyboard:<ul>
+<li>CapsLock  &lt;—&gt; Ctrl</li>
+</ul>
+</li>
+<li>[TBD] How to try to make one terminal work with multi-tasking?</li>
+<li>[TBD] Do not turn on the <code>syntax</code> when open a markdown file.</li>
+<li>[TBD] 递归算法的数学分析(算法设计于分析基础)</li>
+<li>[TBD] 递归算法的Helper函数如何设置? </li>
+</ol>
+<p>Tue Nov  6 08:39:21 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li><input disabled type="checkbox"> 3 leetcode         |</li>
+<li><input checked disabled type="checkbox"> 2H vbird             |</li>
+<li><input checked disabled type="checkbox"> 30M review </li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li><p>[TBD] How to study with pdf and with more effective? </p>
+<ul>
+<li>software: zathura, okular, evince, etc. </li>
+<li>operations: annotation, navigation, etc.</li>
+</ul>
+</li>
+<li><p>花花绿绿的东西太多了，要学习的东西也太多了，我要想向自己的方向，学习路径，以及近期的计划。</p>
+<ol>
+<li>要学习的东西：<ul>
+<li>语言 Java/Python/CUDA/C++</li>
+<li>硬核 基本算法/ML算法/图论/线性代数/概率</li>
+<li>技术 Opencv/Linux/数据可视化</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>不管怎样都要按照计划一步一步走，鸟哥的书已经有好几天没有看了，这样不行！</p>
+</li>
+<li><p>复习很重要，已经有很多天(两个月？)没有看了，这样也不行，这是一个终身的习惯，要提升到战略高度</p>
+</li>
+<li><p>不管做什么事情，有一个时间基准是很重要的，不然就会<strong>陷入细节</strong>，不知不觉浪费大量时间</p>
+</li>
+</ol>
+<p>Wed Nov  7 08:40:34 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li><input checked disabled type="checkbox"> 2 leetcode    |##</li>
+<li>[] 2H vbird        |H</li>
+<li><input checked disabled type="checkbox"> 30M review</li>
+</ul>
+<p>Time arrangement:</p>
+<ol>
+<li>Sum up the Recursive-Backtracking, The expected cost is 3H at AM. </li>
+<li>2 leetcodes can be arranged in the afternoon. </li>
+<li>Review and vbird in the night.  </li>
+</ol>
+<p>Workflow:</p>
+<ol>
+<li><p>To get ubuntu workspace more than 3:</p>
+<ul>
+<li>3 rows: <code>gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ vsize 3</code></li>
+<li>3 colums: <code>gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ hsize 3</code></li>
+</ul>
+</li>
+<li><p>[TBD] Update envince to have a shortcut for making annotation. </p>
+</li>
+<li><p>[TBD] What typical recursive algorithms are there excluded backtracking? </p>
+</li>
+</ol>
+<p>Thu Nov  8 08:41:31 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li><input disabled type="checkbox"> 3 leetcode     |</li>
+<li><input checked disabled type="checkbox"> 2H vbird</li>
+<li><input checked disabled type="checkbox"> 30M review</li>
+</ul>
+<p>Time arrangement:</p>
+<ol>
+<li>Review the recursive backtracking algorithms, at most 1.5H until 10:30 AM. </li>
+<li>3 leetcode about backtracking, 1.5H for each one. </li>
+<li>Vbird linux and review in the night. </li>
+</ol>
+<p>Workflow:</p>
+<ol>
+<li>我发现：要是一个算法有思路能写出来，两个小时内就会写出来，如果写不出来，花更多的时间（比如6个小时）也是有可能写出来的。但是，更多的情况是，在不正确的道路上浪费时间，方向可能就错了，在这种情况下，就需要及时的找到正确的方向，而不是继续摸索，这样很大程度上很大概率上会继续浪费时间；</li>
+<li>[TBD] What is Dynamic programming? </li>
+<li>First finish the problem which is under middle difficuty, then If you have time, do some hard problem. The basic knowledge is very important, so first make good base. <strong>Don’t get into detials too much!!!</strong> </li>
+<li>[TBD] How to write recursive problems? </li>
+</ol>
+<p>Fri Nov  9 08:36:06 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li><input checked disabled type="checkbox"> Study the thought of recursive algorithms for about two hours. </li>
+<li><input checked disabled type="checkbox"> 2 leetcode about backtracking.</li>
+<li>[] 2H vbird.</li>
+<li>[] 30M review of sort algorithms.</li>
+</ul>
+<p>Time arrangement:</p>
+<ol>
+<li>Each leetcode do not takes more than 3 hours.</li>
+</ol>
+<p>Workflow:</p>
+<ol>
+<li>[TBD] Tomorrow, Reading the wikipage of recursion.</li>
+<li>Gdb can call function of program with <code>p (*int)func1()</code>, It’s very useful during debugging.</li>
+<li>[TBD] to solve the comparision</li>
+<li>[TBD] <a href="https://sourceware.org/gdb/onlinedocs/gdb/Calling.html" target="_blank" rel="noopener">GDB’s call function</a></li>
+<li>[TBD] How to review Code? Searching for some effective method. </li>
+</ol>
+<p>Sat Nov 10 08:39:42 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li>[] sort algorithms </li>
+<li>[] 1 leetcode.</li>
+</ul>
+<p>Time arrangement:</p>
+<ol>
+<li>Wirte all kind of sort algorithms in current knowledge backgroud.It will take 4 hours. </li>
+<li>Finish leetcode in the afternoon about backtracking.</li>
+</ol>
+<p>Workflow:</p>
+<ol>
+<li><p>Set conditional breakpoint in gdb:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">b func</span><br><span class="line">commands</span><br><span class="line">	watch &#123;var1, var2, var3&#125;</span><br><span class="line">	continue</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>About vim, some tips:</p>
+<ol>
+<li>One vim at once, use vim’s tabs for more needs. </li>
+<li>user <code>!command</code> to execute external shell command. Do not come out frequently.  </li>
+</ol>
+</li>
+<li><p>[TBD] RegularExpression Practise, find some practice, and do that for one or two weeks. </p>
+</li>
+</ol>
+<p>Sun Nov 11 08:52:43 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li><input checked disabled type="checkbox"> Reading book and webpages about Divide and Conquer. 3H. Better have some standard model. </li>
+<li><input disabled type="checkbox"> 1 leetcode with Divide and Conquer. </li>
+</ul>
+<p>Time arrangement:</p>
+<ol>
+<li>3H study Divide and Conquer</li>
+<li>Do 1 leetcode for the learned method</li>
+<li>Copy the sort algorithms. </li>
+</ol>
+<p>Workflow:</p>
+<ol>
+<li><p>Build a list about problem unsolved in leetcode respository. This list contain the items which is already studied for couple hours but still have some problems or it have a better method I haven’t learning. Do it when timing is property. </p>
+</li>
+<li><p>关于程序/函数的说明格式，例子如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 递归计算二叉树的高度</span><br><span class="line">// 输入：一颗二叉树T</span><br><span class="line">// 输出：T的高度</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>关于算法的复杂度：</p>
+<ul>
+<li>学会如何分析算法的复杂度很重要，这样能避免Time Limit Exceeded，也能使问题更有效率的解决；</li>
+<li>分析问题的复杂度不仅仅是分析几个基本算法的复杂度，更多的是分析具体问题的复杂度，这往往时在基本算法的基础上额外的增加操作(额外的比较/交换/辅助功能等)</li>
+</ul>
+</li>
+<li><p>[TBD] 解递推关系是什么意思？递推问题的基本形式是什么？</p>
+</li>
+<li><p>各类算法光从理论上理解没有用代码实现一遍，或者用gdb跑一遍理解的透彻，而且不自己实现一遍不知道其中的一些细节的实际作用及其意义。所以，代码还是很重要的。</p>
+</li>
+<li><p>明天读书第二章：算法效率分析基础，以及后面的附录B</p>
+</li>
+</ol>
+<p>Mon Nov 12 08:37:36 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li><input checked disabled type="checkbox"> recursive algorithms in the morning. 3.5H</li>
+<li><input checked disabled type="checkbox"> sort algorighms review. 2.5H</li>
+<li>[] 2H vbird at night.</li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li>Recursive algorithms still need some time. Maybe tomorrow.  </li>
+<li>Find/Make a big data set to test each algorithm’s time complexity.</li>
+<li>Read book, Review code, Write the procedure. 这些是review code的时候该干的事.</li>
+<li>太吵了，无法完全的沉静下来，效率打了七折！ </li>
+<li>对于堆排序/快速排序/归并排序，虽然思想已经明白，但是实现的时候还是会遇到这样那样的问题，或者说不够熟练，多实现几次，多写，手写/敲代码都可以！</li>
+<li>颈椎疼！我要做一年的脖子操，不疼也要做, 晚上睡前做！</li>
+<li>如果努力不在指数的底上，而在多项式的常数项上时，这种努力是低效的，从长远来说，这种努力是对时间的一种浪费。</li>
+</ol>
+<p>Wed Nov 14 12:14:17 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li><input disabled type="checkbox"> 2 leetcode about Divide and Conquer.(in the afternoon)</li>
+<li><input disabled type="checkbox"> 30M about OS</li>
+<li><input disabled type="checkbox"> 2H vbird </li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li><p>Learning Dynamic Programming for 2H.</p>
+</li>
+<li><p>Learning Recurrence for 1.5H. </p>
+</li>
+<li><p>[TBD] Summing up the Divide and Conquer.</p>
+</li>
+<li><p>Comment is the same important as code. Or comment itself is the part of code. Readable is one of the requirment of a good code. So I must practice my English-writen skills. It’s one part of the code, it’s very important.</p>
+</li>
+<li><p>[TBD] 不写注释，自己写的代码自己都看不懂，更别谈别人了。从今天开始，每一份代码都要写注释，用英文写。英语写的能力急需提高。学习如何更好的写注释。</p>
+</li>
+<li><p>复习太重要了，要养成每天复习的终身习惯。</p>
+</li>
+<li><p>每天的复习时间安排在什么时候？早上吗？ML这种长期的计划不应该为短期计划让路吧？晚上？vbird还没有学完！</p>
+</li>
+<li><p>shell script / RegularExpression 这种知识是需要使用，或者练习的，不练习学了之后很快就会忘了，或者就只有一个很淡的印象。与此相关的还有sed/grep/awk, 这些工具的用法也需要进行大量的练习才能学会。</p>
+</li>
+<li><p>关于网站的</p>
+</li>
+<li><p>千头万绪的，需要好好的整理一下思路/日程安排/计划/目标了。</p>
+</li>
+<li><p>Those Ph.Ds also need practice algorithms in leetcode, we can see the important of algorithms to programming. As for me, I need more practice algorithms and make it become the cornerstone of programming. </p>
+</li>
+</ol>
+<h3 id="Thu-Nov-15-07-14-47-CST-2018"><a href="#Thu-Nov-15-07-14-47-CST-2018" class="headerlink" title="Thu Nov 15 07:14:47 CST 2018"></a>Thu Nov 15 07:14:47 CST 2018</h3><p>TakList:</p>
+<ul>
+<li>[] KMP implementation. </li>
+</ul>
+<ol>
+<li><p>[TBD] Think about the relationship of algorithms learning and the leetcode practicing, How to deal with the relationship between the two parties. </p>
+<ul>
+<li>This week, I take the time to read the algorithms book, so the counts of leetcode didn’t increase. </li>
+</ul>
+</li>
+<li><p>[D] How to make each line of date to be a header of md file. In other words, how to add ‘###’ to each line of date with very few operations. Maybe it need to use tool of awk/sed/grep. </p>
+</li>
+<li><p>Always, we are talking about efficiency, but efficiency can not be high at the very beginning, We need to practice to improve it. So be patient, things take time. </p>
+</li>
+<li><p>[TBD] make ycm support c++14 features, for example, variable define sequence more flexibility.</p>
+</li>
+<li><p>[TBD] It’s time to review the key knowledge of c++;</p>
+</li>
+<li><p>Global variable/internal variable/external variable</p>
+<ul>
+<li><p>Global variable</p>
+<ol>
+<li>Variable declared outside of a function are called global variables. Global variables have static duration, which means they are created when the program starts and are destroyed when it ends.</li>
+<li>The global scope operater(::) can be used to tell the compiler you mean the global version instead of the local version. </li>
+</ol>
+</li>
+<li><p>External variable</p>
+<ol>
+<li>A variable with external linkage is called an external varibale. Variables with external linkage can be used both in the file they are defined in, as well as in other files. </li>
+</ol>
+</li>
+<li><p>Internal variable(or static variable)</p>
+<ol>
+<li>A variabel with internal linkage is called an internal variable(or static variable). Variable with internal linkage can be used anywhere within the file they are defined in, but can not be referenced outside the file they exits in.<br><a href="https://www.learncpp.com/cpp-tutorial/42-global-variables/" target="_blank" rel="noopener">Reference</a></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>Variable property: scope, duration, linkage. </p>
+</li>
+<li><p>[TBD] Static Keyword in C++, <a href="https://www.geeksforgeeks.org/static-keyword-cpp/" target="_blank" rel="noopener">Reference</a></p>
+</li>
+</ol>
+<h3 id="Wed-Nov-21-08-38-57-CST-2018"><a href="#Wed-Nov-21-08-38-57-CST-2018" class="headerlink" title="Wed Nov 21 08:38:57 CST 2018"></a>Wed Nov 21 08:38:57 CST 2018</h3><p>TaskList:</p>
+<ul>
+<li>[] </li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li><p>Hard to think peaceful when there is people aroud me, using English feels better and more private. </p>
+</li>
+<li><p>[TBD] markdown real-time preview software. </p>
+</li>
+<li><p>There are too many things to learn, review, practise, summary etc. But time is not infinite, and life is not infinite. There are also too many things which is funny, interesting and beautiful, but life is limited. Time is valuable. So I must take my time to the things more valuable, and I don’t have much time to waste any more.<br> Even thought in the scope of one field, such as Computer Science, There are still many things to study, let alone I need to learn or to know many important feild such as Math, Physics, Ecnomics etc. So how to find where to place myself?<br> First, personally, I think <strong>patient</strong> is most important, anxious can do nothing but to mislead me a wrong way which may waste a lot of time. If I begin to waste time, things will never make progress let alone done. While if I can be more patient, maybe things is stuck and can hardly make progress, but It’s temprary and I can fix it anyway. Pain is inevitable but never give up, just be patient.<br> Second, <strong>effeciency</strong> is also important. So how to makes my time more effective? Get stuck is very common in coding, maybe the following method can help. </p>
+<ul>
+<li><strong>Let it go</strong> when you have tried for a while, don’t let it inflence your planning. Notice, don’t just let it go like you never see them, write it done and marked as TBD.</li>
+<li>When you counter a problem which is important and <strong>can not passby</strong> and needs a lot of time to solve. How to deal with this kind of problem? Well, this may be difficult to handle, always I allocate 1 day to a certain problem but at the end of day, It is not solved and I would allocate another day, but it couldn’t be done yet and I need more time. So I spend more and more time, often after 3-5 days, My plan is throwed into disorder. A typical problem study can have the following steps:<ul>
+<li>Understanding problem;</li>
+<li>Researching problem;</li>
+<li>Implement problem;</li>
+<li>Summing up problem.<br>I must finish above 4 steps within 2 days(at most 3 days), If I can’t, I must temporary shelving it. I know it hard to let it go, It actually not let it go, just temporary shelving and find a specific time within a month to solve it again.<br>The first two steps can be learn from book, and the implement step is better to refer the website/vedio/book. The last step, summary, is to write down the following 3 steps. </li>
+</ul>
+</li>
+<li><strong>Make a plan</strong><br>Third, <strong>make a deadline</strong> for a book, course, learning-plan, etc<ul>
+<li>Try not to exceed 3 month to finish a course. </li>
+<li>Try not to exceed 1 month to read a whole book(500p) for first time. </li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="Thu-Nov-22-15-52-04-CST-2018"><a href="#Thu-Nov-22-15-52-04-CST-2018" class="headerlink" title="Thu Nov 22 15:52:04 CST 2018"></a>Thu Nov 22 15:52:04 CST 2018</h3><ol>
+<li>3.5H reading book about Divide-and-conquer and Dynamic-Programming in the morning. </li>
+<li>1H read the ppt about Dynamic-Programming. </li>
+<li></li>
+</ol>
+<h3 id="Fri-Nov-23-11-43-11-CST-2018"><a href="#Fri-Nov-23-11-43-11-CST-2018" class="headerlink" title="Fri Nov 23 11:43:11 CST 2018"></a>Fri Nov 23 11:43:11 CST 2018</h3><p>Workflow:</p>
+<ol>
+<li>3H reading book about Greedy algorithm. </li>
+<li>3 leetcodes.   </li>
+</ol>
+<h3 id="Sat-Nov-24-16-58-58-CST-2018"><a href="#Sat-Nov-24-16-58-58-CST-2018" class="headerlink" title="Sat Nov 24 16:58:58 CST 2018"></a>Sat Nov 24 16:58:58 CST 2018</h3><p>Workflow:</p>
+<ol>
+<li>container use:<ul>
+<li>map</li>
+<li>set</li>
+<li>deque</li>
+<li>priority_queue</li>
+<li>list</li>
+<li>forward_list</li>
+</ul>
+</li>
+</ol>
+<h3 id="Tue-Nov-27-08-41-31-CST-2018"><a href="#Tue-Nov-27-08-41-31-CST-2018" class="headerlink" title="Tue Nov 27 08:41:31 CST 2018"></a>Tue Nov 27 08:41:31 CST 2018</h3><p>TaskList:</p>
+<ul>
+<li>[] </li>
+<li>[] 2 leetcode</li>
+<li>[] review learned content  </li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li>运筹学：<ol>
+<li>子方向：线性规划，整数规划，非线性规划，随即规划，随机过程，存储量，博弈论，鲁棒优化，最优控制，等</li>
+<li><strong>运筹学里面更重要的是建模。</strong>换言之，就是现实问题与数学语言是怎么对应的。<ul>
+<li>建模：<ol>
+<li>抓住现实问题的本质，什么才是问题里面最重要的因素</li>
+<li>用最合适的数学语言和它对应</li>
+<li>建立的模型要容易解</li>
+</ol>
+</li>
+<li>明白各种模型适用什么结构的问题，初学的话比如看书/看视频，第一步是，每一章只看前面讲的建模(modeling/formulation)那一节。</li>
+<li>懂得了对具体问题的建模，再拿一个软件解一下模型就可以了。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="Wed-Nov-28-16-37-02-CST-2018"><a href="#Wed-Nov-28-16-37-02-CST-2018" class="headerlink" title="Wed Nov 28 16:37:02 CST 2018"></a>Wed Nov 28 16:37:02 CST 2018</h3><p>workflow:</p>
+<ol>
+<li>5H reading book about algorithm.</li>
+<li></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/LeonLH/leonlh.github.io/2018/11/01/coding-log-backup-CL201811/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zeyuan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="泽远的小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/01/coding-log-backup-CL201811/" itemprop="url">2018年11月编程日志</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-01T00:00:00+08:00">
+                2018-11-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<p>title: 2018年9月编程日志<br>date: 2018-09-01</p>
+<h2 id="tags-CodingLog"><a href="#tags-CodingLog" class="headerlink" title="tags: CodingLog"></a>tags: CodingLog</h2><p>Thu Nov  1 08:35:57 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li>[] 3 leetcode     |##</li>
+<li>[] 2H vbird         |</li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li>Recursion:<ol>
+<li>利用自己的的返回值，把返回值当成是已知变量来操作；</li>
+<li>从思维上要把当前过程当作是整个过程的最后一步，结束当前过程就解决了整个问题。这一点上与iteration的方法有很大不同，iteration是把当前过程当作是整个步骤的中间一步，然后考虑首尾条件进行遍历。</li>
+</ol>
+</li>
+<li>[TBD] Take practice of Tree’s releative operation for more.  </li>
+<li>[TBD] Review code ‘create tree with inorder and preorder’, and Reference others code of the same problem. </li>
+<li>If your train of thought isn’t very clear, Writing down the steps of processing can make you strengthen out a way of thinging.</li>
+<li>[TBD] Review code of ‘good way to levelorder traversal each level’s tree’. Some fundermental mothed like this must be recorded in my code file.</li>
+</ol>
+<p>Fri Nov  2 13:23:34 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li>[] 2 leetcode     |#</li>
+<li>[] 2H vbird        | </li>
+</ul>
+<ol>
+<li>[D] cpp function <code>getline</code>;</li>
+<li>[TBD] When return value is the type of <code>istream&amp;</code>, What does it mean? </li>
+<li>[TBD] How to quickly make comment to cpp with vim? </li>
+<li>[TBD] Test istringstream/ostringstream.</li>
+</ol>
+<p>Sun Nov  4 14:36:57 CST 2018</p>
+<p>Workflow:</p>
+<ol>
+<li>[D] solve the linux’s font’s problem. </li>
+<li>[TBD] Backtracing  </li>
+</ol>
+<p>Mon Nov  5 09:31:23 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li><input checked disabled type="checkbox"> 2 leetcode        |##</li>
+<li>[] 2H vbird </li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li>Mapping keyboard:<ul>
+<li>CapsLock  &lt;—&gt; Ctrl</li>
+</ul>
+</li>
+<li>[TBD] How to try to make one terminal work with multi-tasking?</li>
+<li>[TBD] Do not turn on the <code>syntax</code> when open a markdown file.</li>
+<li>[TBD] 递归算法的数学分析(算法设计于分析基础)</li>
+<li>[TBD] 递归算法的Helper函数如何设置? </li>
+</ol>
+<p>Tue Nov  6 08:39:21 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li><input disabled type="checkbox"> 3 leetcode         |</li>
+<li><input checked disabled type="checkbox"> 2H vbird             |</li>
+<li><input checked disabled type="checkbox"> 30M review </li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li><p>[TBD] How to study with pdf and with more effective? </p>
+<ul>
+<li>software: zathura, okular, evince, etc. </li>
+<li>operations: annotation, navigation, etc.</li>
+</ul>
+</li>
+<li><p>花花绿绿的东西太多了，要学习的东西也太多了，我要想向自己的方向，学习路径，以及近期的计划。</p>
+<ol>
+<li>要学习的东西：<ul>
+<li>语言 Java/Python/CUDA/C++</li>
+<li>硬核 基本算法/ML算法/图论/线性代数/概率</li>
+<li>技术 Opencv/Linux/数据可视化</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>不管怎样都要按照计划一步一步走，鸟哥的书已经有好几天没有看了，这样不行！</p>
+</li>
+<li><p>复习很重要，已经有很多天(两个月？)没有看了，这样也不行，这是一个终身的习惯，要提升到战略高度</p>
+</li>
+<li><p>不管做什么事情，有一个时间基准是很重要的，不然就会<strong>陷入细节</strong>，不知不觉浪费大量时间</p>
+</li>
+</ol>
+<p>Wed Nov  7 08:40:34 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li><input checked disabled type="checkbox"> 2 leetcode    |##</li>
+<li>[] 2H vbird        |H</li>
+<li><input checked disabled type="checkbox"> 30M review</li>
+</ul>
+<p>Time arrangement:</p>
+<ol>
+<li>Sum up the Recursive-Backtracking, The expected cost is 3H at AM. </li>
+<li>2 leetcodes can be arranged in the afternoon. </li>
+<li>Review and vbird in the night.  </li>
+</ol>
+<p>Workflow:</p>
+<ol>
+<li><p>To get ubuntu workspace more than 3:</p>
+<ul>
+<li>3 rows: <code>gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ vsize 3</code></li>
+<li>3 colums: <code>gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ hsize 3</code></li>
+</ul>
+</li>
+<li><p>[TBD] Update envince to have a shortcut for making annotation. </p>
+</li>
+<li><p>[TBD] What typical recursive algorithms are there excluded backtracking? </p>
+</li>
+</ol>
+<p>Thu Nov  8 08:41:31 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li><input disabled type="checkbox"> 3 leetcode     |</li>
+<li><input checked disabled type="checkbox"> 2H vbird</li>
+<li><input checked disabled type="checkbox"> 30M review</li>
+</ul>
+<p>Time arrangement:</p>
+<ol>
+<li>Review the recursive backtracking algorithms, at most 1.5H until 10:30 AM. </li>
+<li>3 leetcode about backtracking, 1.5H for each one. </li>
+<li>Vbird linux and review in the night. </li>
+</ol>
+<p>Workflow:</p>
+<ol>
+<li>我发现：要是一个算法有思路能写出来，两个小时内就会写出来，如果写不出来，花更多的时间（比如6个小时）也是有可能写出来的。但是，更多的情况是，在不正确的道路上浪费时间，方向可能就错了，在这种情况下，就需要及时的找到正确的方向，而不是继续摸索，这样很大程度上很大概率上会继续浪费时间；</li>
+<li>[TBD] What is Dynamic programming? </li>
+<li>First finish the problem which is under middle difficuty, then If you have time, do some hard problem. The basic knowledge is very important, so first make good base. <strong>Don’t get into detials too much!!!</strong> </li>
+<li>[TBD] How to write recursive problems? </li>
+</ol>
+<p>Fri Nov  9 08:36:06 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li><input checked disabled type="checkbox"> Study the thought of recursive algorithms for about two hours. </li>
+<li><input checked disabled type="checkbox"> 2 leetcode about backtracking.</li>
+<li>[] 2H vbird.</li>
+<li>[] 30M review of sort algorithms.</li>
+</ul>
+<p>Time arrangement:</p>
+<ol>
+<li>Each leetcode do not takes more than 3 hours.</li>
+</ol>
+<p>Workflow:</p>
+<ol>
+<li>[TBD] Tomorrow, Reading the wikipage of recursion.</li>
+<li>Gdb can call function of program with <code>p (*int)func1()</code>, It’s very useful during debugging.</li>
+<li>[TBD] to solve the comparision</li>
+<li>[TBD] <a href="https://sourceware.org/gdb/onlinedocs/gdb/Calling.html" target="_blank" rel="noopener">GDB’s call function</a></li>
+<li>[TBD] How to review Code? Searching for some effective method. </li>
+</ol>
+<p>Sat Nov 10 08:39:42 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li>[] sort algorithms </li>
+<li>[] 1 leetcode.</li>
+</ul>
+<p>Time arrangement:</p>
+<ol>
+<li>Wirte all kind of sort algorithms in current knowledge backgroud.It will take 4 hours. </li>
+<li>Finish leetcode in the afternoon about backtracking.</li>
+</ol>
+<p>Workflow:</p>
+<ol>
+<li><p>Set conditional breakpoint in gdb:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">b func</span><br><span class="line">commands</span><br><span class="line">	watch &#123;var1, var2, var3&#125;</span><br><span class="line">	continue</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>About vim, some tips:</p>
+<ol>
+<li>One vim at once, use vim’s tabs for more needs. </li>
+<li>user <code>!command</code> to execute external shell command. Do not come out frequently.  </li>
+</ol>
+</li>
+<li><p>[TBD] RegularExpression Practise, find some practice, and do that for one or two weeks. </p>
+</li>
+</ol>
+<p>Sun Nov 11 08:52:43 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li><input checked disabled type="checkbox"> Reading book and webpages about Divide and Conquer. 3H. Better have some standard model. </li>
+<li><input disabled type="checkbox"> 1 leetcode with Divide and Conquer. </li>
+</ul>
+<p>Time arrangement:</p>
+<ol>
+<li>3H study Divide and Conquer</li>
+<li>Do 1 leetcode for the learned method</li>
+<li>Copy the sort algorithms. </li>
+</ol>
+<p>Workflow:</p>
+<ol>
+<li><p>Build a list about problem unsolved in leetcode respository. This list contain the items which is already studied for couple hours but still have some problems or it have a better method I haven’t learning. Do it when timing is property. </p>
+</li>
+<li><p>关于程序/函数的说明格式，例子如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 递归计算二叉树的高度</span><br><span class="line">// 输入：一颗二叉树T</span><br><span class="line">// 输出：T的高度</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>关于算法的复杂度：</p>
+<ul>
+<li>学会如何分析算法的复杂度很重要，这样能避免Time Limit Exceeded，也能使问题更有效率的解决；</li>
+<li>分析问题的复杂度不仅仅是分析几个基本算法的复杂度，更多的是分析具体问题的复杂度，这往往时在基本算法的基础上额外的增加操作(额外的比较/交换/辅助功能等)</li>
+</ul>
+</li>
+<li><p>[TBD] 解递推关系是什么意思？递推问题的基本形式是什么？</p>
+</li>
+<li><p>各类算法光从理论上理解没有用代码实现一遍，或者用gdb跑一遍理解的透彻，而且不自己实现一遍不知道其中的一些细节的实际作用及其意义。所以，代码还是很重要的。</p>
+</li>
+<li><p>明天读书第二章：算法效率分析基础，以及后面的附录B</p>
+</li>
+</ol>
+<p>Mon Nov 12 08:37:36 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li><input checked disabled type="checkbox"> recursive algorithms in the morning. 3.5H</li>
+<li><input checked disabled type="checkbox"> sort algorighms review. 2.5H</li>
+<li>[] 2H vbird at night.</li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li>Recursive algorithms still need some time. Maybe tomorrow.  </li>
+<li>Find/Make a big data set to test each algorithm’s time complexity.</li>
+<li>Read book, Review code, Write the procedure. 这些是review code的时候该干的事.</li>
+<li>太吵了，无法完全的沉静下来，效率打了七折！ </li>
+<li>对于堆排序/快速排序/归并排序，虽然思想已经明白，但是实现的时候还是会遇到这样那样的问题，或者说不够熟练，多实现几次，多写，手写/敲代码都可以！</li>
+<li>颈椎疼！我要做一年的脖子操，不疼也要做, 晚上睡前做！</li>
+<li>如果努力不在指数的底上，而在多项式的常数项上时，这种努力是低效的，从长远来说，这种努力是对时间的一种浪费。</li>
+</ol>
+<p>Wed Nov 14 12:14:17 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li><input disabled type="checkbox"> 2 leetcode about Divide and Conquer.(in the afternoon)</li>
+<li><input disabled type="checkbox"> 30M about OS</li>
+<li><input disabled type="checkbox"> 2H vbird </li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li><p>Learning Dynamic Programming for 2H.</p>
+</li>
+<li><p>Learning Recurrence for 1.5H. </p>
+</li>
+<li><p>[TBD] Summing up the Divide and Conquer.</p>
+</li>
+<li><p>Comment is the same important as code. Or comment itself is the part of code. Readable is one of the requirment of a good code. So I must practice my English-writen skills. It’s one part of the code, it’s very important.</p>
+</li>
+<li><p>[TBD] 不写注释，自己写的代码自己都看不懂，更别谈别人了。从今天开始，每一份代码都要写注释，用英文写。英语写的能力急需提高。学习如何更好的写注释。</p>
+</li>
+<li><p>复习太重要了，要养成每天复习的终身习惯。</p>
+</li>
+<li><p>每天的复习时间安排在什么时候？早上吗？ML这种长期的计划不应该为短期计划让路吧？晚上？vbird还没有学完！</p>
+</li>
+<li><p>shell script / RegularExpression 这种知识是需要使用，或者练习的，不练习学了之后很快就会忘了，或者就只有一个很淡的印象。与此相关的还有sed/grep/awk, 这些工具的用法也需要进行大量的练习才能学会。</p>
+</li>
+<li><p>关于网站的</p>
+</li>
+<li><p>千头万绪的，需要好好的整理一下思路/日程安排/计划/目标了。</p>
+</li>
+<li><p>Those Ph.Ds also need practice algorithms in leetcode, we can see the important of algorithms to programming. As for me, I need more practice algorithms and make it become the cornerstone of programming. </p>
+</li>
+</ol>
+<h3 id="Thu-Nov-15-07-14-47-CST-2018"><a href="#Thu-Nov-15-07-14-47-CST-2018" class="headerlink" title="Thu Nov 15 07:14:47 CST 2018"></a>Thu Nov 15 07:14:47 CST 2018</h3><p>TakList:</p>
+<ul>
+<li>[] KMP implementation. </li>
+</ul>
+<ol>
+<li><p>[TBD] Think about the relationship of algorithms learning and the leetcode practicing, How to deal with the relationship between the two parties. </p>
+<ul>
+<li>This week, I take the time to read the algorithms book, so the counts of leetcode didn’t increase. </li>
+</ul>
+</li>
+<li><p>[D] How to make each line of date to be a header of md file. In other words, how to add ‘###’ to each line of date with very few operations. Maybe it need to use tool of awk/sed/grep. </p>
+</li>
+<li><p>Always, we are talking about efficiency, but efficiency can not be high at the very beginning, We need to practice to improve it. So be patient, things take time. </p>
+</li>
+<li><p>[TBD] make ycm support c++14 features, for example, variable define sequence more flexibility.</p>
+</li>
+<li><p>[TBD] It’s time to review the key knowledge of c++;</p>
+</li>
+<li><p>Global variable/internal variable/external variable</p>
+<ul>
+<li><p>Global variable</p>
+<ol>
+<li>Variable declared outside of a function are called global variables. Global variables have static duration, which means they are created when the program starts and are destroyed when it ends.</li>
+<li>The global scope operater(::) can be used to tell the compiler you mean the global version instead of the local version. </li>
+</ol>
+</li>
+<li><p>External variable</p>
+<ol>
+<li>A variable with external linkage is called an external varibale. Variables with external linkage can be used both in the file they are defined in, as well as in other files. </li>
+</ol>
+</li>
+<li><p>Internal variable(or static variable)</p>
+<ol>
+<li>A variabel with internal linkage is called an internal variable(or static variable). Variable with internal linkage can be used anywhere within the file they are defined in, but can not be referenced outside the file they exits in.<br><a href="https://www.learncpp.com/cpp-tutorial/42-global-variables/" target="_blank" rel="noopener">Reference</a></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>Variable property: scope, duration, linkage. </p>
+</li>
+<li><p>[TBD] Static Keyword in C++, <a href="https://www.geeksforgeeks.org/static-keyword-cpp/" target="_blank" rel="noopener">Reference</a></p>
+</li>
+</ol>
+<h3 id="Wed-Nov-21-08-38-57-CST-2018"><a href="#Wed-Nov-21-08-38-57-CST-2018" class="headerlink" title="Wed Nov 21 08:38:57 CST 2018"></a>Wed Nov 21 08:38:57 CST 2018</h3><p>TaskList:</p>
+<ul>
+<li>[] </li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li><p>Hard to think peaceful when there is people aroud me, using English feels better and more private. </p>
+</li>
+<li><p>[TBD] markdown real-time preview software. </p>
+</li>
+<li><p>There are too many things to learn, review, practise, summary etc. But time is not infinite, and life is not infinite. There are also too many things which is funny, interesting and beautiful, but life is limited. Time is valuable. So I must take my time to the things more valuable, and I don’t have much time to waste any more.<br> Even thought in the scope of one field, such as Computer Science, There are still many things to study, let alone I need to learn or to know many important feild such as Math, Physics, Ecnomics etc. So how to find where to place myself?<br> First, personally, I think <strong>patient</strong> is most important, anxious can do nothing but to mislead me a wrong way which may waste a lot of time. If I begin to waste time, things will never make progress let alone done. While if I can be more patient, maybe things is stuck and can hardly make progress, but It’s temprary and I can fix it anyway. Pain is inevitable but never give up, just be patient.<br> Second, <strong>effeciency</strong> is also important. So how to makes my time more effective? Get stuck is very common in coding, maybe the following method can help. </p>
+<ul>
+<li><strong>Let it go</strong> when you have tried for a while, don’t let it inflence your planning. Notice, don’t just let it go like you never see them, write it done and marked as TBD.</li>
+<li>When you counter a problem which is important and <strong>can not passby</strong> and needs a lot of time to solve. How to deal with this kind of problem? Well, this may be difficult to handle, always I allocate 1 day to a certain problem but at the end of day, It is not solved and I would allocate another day, but it couldn’t be done yet and I need more time. So I spend more and more time, often after 3-5 days, My plan is throwed into disorder. A typical problem study can have the following steps:<ul>
+<li>Understanding problem;</li>
+<li>Researching problem;</li>
+<li>Implement problem;</li>
+<li>Summing up problem.<br>I must finish above 4 steps within 2 days(at most 3 days), If I can’t, I must temporary shelving it. I know it hard to let it go, It actually not let it go, just temporary shelving and find a specific time within a month to solve it again.<br>The first two steps can be learn from book, and the implement step is better to refer the website/vedio/book. The last step, summary, is to write down the following 3 steps. </li>
+</ul>
+</li>
+<li><strong>Make a plan</strong><br>Third, <strong>make a deadline</strong> for a book, course, learning-plan, etc<ul>
+<li>Try not to exceed 3 month to finish a course. </li>
+<li>Try not to exceed 1 month to read a whole book(500p) for first time. </li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="Thu-Nov-22-15-52-04-CST-2018"><a href="#Thu-Nov-22-15-52-04-CST-2018" class="headerlink" title="Thu Nov 22 15:52:04 CST 2018"></a>Thu Nov 22 15:52:04 CST 2018</h3><ol>
+<li>3.5H reading book about Divide-and-conquer and Dynamic-Programming in the morning. </li>
+<li>1H read the ppt about Dynamic-Programming. </li>
+<li></li>
+</ol>
+<h3 id="Fri-Nov-23-11-43-11-CST-2018"><a href="#Fri-Nov-23-11-43-11-CST-2018" class="headerlink" title="Fri Nov 23 11:43:11 CST 2018"></a>Fri Nov 23 11:43:11 CST 2018</h3><p>Workflow:</p>
+<ol>
+<li>3H reading book about Greedy algorithm. </li>
+<li>3 leetcodes.   </li>
+</ol>
+<h3 id="Sat-Nov-24-16-58-58-CST-2018"><a href="#Sat-Nov-24-16-58-58-CST-2018" class="headerlink" title="Sat Nov 24 16:58:58 CST 2018"></a>Sat Nov 24 16:58:58 CST 2018</h3><p>Workflow:</p>
+<ol>
+<li>container use:<ul>
+<li>map</li>
+<li>set</li>
+<li>deque</li>
+<li>priority_queue</li>
+<li>list</li>
+<li>forward_list</li>
+</ul>
+</li>
+</ol>
+<h3 id="Tue-Nov-27-08-41-31-CST-2018"><a href="#Tue-Nov-27-08-41-31-CST-2018" class="headerlink" title="Tue Nov 27 08:41:31 CST 2018"></a>Tue Nov 27 08:41:31 CST 2018</h3><p>TaskList:</p>
+<ul>
+<li>[] </li>
+<li>[] 2 leetcode</li>
+<li>[] review learned content  </li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li>运筹学：<ol>
+<li>子方向：线性规划，整数规划，非线性规划，随即规划，随机过程，存储量，博弈论，鲁棒优化，最优控制，等</li>
+<li><strong>运筹学里面更重要的是建模。</strong>换言之，就是现实问题与数学语言是怎么对应的。<ul>
+<li>建模：<ol>
+<li>抓住现实问题的本质，什么才是问题里面最重要的因素</li>
+<li>用最合适的数学语言和它对应</li>
+<li>建立的模型要容易解</li>
+</ol>
+</li>
+<li>明白各种模型适用什么结构的问题，初学的话比如看书/看视频，第一步是，每一章只看前面讲的建模(modeling/formulation)那一节。</li>
+<li>懂得了对具体问题的建模，再拿一个软件解一下模型就可以了。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="Wed-Nov-28-16-37-02-CST-2018"><a href="#Wed-Nov-28-16-37-02-CST-2018" class="headerlink" title="Wed Nov 28 16:37:02 CST 2018"></a>Wed Nov 28 16:37:02 CST 2018</h3><p>workflow:</p>
+<ol>
+<li>5H reading book about algorithm.</li>
+<li></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/LeonLH/leonlh.github.io/2018/10/01/coding-log-CL201810/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zeyuan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="泽远的小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/01/coding-log-CL201810/" itemprop="url">2018年10月编程日志</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-01T00:00:00+08:00">
+                2018-10-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>title: 2019年9月编程日志<br>date: 2019-09-06</p>
+<h2 id="tags-CodingLog"><a href="#tags-CodingLog" class="headerlink" title="tags: CodingLog"></a>tags: CodingLog</h2><hr>
+<p>Thu Oct  4 22:16:03 CST 2018</p>
+<ol>
+<li>Usage of Ctags/cscope:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ctags -R 		//build tags of source code, create database</span><br><span class="line">ctrl-]			//This keyboard combination, get into function/member</span><br><span class="line">ctrl-t			//go back tags. opposite above command</span><br><span class="line">:sc 			//cscope command list</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>Fri Oct  5 16:06:27 CST 2018</p>
+<ol>
+<li>Shell script to automaticly mission;<ol>
+<li>Upload CodingLog everyday automaticly if there is newer content;</li>
+<li>Upload leetcode everyday automaticly if there is newer content;</li>
+<li>upload My_CONFIG/ everyday automaticly if there is newer content;</li>
+</ol>
+</li>
+<li></li>
+</ol>
+<p>Sat Oct  6 12:26:24 CST 2018</p>
+<ol>
+<li>Hibernate</li>
+<li>Disable the cdrom</li>
+<li>Swap doesn’t work</li>
+<li>How to make terminal automaticly clear screen?</li>
+<li>Does directory have inode? Or only files have inode, so that can be made a link.  <ol>
+<li>Directory can be made a soft-link, but not sure for hard-link;</li>
+<li>File can be made either soft-link or hard-link;</li>
+</ol>
+</li>
+</ol>
+<p>Mon Oct  8 10:41:39 CST 2018</p>
+<ol>
+<li>[TBD] GDB—pretty-printer </li>
+</ol>
+<p>Tue Oct  9 11:03:17 CST 2018</p>
+<ol>
+<li>x86 CPU have limit to the size of debug register, so limit the size of watchpoint value, such as struct-&gt;val instead of struct;</li>
+<li>Vector&lt;vector<int>&gt; V, vector tmp, when tmp is pushed into V, then change the value of tmp, V will not change;</int></li>
+<li>函数的参数是<code>TreeNode* &amp;p</code>,c++语言特性;</li>
+</ol>
+<p>Wed Oct 10 11:37:43 CST 2018</p>
+<ol>
+<li>一定要注意！的优先级非常高； </li>
+</ol>
+<p>Thu Oct 11 09:33:42 CST 2018</p>
+<ol>
+<li>[D] Markdown nestlist doesn’t support more than 2 levels, how to implement nestlist more than 3 levels. <ul>
+<li>Yes, It doesn’t support muti-nestedlist, but it support muti-indentation.  </li>
+</ul>
+</li>
+<li>Each paragraph should be seperated with a empty line; </li>
+<li>[TBD] Why does GDB aften break down when restart program? </li>
+</ol>
+<p>Fri Oct 12 10:40:34 CST 2018<br>Today’s WorkTarget:</p>
+<ol>
+<li>vbird 2H;</li>
+<li>Write down basic BST operation (including search insert create delete), study ‘How to create an AVL’;</li>
+<li>Leetcode: more than 2 accepts; </li>
+</ol>
+<ol>
+<li>学习《鸟哥》时，先要快速把全书实现一遍，现在的速度感觉有点慢，两天一章，快速高效；</li>
+<li>[TBD] Automatically upload Workspace everyday is more and more important right now; </li>
+<li>[TBD] 语系的问题，现在这个字体看着有点别扭，抽时间修改；</li>
+<li>[TBD] Vim <f7> compile, <f8>compile and run. </f8></f7></li>
+</ol>
+<p>Sat Oct 13 11:37:43 CST 2018<br>Today’s Plan:</p>
+<ol>
+<li>vbird 2H;</li>
+<li>Refact BST code and AVL code, then them down;</li>
+<li>2 leetcodes;</li>
+</ol>
+<p>Workflow:</p>
+<ol>
+<li><p>How to save a file as other name and stay in current file in vim? </p>
+<ul>
+<li>Just type <code>:w filename</code> ;</li>
+<li><code>:save filename</code> will save and GoTo that file;</li>
+<li>NOTE: BOTH above command will NOT save changes into current file. So if you want save content into current file, typw “:w” before above command;</li>
+</ul>
+</li>
+<li><p>Vimium Using tricky:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ma 		//set mark a/A(global mark)</span><br><span class="line">`a		//go to mark a/A(global mark)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>[TBD] How to display the difference of code with git? </p>
+</li>
+<li><p>Write with pen is too slow compared to typing code, So just write dwon some key code and typing code often to practice. </p>
+</li>
+</ol>
+<p>Sun Oct 14 08:44:27 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li><input checked disabled type="checkbox"> vbird 2H</li>
+<li><input disabled type="checkbox"> practice BST and AVL one time</li>
+<li><input disabled type="checkbox"> 1 leetcode</li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li>Markdown TaskList: <code>- [ ] TaskTodo</code> and <code>- [x] TaskDone</code>;</li>
+<li>Git commmits should in best practice be fairly atomic and effect few files;</li>
+<li>If you want something to be done each time you restart computer, you need to write something in <code>~/.bashrc</code>;</li>
+<li>[TBD] 搜狗输入法的安装，由于需要重启，等我学完脚本的书写，能够自动化一系列开机流程后，再进行安装；</li>
+<li>还是相当的不熟练，还是要多敲，只有敲才能发现问题，问题还是有很多的；</li>
+<li>Can’t make use of mytime effectively, think about how to make good use of time. </li>
+</ol>
+<p>Mon Oct 15 08:38:28 CST 2018<br>TaskList:</p>
+<ul>
+<li><input checked disabled type="checkbox"> vbird 2H</li>
+<li><input checked disabled type="checkbox"> finish last day’s practice</li>
+<li><input checked disabled type="checkbox"> 1 leetcode</li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li>Find a new way to navigate to last day’s working place:<ul>
+<li>Using vimium’s mark, just set the mark <code>mL</code> and second day, I want to get the last place, then I should type `L FOR TWICE(first to get the page and second to get the place) to get to the place; </li>
+</ul>
+</li>
+<li>Using `` to get to the last place where it isn’t by j/k/gg/G/;</li>
+<li><code>if; else</code> &amp;&amp; <code>if; if</code><ul>
+<li><code>if; else if; else if; else</code> 有点类似于分支语句，前述四个分支只 按顺序选取一个进入，后面的即使有满足条件的也不进入。所以else if使用的时候，要从全集开始一步一步分割，最后直到分割完成，后者剩下一些（此时没有最后一个else）。它适合于，四种情况，只有一种情况才能发生，就用elseif来分割。</li>
+<li><code>if; if; if; if;</code> 有点顺序逻辑，判断执行完第一个if还要判断执行第二个。它适合于各个条件都需要判断，即四种情况可能同时发生几种。</li>
+</ul>
+</li>
+<li>In order to easily debug using gdb, so don’t define variable in the forloop. I know maybe It’s best for some reason to define in the forloop, but before I find a batter way to debug in this situation, Don’t use this way;   </li>
+<li>[TBD] Find a effective procedure to write program. Reading realitive books;  <ul>
+<li>First, write down the steps of the implementation; </li>
+<li>Second, write down the test main and test data; </li>
+</ul>
+</li>
+<li>One directory exclude some files: <code>!(filename)</code></li>
+</ol>
+<p>Tue Oct 16 08:35:28 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li><input disabled type="checkbox"> 2H vbird</li>
+<li><input disabled type="checkbox"> Search algorithms study</li>
+<li><input disabled type="checkbox"> 2 leetcode</li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li><p>[Already take 8H unfinished] .vimrc’s <code>,sv</code> doesn’t work;</p>
+<ol>
+<li>Inorder to remove stuff, the easiest way is to simply quit vim and restart it;</li>
+<li>Alternatively, you should explicit remove the stuff from the runtime model; for most stuff, there are corresponding negating commands:<ul>
+<li>The inverse of <code>:map</code> is <code>:unmap</code>, The inverse of <code>:iabbrev @@</code> is <code>:iunabbrev @@</code>;</li>
+<li>There’s <code>:command</code> and <code>delcommand</code>;</li>
+<li><code>autocmd</code> can be removed via <code>:autocmd!</code>, this can only effect in the <strong>future</strong> buffers. If I want make it effect, I want type <code>:nunmap &lt;buffer&gt; &lt;F8&gt;</code>;</li>
+</ul>
+</li>
+<li>It waste too much time!</li>
+</ol>
+</li>
+<li><p>[TBD] Rewriting myown .vimrc file, make sure each item can be understood. </p>
+</li>
+<li><p>看着鸟哥看着看着就去研究.vimrc了，然后大概研究了两个小时左右，返回来再看鸟哥的时候，感觉就有点不在状态了，然后就转而去思考网页的鸟哥的不好的地方，就在想自己的那本书，然后就转去看关于书籍装订的东东了。就这样，大概今天上午浪费了三个小时（一共才三个半小时）；</p>
+</li>
+<li><p>在图书馆还是不能靠椅子的背，刚开始靠以下没有什么问题，可是靠着靠着，精神就几种不起来了，然后就慢慢瘫到到后面去了。所以，为了此种现象的不再发生，同时也要养成一个终身的好习惯：禁止靠椅子背，强化背部肌肉，收紧下巴；</p>
+</li>
+<li><p>[TBD] 关于《鸟哥》，每天上午看它的效率有点太低了，如何能有效提高？<br> * </p>
+</li>
+<li><p>Append a line to leetcode repository’s README.md: <code>&gt;&gt;</code> </p>
+</li>
+</ol>
+<p>Wed Oct 17 08:36:19 CST 2018</p>
+<p>TackList:</p>
+<ul>
+<li><input disabled type="checkbox"> 2H vbird, complete Chap.10; </li>
+<li><input disabled type="checkbox"> Searching algorithms study, 3 method, if time is not enough, do it in the night; </li>
+<li><input disabled type="checkbox"> 3 leetcode  </li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li>Effective input in bash<ul>
+<li><code>&lt;C-a&gt;</code> Get to the first character of cmd line.</li>
+<li><code>&lt;C-j&gt;</code> Go forward by character.</li>
+<li><code>&lt;C-w&gt;</code> Delete backward by a word.</li>
+<li><code>&lt;C-e&gt;</code> Go to the end of cmd line.</li>
+<li><code>&lt;C-u&gt;</code> Delete the whole thing before cursor. </li>
+</ul>
+</li>
+</ol>
+<p>Fri Oct 19 08:38:09 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li><input checked disabled type="checkbox"> 2H vbird</li>
+<li><input checked disabled type="checkbox"> 2 leetcode</li>
+<li><input disabled type="checkbox"> Study search algorithms</li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li>[D] How to get program’s running time.  <ul>
+<li>time command</li>
+</ul>
+</li>
+<li>[TBD] How to test the vps’s connection.<ol>
+<li>主机信息测试：<ul>
+<li>wget -q0- bench.sh | bash </li>
+<li>或者 curl -Lso- bench.sh |bash</li>
+</ul>
+</li>
+<li>主机与客户端之间的网速：iperf3<ul>
+<li>Server: iperf3 -s</li>
+<li>Client: iperf3 -c x.x.x.x</li>
+<li>NOTE: Must open the relative port. </li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<p>Sat Oct 20 08:39:39 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li><input checked disabled type="checkbox"> 2H vbird</li>
+<li><input disabled type="checkbox"> 2 leetcode</li>
+<li><input disabled type="checkbox"> Writing Searching algorithms</li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li>[TBD] Learn the basic usage of REX and find some exercises to practise to make me master it to a very high level. </li>
+<li>[TBD] How to substitute multiple blank to one blank with a simple command or Rex. </li>
+<li>[TBD] How to formulate the source code, especially when I copy some code from website? </li>
+<li>[TBD] Using Pointer Method OR Struct Method, How to choice? What advantages for both? </li>
+</ol>
+<p>Sun Oct 21 08:37:20 CST 2018<br>TaskList:</p>
+<ul>
+<li><input checked disabled type="checkbox"> 2H vbird</li>
+<li>[] 2 leetcode</li>
+<li>[] Sorting algorithms</li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li>[TBD] Can struct be compared without have the operand == ?<ul>
+<li>No, It can’t, We must customize operand == ;</li>
+<li>[TBD] How to define a function of operand == for struct or class? </li>
+<li>Assignement operand = works without customize. </li>
+</ul>
+</li>
+<li>I will code in the morning, and learn linux in the afternoon. Maybe My coding could be more effective this way. Because my brain seems inactive afternoon, and I can hardly focusing on coding. The leetcode is so important that I must put most of my time and energy to it. Come on guys, You can do it. </li>
+<li>[TBD] How to disable vim’s cursor blink?<ul>
+<li>It’s not about vim, It’s about terminal’s setting, Using the following method in terminal to disable the cursor blink:<ul>
+<li>gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$(gsettings get org.gnome.Terminal.ProfilesList default|tr -d &#39;)/ cursor-blink-mode off</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>Mon Oct 22 17:13:40 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li>[] 2 leetcode;</li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li>[TBD] Practise using c++ sort;</li>
+</ol>
+<p>Tue Oct 23 08:38:56 CST 2018<br>TaskList:</p>
+<ul>
+<li><input checked disabled type="checkbox"> Three kind of sort including insert, swap, select;</li>
+<li><input checked disabled type="checkbox"> 2H vbird;</li>
+<li><input disabled type="checkbox"> 2 leetcode;</li>
+</ul>
+<p>workflow:</p>
+<ol>
+<li>[TBD] Using <code>forloop</code> or <code>while</code> in cpp? How to make a choice?  </li>
+<li>Writing in English is important to me, I must practice more and more to improve this skill. I should try to writing with English as much as possible; </li>
+<li>[TBD] How to use sentinel in the 0-beginning array? </li>
+<li>If I don’t have thought of problem solving or stuck with something, The next thing I should do is using gdb to run the program, and find some clue. </li>
+<li></li>
+</ol>
+<p>Wed Oct 24 07:51:09 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li><input checked disabled type="checkbox"> Coding yesterday’s work and get familiar with it. </li>
+<li><input disabled type="checkbox"> 2 leetcode.</li>
+<li><input checked disabled type="checkbox"> 2H vbird. </li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li>Open pdf in terminal <code>gvfs-open filename</code>;</li>
+<li>Which is more scientific? First writing big function or first writing small function? I prefer big function. Big function is helpful to clear the steps of problem solving. First wirting out the bigger function could be more efficient. Small function can be verified by test function. </li>
+<li>[TBD] stringstream, Input and output string stream. To be read!</li>
+<li>[TBD] How to set C++ program’s argument in terminal command line? </li>
+<li>[TBD] leetcode repository refactor. </li>
+</ol>
+<p>Thu Oct 25 07:00:20 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li><input checked disabled type="checkbox"> 3 leetcode | ###</li>
+<li><input checked disabled type="checkbox"> 2H vbird</li>
+<li><input disabled type="checkbox"> study textbook of chapter sort</li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li>[TBD] Make a alias cdls, which means change directory and list files. </li>
+<li>[TBD] Make cursor blink option in .bashrc</li>
+<li>[TBD] Cpp function stringstream or input/output. </li>
+<li>[TBD] Array subscript is char</li>
+<li></li>
+</ol>
+<p>Fri Oct 26 08:38:41 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li><input disabled type="checkbox"> 3 leetcode | ##</li>
+<li><input checked disabled type="checkbox"> 2H vbird</li>
+<li><input checked disabled type="checkbox"> study textbook of chapter sort</li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li>main’s arguments argc and argv? <ul>
+<li>argv is always a type of <code>char**</code>, so all the value passed into main is a char string, If we want other kind of value, we should transfer ourselves. </li>
+<li>How to pass the int and string to main() from command line? </li>
+</ul>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;cstdlib&gt;</span><br><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;string&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main(int argc, char** argv)&#123;</span><br><span class="line"></span><br><span class="line">	cout &lt;&lt; argc &lt;&lt; endl;</span><br><span class="line">	// Using forloop to print</span><br><span class="line">	for(int i = 0; i &lt; argc; ++i)&#123;</span><br><span class="line">		cout &lt;&lt; &quot;argv[&quot; &lt;&lt; i &lt;&lt; &quot;]: &quot;; </span><br><span class="line">		for(int j=0; argv[i][j] != 0; ++j)</span><br><span class="line">			cout &lt;&lt; argv[i][j] ;</span><br><span class="line">		cout &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	// Using c &lt;cstdlib&gt;</span><br><span class="line">	int n;</span><br><span class="line">	if(argc &gt; 1)&#123;</span><br><span class="line">		n = atoi(argv[1]);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	// Using c++ &lt;string&gt;</span><br><span class="line">	for(int i = 1; i &lt; argc; ++i)&#123;</span><br><span class="line">		cout &lt;&lt; &quot;argv[&quot; &lt;&lt; i &lt;&lt; &quot;]: &quot;; </span><br><span class="line">		cout &lt;&lt; stoi(argv[i]);</span><br><span class="line">		cout &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>stringstream: | &lt;&lt; | .str() |</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;sstream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()&#123;</span><br><span class="line">	stringstream ss;</span><br><span class="line">	string str = &quot;Hello world!&quot;;</span><br><span class="line">	ss &lt;&lt; str;</span><br><span class="line">	cout &lt;&lt; ss.str() &lt;&lt; endl;</span><br><span class="line">	// &lt;&lt; append string to orignal string</span><br><span class="line">	ss &lt;&lt; &quot; Nice to meet you! &quot;;	</span><br><span class="line">	cout &lt;&lt; ss.str() &lt;&lt; endl;</span><br><span class="line">	// ss.str() can set/get ss</span><br><span class="line">	ss.str(&quot;What a wonderful world! &quot;);</span><br><span class="line">	cout &lt;&lt; ss.str() &lt;&lt; endl;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p>[TBD] <a href="https://github.com/haoel/leetcode/blob/master/algorithms/cpp/sortList/sortList.cpp">#148 sortList</a> review</p>
+</li>
+<li><p>[TBD] Adding a level header at each day’s beginning. </p>
+</li>
+<li><p>[TBD] BIT: Binary Indexed Tree. leetcode #315</p>
+</li>
+</ol>
+<p>Sat Oct 27 08:42:05 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li><input disabled type="checkbox"> 2 leetcode</li>
+<li><input disabled type="checkbox"> 2H vbird</li>
+<li><input disabled type="checkbox"> implement mergeSort</li>
+<li><input checked disabled type="checkbox"> review heapSort</li>
+<li><input checked disabled type="checkbox"> review BST</li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li>如果程序运行的结果不符合预期，debug的时候顺着结果走一遍，就可以定位到出错的地方；</li>
+<li>Refactor BST’s delete;  </li>
+<li>sudo apt-get install mupdf<br>E: Could not get lock /var/lib/dpkg/lock - open (11: Resource temporarily unavailable)<br>E: Unable to lock the administration directory (/var/lib/dpkg/), is another process using it?</li>
+</ol>
+<p>Sun Oct 28 09:07:25 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li><input disabled type="checkbox"> 2 leetcode</li>
+<li><input disabled type="checkbox"> 2H vbird</li>
+<li><input checked disabled type="checkbox"> implement mergeSort</li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li>[D] vim-like pdf viewer: zathura &amp; apvlv. </li>
+<li>[D] definition and declaration</li>
+</ol>
+<p>Tue Oct 30 08:43:59 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li>[] 3 leetcode | #</li>
+<li>[] 2H vbird</li>
+<li>[] reading text book</li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li>command ln cannot be used in the file g++ will genarate, because g++ compile the file and genarate a new file, and then replace the old one, NOT modify the file as I expected. </li>
+<li>[TBD] How to modify source and make it effective during debug? </li>
+<li>[TBD] Is it right tui will not mess up when using printf to output a line return? —&gt; It will still turns it will mess up. Can I try the version of Grew’s using in the youtube?  </li>
+<li>Linked-list’s bounder would better to using nullptr, but one’s next node, because If we use pointer to operate content, one’s next will be changed, and we still think the node unchanged is bounder. Thus the bug will come. </li>
+<li>[D] leetcode daily coding table. </li>
+<li>[TBD] grep, sed, awk should practice for more. </li>
+<li>[D] Refactor the directory. </li>
+<li>[TBD] How to quickly make gdb run a circle of program? </li>
+</ol>
+<p>Wed Oct 31 08:35:07 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li><input checked disabled type="checkbox"> 3 leetcode    |####</li>
+<li><input disabled type="checkbox"> 2H vbird        |Hn</li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li>Deep copy and Swallow copy:<ul>
+<li>Deep copy is copy the pointer’s value, and have a different address, so we can change the value but not infuent other pointer’s value.    * Swallow copy is copy the value’s address, If we change the value, other pointer’s value also be changed, it can make sure the value is alway updated. </li>
+</ul>
+</li>
+<li>date –date=1225 [+FORMAT]: output 25th Oct as the format of [+FORMAT];</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/LeonLH/leonlh.github.io/2018/10/01/coding-log-backup-CL201810/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zeyuan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="泽远的小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/01/coding-log-backup-CL201810/" itemprop="url">2018年10月编程日志</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-01T00:00:00+08:00">
+                2018-10-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>title: 2019年9月编程日志<br>date: 2019-09-06</p>
+<h2 id="tags-CodingLog"><a href="#tags-CodingLog" class="headerlink" title="tags: CodingLog"></a>tags: CodingLog</h2><hr>
+<p>Thu Oct  4 22:16:03 CST 2018</p>
+<ol>
+<li>Usage of Ctags/cscope:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ctags -R 		//build tags of source code, create database</span><br><span class="line">ctrl-]			//This keyboard combination, get into function/member</span><br><span class="line">ctrl-t			//go back tags. opposite above command</span><br><span class="line">:sc 			//cscope command list</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>Fri Oct  5 16:06:27 CST 2018</p>
+<ol>
+<li>Shell script to automaticly mission;<ol>
+<li>Upload CodingLog everyday automaticly if there is newer content;</li>
+<li>Upload leetcode everyday automaticly if there is newer content;</li>
+<li>upload My_CONFIG/ everyday automaticly if there is newer content;</li>
+</ol>
+</li>
+<li></li>
+</ol>
+<p>Sat Oct  6 12:26:24 CST 2018</p>
+<ol>
+<li>Hibernate</li>
+<li>Disable the cdrom</li>
+<li>Swap doesn’t work</li>
+<li>How to make terminal automaticly clear screen?</li>
+<li>Does directory have inode? Or only files have inode, so that can be made a link.  <ol>
+<li>Directory can be made a soft-link, but not sure for hard-link;</li>
+<li>File can be made either soft-link or hard-link;</li>
+</ol>
+</li>
+</ol>
+<p>Mon Oct  8 10:41:39 CST 2018</p>
+<ol>
+<li>[TBD] GDB—pretty-printer </li>
+</ol>
+<p>Tue Oct  9 11:03:17 CST 2018</p>
+<ol>
+<li>x86 CPU have limit to the size of debug register, so limit the size of watchpoint value, such as struct-&gt;val instead of struct;</li>
+<li>Vector&lt;vector<int>&gt; V, vector tmp, when tmp is pushed into V, then change the value of tmp, V will not change;</int></li>
+<li>函数的参数是<code>TreeNode* &amp;p</code>,c++语言特性;</li>
+</ol>
+<p>Wed Oct 10 11:37:43 CST 2018</p>
+<ol>
+<li>一定要注意！的优先级非常高； </li>
+</ol>
+<p>Thu Oct 11 09:33:42 CST 2018</p>
+<ol>
+<li>[D] Markdown nestlist doesn’t support more than 2 levels, how to implement nestlist more than 3 levels. <ul>
+<li>Yes, It doesn’t support muti-nestedlist, but it support muti-indentation.  </li>
+</ul>
+</li>
+<li>Each paragraph should be seperated with a empty line; </li>
+<li>[TBD] Why does GDB aften break down when restart program? </li>
+</ol>
+<p>Fri Oct 12 10:40:34 CST 2018<br>Today’s WorkTarget:</p>
+<ol>
+<li>vbird 2H;</li>
+<li>Write down basic BST operation (including search insert create delete), study ‘How to create an AVL’;</li>
+<li>Leetcode: more than 2 accepts; </li>
+</ol>
+<ol>
+<li>学习《鸟哥》时，先要快速把全书实现一遍，现在的速度感觉有点慢，两天一章，快速高效；</li>
+<li>[TBD] Automatically upload Workspace everyday is more and more important right now; </li>
+<li>[TBD] 语系的问题，现在这个字体看着有点别扭，抽时间修改；</li>
+<li>[TBD] Vim <f7> compile, <f8>compile and run. </f8></f7></li>
+</ol>
+<p>Sat Oct 13 11:37:43 CST 2018<br>Today’s Plan:</p>
+<ol>
+<li>vbird 2H;</li>
+<li>Refact BST code and AVL code, then them down;</li>
+<li>2 leetcodes;</li>
+</ol>
+<p>Workflow:</p>
+<ol>
+<li><p>How to save a file as other name and stay in current file in vim? </p>
+<ul>
+<li>Just type <code>:w filename</code> ;</li>
+<li><code>:save filename</code> will save and GoTo that file;</li>
+<li>NOTE: BOTH above command will NOT save changes into current file. So if you want save content into current file, typw “:w” before above command;</li>
+</ul>
+</li>
+<li><p>Vimium Using tricky:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ma 		//set mark a/A(global mark)</span><br><span class="line">`a		//go to mark a/A(global mark)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>[TBD] How to display the difference of code with git? </p>
+</li>
+<li><p>Write with pen is too slow compared to typing code, So just write dwon some key code and typing code often to practice. </p>
+</li>
+</ol>
+<p>Sun Oct 14 08:44:27 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li><input checked disabled type="checkbox"> vbird 2H</li>
+<li><input disabled type="checkbox"> practice BST and AVL one time</li>
+<li><input disabled type="checkbox"> 1 leetcode</li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li>Markdown TaskList: <code>- [ ] TaskTodo</code> and <code>- [x] TaskDone</code>;</li>
+<li>Git commmits should in best practice be fairly atomic and effect few files;</li>
+<li>If you want something to be done each time you restart computer, you need to write something in <code>~/.bashrc</code>;</li>
+<li>[TBD] 搜狗输入法的安装，由于需要重启，等我学完脚本的书写，能够自动化一系列开机流程后，再进行安装；</li>
+<li>还是相当的不熟练，还是要多敲，只有敲才能发现问题，问题还是有很多的；</li>
+<li>Can’t make use of mytime effectively, think about how to make good use of time. </li>
+</ol>
+<p>Mon Oct 15 08:38:28 CST 2018<br>TaskList:</p>
+<ul>
+<li><input checked disabled type="checkbox"> vbird 2H</li>
+<li><input checked disabled type="checkbox"> finish last day’s practice</li>
+<li><input checked disabled type="checkbox"> 1 leetcode</li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li>Find a new way to navigate to last day’s working place:<ul>
+<li>Using vimium’s mark, just set the mark <code>mL</code> and second day, I want to get the last place, then I should type `L FOR TWICE(first to get the page and second to get the place) to get to the place; </li>
+</ul>
+</li>
+<li>Using `` to get to the last place where it isn’t by j/k/gg/G/;</li>
+<li><code>if; else</code> &amp;&amp; <code>if; if</code><ul>
+<li><code>if; else if; else if; else</code> 有点类似于分支语句，前述四个分支只 按顺序选取一个进入，后面的即使有满足条件的也不进入。所以else if使用的时候，要从全集开始一步一步分割，最后直到分割完成，后者剩下一些（此时没有最后一个else）。它适合于，四种情况，只有一种情况才能发生，就用elseif来分割。</li>
+<li><code>if; if; if; if;</code> 有点顺序逻辑，判断执行完第一个if还要判断执行第二个。它适合于各个条件都需要判断，即四种情况可能同时发生几种。</li>
+</ul>
+</li>
+<li>In order to easily debug using gdb, so don’t define variable in the forloop. I know maybe It’s best for some reason to define in the forloop, but before I find a batter way to debug in this situation, Don’t use this way;   </li>
+<li>[TBD] Find a effective procedure to write program. Reading realitive books;  <ul>
+<li>First, write down the steps of the implementation; </li>
+<li>Second, write down the test main and test data; </li>
+</ul>
+</li>
+<li>One directory exclude some files: <code>!(filename)</code></li>
+</ol>
+<p>Tue Oct 16 08:35:28 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li><input disabled type="checkbox"> 2H vbird</li>
+<li><input disabled type="checkbox"> Search algorithms study</li>
+<li><input disabled type="checkbox"> 2 leetcode</li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li><p>[Already take 8H unfinished] .vimrc’s <code>,sv</code> doesn’t work;</p>
+<ol>
+<li>Inorder to remove stuff, the easiest way is to simply quit vim and restart it;</li>
+<li>Alternatively, you should explicit remove the stuff from the runtime model; for most stuff, there are corresponding negating commands:<ul>
+<li>The inverse of <code>:map</code> is <code>:unmap</code>, The inverse of <code>:iabbrev @@</code> is <code>:iunabbrev @@</code>;</li>
+<li>There’s <code>:command</code> and <code>delcommand</code>;</li>
+<li><code>autocmd</code> can be removed via <code>:autocmd!</code>, this can only effect in the <strong>future</strong> buffers. If I want make it effect, I want type <code>:nunmap &lt;buffer&gt; &lt;F8&gt;</code>;</li>
+</ul>
+</li>
+<li>It waste too much time!</li>
+</ol>
+</li>
+<li><p>[TBD] Rewriting myown .vimrc file, make sure each item can be understood. </p>
+</li>
+<li><p>看着鸟哥看着看着就去研究.vimrc了，然后大概研究了两个小时左右，返回来再看鸟哥的时候，感觉就有点不在状态了，然后就转而去思考网页的鸟哥的不好的地方，就在想自己的那本书，然后就转去看关于书籍装订的东东了。就这样，大概今天上午浪费了三个小时（一共才三个半小时）；</p>
+</li>
+<li><p>在图书馆还是不能靠椅子的背，刚开始靠以下没有什么问题，可是靠着靠着，精神就几种不起来了，然后就慢慢瘫到到后面去了。所以，为了此种现象的不再发生，同时也要养成一个终身的好习惯：禁止靠椅子背，强化背部肌肉，收紧下巴；</p>
+</li>
+<li><p>[TBD] 关于《鸟哥》，每天上午看它的效率有点太低了，如何能有效提高？<br> * </p>
+</li>
+<li><p>Append a line to leetcode repository’s README.md: <code>&gt;&gt;</code> </p>
+</li>
+</ol>
+<p>Wed Oct 17 08:36:19 CST 2018</p>
+<p>TackList:</p>
+<ul>
+<li><input disabled type="checkbox"> 2H vbird, complete Chap.10; </li>
+<li><input disabled type="checkbox"> Searching algorithms study, 3 method, if time is not enough, do it in the night; </li>
+<li><input disabled type="checkbox"> 3 leetcode  </li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li>Effective input in bash<ul>
+<li><code>&lt;C-a&gt;</code> Get to the first character of cmd line.</li>
+<li><code>&lt;C-j&gt;</code> Go forward by character.</li>
+<li><code>&lt;C-w&gt;</code> Delete backward by a word.</li>
+<li><code>&lt;C-e&gt;</code> Go to the end of cmd line.</li>
+<li><code>&lt;C-u&gt;</code> Delete the whole thing before cursor. </li>
+</ul>
+</li>
+</ol>
+<p>Fri Oct 19 08:38:09 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li><input checked disabled type="checkbox"> 2H vbird</li>
+<li><input checked disabled type="checkbox"> 2 leetcode</li>
+<li><input disabled type="checkbox"> Study search algorithms</li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li>[D] How to get program’s running time.  <ul>
+<li>time command</li>
+</ul>
+</li>
+<li>[TBD] How to test the vps’s connection.<ol>
+<li>主机信息测试：<ul>
+<li>wget -q0- bench.sh | bash </li>
+<li>或者 curl -Lso- bench.sh |bash</li>
+</ul>
+</li>
+<li>主机与客户端之间的网速：iperf3<ul>
+<li>Server: iperf3 -s</li>
+<li>Client: iperf3 -c x.x.x.x</li>
+<li>NOTE: Must open the relative port. </li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<p>Sat Oct 20 08:39:39 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li><input checked disabled type="checkbox"> 2H vbird</li>
+<li><input disabled type="checkbox"> 2 leetcode</li>
+<li><input disabled type="checkbox"> Writing Searching algorithms</li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li>[TBD] Learn the basic usage of REX and find some exercises to practise to make me master it to a very high level. </li>
+<li>[TBD] How to substitute multiple blank to one blank with a simple command or Rex. </li>
+<li>[TBD] How to formulate the source code, especially when I copy some code from website? </li>
+<li>[TBD] Using Pointer Method OR Struct Method, How to choice? What advantages for both? </li>
+</ol>
+<p>Sun Oct 21 08:37:20 CST 2018<br>TaskList:</p>
+<ul>
+<li><input checked disabled type="checkbox"> 2H vbird</li>
+<li>[] 2 leetcode</li>
+<li>[] Sorting algorithms</li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li>[TBD] Can struct be compared without have the operand == ?<ul>
+<li>No, It can’t, We must customize operand == ;</li>
+<li>[TBD] How to define a function of operand == for struct or class? </li>
+<li>Assignement operand = works without customize. </li>
+</ul>
+</li>
+<li>I will code in the morning, and learn linux in the afternoon. Maybe My coding could be more effective this way. Because my brain seems inactive afternoon, and I can hardly focusing on coding. The leetcode is so important that I must put most of my time and energy to it. Come on guys, You can do it. </li>
+<li>[TBD] How to disable vim’s cursor blink?<ul>
+<li>It’s not about vim, It’s about terminal’s setting, Using the following method in terminal to disable the cursor blink:<ul>
+<li>gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$(gsettings get org.gnome.Terminal.ProfilesList default|tr -d &#39;)/ cursor-blink-mode off</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>Mon Oct 22 17:13:40 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li>[] 2 leetcode;</li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li>[TBD] Practise using c++ sort;</li>
+</ol>
+<p>Tue Oct 23 08:38:56 CST 2018<br>TaskList:</p>
+<ul>
+<li><input checked disabled type="checkbox"> Three kind of sort including insert, swap, select;</li>
+<li><input checked disabled type="checkbox"> 2H vbird;</li>
+<li><input disabled type="checkbox"> 2 leetcode;</li>
+</ul>
+<p>workflow:</p>
+<ol>
+<li>[TBD] Using <code>forloop</code> or <code>while</code> in cpp? How to make a choice?  </li>
+<li>Writing in English is important to me, I must practice more and more to improve this skill. I should try to writing with English as much as possible; </li>
+<li>[TBD] How to use sentinel in the 0-beginning array? </li>
+<li>If I don’t have thought of problem solving or stuck with something, The next thing I should do is using gdb to run the program, and find some clue. </li>
+<li></li>
+</ol>
+<p>Wed Oct 24 07:51:09 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li><input checked disabled type="checkbox"> Coding yesterday’s work and get familiar with it. </li>
+<li><input disabled type="checkbox"> 2 leetcode.</li>
+<li><input checked disabled type="checkbox"> 2H vbird. </li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li>Open pdf in terminal <code>gvfs-open filename</code>;</li>
+<li>Which is more scientific? First writing big function or first writing small function? I prefer big function. Big function is helpful to clear the steps of problem solving. First wirting out the bigger function could be more efficient. Small function can be verified by test function. </li>
+<li>[TBD] stringstream, Input and output string stream. To be read!</li>
+<li>[TBD] How to set C++ program’s argument in terminal command line? </li>
+<li>[TBD] leetcode repository refactor. </li>
+</ol>
+<p>Thu Oct 25 07:00:20 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li><input checked disabled type="checkbox"> 3 leetcode | ###</li>
+<li><input checked disabled type="checkbox"> 2H vbird</li>
+<li><input disabled type="checkbox"> study textbook of chapter sort</li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li>[TBD] Make a alias cdls, which means change directory and list files. </li>
+<li>[TBD] Make cursor blink option in .bashrc</li>
+<li>[TBD] Cpp function stringstream or input/output. </li>
+<li>[TBD] Array subscript is char</li>
+<li></li>
+</ol>
+<p>Fri Oct 26 08:38:41 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li><input disabled type="checkbox"> 3 leetcode | ##</li>
+<li><input checked disabled type="checkbox"> 2H vbird</li>
+<li><input checked disabled type="checkbox"> study textbook of chapter sort</li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li>main’s arguments argc and argv? <ul>
+<li>argv is always a type of <code>char**</code>, so all the value passed into main is a char string, If we want other kind of value, we should transfer ourselves. </li>
+<li>How to pass the int and string to main() from command line? </li>
+</ul>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;cstdlib&gt;</span><br><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;string&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main(int argc, char** argv)&#123;</span><br><span class="line"></span><br><span class="line">	cout &lt;&lt; argc &lt;&lt; endl;</span><br><span class="line">	// Using forloop to print</span><br><span class="line">	for(int i = 0; i &lt; argc; ++i)&#123;</span><br><span class="line">		cout &lt;&lt; &quot;argv[&quot; &lt;&lt; i &lt;&lt; &quot;]: &quot;; </span><br><span class="line">		for(int j=0; argv[i][j] != 0; ++j)</span><br><span class="line">			cout &lt;&lt; argv[i][j] ;</span><br><span class="line">		cout &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	// Using c &lt;cstdlib&gt;</span><br><span class="line">	int n;</span><br><span class="line">	if(argc &gt; 1)&#123;</span><br><span class="line">		n = atoi(argv[1]);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	// Using c++ &lt;string&gt;</span><br><span class="line">	for(int i = 1; i &lt; argc; ++i)&#123;</span><br><span class="line">		cout &lt;&lt; &quot;argv[&quot; &lt;&lt; i &lt;&lt; &quot;]: &quot;; </span><br><span class="line">		cout &lt;&lt; stoi(argv[i]);</span><br><span class="line">		cout &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>stringstream: | &lt;&lt; | .str() |</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;sstream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()&#123;</span><br><span class="line">	stringstream ss;</span><br><span class="line">	string str = &quot;Hello world!&quot;;</span><br><span class="line">	ss &lt;&lt; str;</span><br><span class="line">	cout &lt;&lt; ss.str() &lt;&lt; endl;</span><br><span class="line">	// &lt;&lt; append string to orignal string</span><br><span class="line">	ss &lt;&lt; &quot; Nice to meet you! &quot;;	</span><br><span class="line">	cout &lt;&lt; ss.str() &lt;&lt; endl;</span><br><span class="line">	// ss.str() can set/get ss</span><br><span class="line">	ss.str(&quot;What a wonderful world! &quot;);</span><br><span class="line">	cout &lt;&lt; ss.str() &lt;&lt; endl;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p>[TBD] <a href="https://github.com/haoel/leetcode/blob/master/algorithms/cpp/sortList/sortList.cpp">#148 sortList</a> review</p>
+</li>
+<li><p>[TBD] Adding a level header at each day’s beginning. </p>
+</li>
+<li><p>[TBD] BIT: Binary Indexed Tree. leetcode #315</p>
+</li>
+</ol>
+<p>Sat Oct 27 08:42:05 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li><input disabled type="checkbox"> 2 leetcode</li>
+<li><input disabled type="checkbox"> 2H vbird</li>
+<li><input disabled type="checkbox"> implement mergeSort</li>
+<li><input checked disabled type="checkbox"> review heapSort</li>
+<li><input checked disabled type="checkbox"> review BST</li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li>如果程序运行的结果不符合预期，debug的时候顺着结果走一遍，就可以定位到出错的地方；</li>
+<li>Refactor BST’s delete;  </li>
+<li>sudo apt-get install mupdf<br>E: Could not get lock /var/lib/dpkg/lock - open (11: Resource temporarily unavailable)<br>E: Unable to lock the administration directory (/var/lib/dpkg/), is another process using it?</li>
+</ol>
+<p>Sun Oct 28 09:07:25 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li><input disabled type="checkbox"> 2 leetcode</li>
+<li><input disabled type="checkbox"> 2H vbird</li>
+<li><input checked disabled type="checkbox"> implement mergeSort</li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li>[D] vim-like pdf viewer: zathura &amp; apvlv. </li>
+<li>[D] definition and declaration</li>
+</ol>
+<p>Tue Oct 30 08:43:59 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li>[] 3 leetcode | #</li>
+<li>[] 2H vbird</li>
+<li>[] reading text book</li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li>command ln cannot be used in the file g++ will genarate, because g++ compile the file and genarate a new file, and then replace the old one, NOT modify the file as I expected. </li>
+<li>[TBD] How to modify source and make it effective during debug? </li>
+<li>[TBD] Is it right tui will not mess up when using printf to output a line return? —&gt; It will still turns it will mess up. Can I try the version of Grew’s using in the youtube?  </li>
+<li>Linked-list’s bounder would better to using nullptr, but one’s next node, because If we use pointer to operate content, one’s next will be changed, and we still think the node unchanged is bounder. Thus the bug will come. </li>
+<li>[D] leetcode daily coding table. </li>
+<li>[TBD] grep, sed, awk should practice for more. </li>
+<li>[D] Refactor the directory. </li>
+<li>[TBD] How to quickly make gdb run a circle of program? </li>
+</ol>
+<p>Wed Oct 31 08:35:07 CST 2018</p>
+<p>TaskList:</p>
+<ul>
+<li><input checked disabled type="checkbox"> 3 leetcode    |####</li>
+<li><input disabled type="checkbox"> 2H vbird        |Hn</li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li>Deep copy and Swallow copy:<ul>
+<li>Deep copy is copy the pointer’s value, and have a different address, so we can change the value but not infuent other pointer’s value.    * Swallow copy is copy the value’s address, If we change the value, other pointer’s value also be changed, it can make sure the value is alway updated. </li>
+</ul>
+</li>
+<li>date –date=1225 [+FORMAT]: output 25th Oct as the format of [+FORMAT];</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/LeonLH/leonlh.github.io/2018/09/01/linux-private-dishes-from-vbird/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zeyuan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="泽远的小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/01/linux-private-dishes-from-vbird/" itemprop="url">鸟哥的linux私房菜学习笔记</a></h1>
         
 
         <div class="post-meta">
@@ -333,513 +3441,524 @@
       
         
           
-            <p>CodingLog 主要是用于记录自己每天的Coding，以帮助自己更好的在编程方面取得进步，就用中文写，暂时先不用英文，可以写成Markdown格式的。<br>把每天遇到的问题记录下来，感觉中文和vim很不好配合，要不用英文的吧(Try to use English, but not limited to use it only)! 另外要用GitHub托管一下，刚才就误删了上周五写的一天的日志。<br>Sun Sep  2 17:51:51 CST 2018</p>
-<ol>
-<li></li>
+            <p>This file is a note for learning linux from website linux.vbird.org.<br>Wed Sep 26 10:22:37 CST 2018</p>
+<h1 id="Part1-Linux的规划与安装"><a href="#Part1-Linux的规划与安装" class="headerlink" title="Part1. Linux的规划与安装"></a>Part1. Linux的规划与安装</h1><h2 id="Chap2-主机规划于磁盘分区"><a href="#Chap2-主机规划于磁盘分区" class="headerlink" title="Chap2. 主机规划于磁盘分区"></a>Chap2. 主机规划于磁盘分区</h2><ol>
+<li>第一个分区(512B)：MBR: Master Boot Record(446B) 和 分区表（64B）<ol>
+<li>在MBR方式中，主分区只能有4个（64B只能记录8个数据，每组数据包括起始和结尾两个数据），扩展分区(只能有一个)——&gt;逻辑分区(可以有很多)。前四和号码留给主分区和扩展分区，所以逻辑分区的号码从5号开始；</li>
+<li>GPT: GUID partition talbe. GPT 分割模式，比原来的MBR分割模式的优点是，MBR的分区表(64)限制，所以最多有4个主分区或扩展分区，而GPT打破这一限制，使得主分区的个数可以多于4。</li>
 </ol>
-<p>Thu Sep 13 08:58:35 CST 2018</p>
-<ol>
-<li>mkdir -p dir1/dir2/dir3 //循环的创建目录<br>mkdir -p dir1/{subdir1/{subsubdir1, subsubdir2, subsubdir3}, subdir2, subdir3}    //循环的创建多个目录(包括子目录的目录)，包含子目录</li>
-<li>字符串和数字之间的转换：</li>
+</li>
+<li>开机引导程序：<ol>
+<li>BIOS：CMOS里面记录着主板的电压等的一些信息，按下开机键，BIOS开始运行，首先读取MBR/GPT——&gt; boot loader——&gt;核心档案；<ul>
+<li>其中，boot loader就是MBR中写入的开机管理程序，它有如下功能：        <ol>
+<li>提供选单，就是多重开机的选项；</li>
+<li>转交loader，就是转交给别的loader以用来引导别的系统；</li>
+<li>载入核心档案，就是直接指向开机程序，开始启动OS；</li>
 </ol>
+</li>
+<li>boot loader 可以放在MBR或者boot sector中。</li>
+</ul>
+</li>
+<li>UEFI: Unified Extensible Firmware Interface. UEFI搭配GPT开机流程：<ul>
+<li>UEFI 存放在vfat分区内，UEFI 可以直接读取GPT分区表，GPT分区表可以支持更大的位数，所以主分区的个数可以多余4个。读取完分区表找到bootloader之后，流程与上述流程一样。</li>
+<li>GPT: GUID partition table. GUID, 全球唯一标识符。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<p>Tips:<br>    1. 挂载：把目录挂在磁盘分区上，要找分区上的内容进入该目录（挂在点）皆可以了。<br>    2. 磁盘分区：重要的目录单独作为一个分区，这样当根目录坏掉，比如坏轨时，就和以不影响其他分区的资料。以下是比较重要的目录，必要时候可以给他们单独分区：<br>        * /boot / /home /var Swap</p>
+<h2 id="Chap4-首次登入与线上求助"><a href="#Chap4-首次登入与线上求助" class="headerlink" title="Chap4. 首次登入与线上求助"></a>Chap4. 首次登入与线上求助</h2><p>Tips:<br>    1. <c-d> means End Of INPUT or End Of File, which is equal to quit/exit;<br>    2. <s-pageup>/<s-pagedown> means pageup/pagedown in terminal;<br>    3. <code>man executivefile</code> 查看手册，比<code>executivefile -h/--help</code> 显示的内容更有可读性, man还可以查看stl容器，比如<code>man std::vector</code>；<br>    4. man page<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">man -f gdb		//列出命令是gdb的man pages</span><br><span class="line">man -k gdb		//列出有gdb关键字(命令和描述中)的所有man pages</span><br><span class="line"></span><br><span class="line">whatis gdb		//相当于man -f</span><br><span class="line">apropos gdb		//相当于man -k</span><br><span class="line">				//上述两个命令，需要有建立whatis资料库才行，这需要root身份</span><br><span class="line">mandb			//建立whatis资料库(以root身份)</span><br></pre></td></tr></table></figure></s-pagedown></s-pageup></c-d></p>
+<pre><code>5. info page, 类似于文字模式的网页显示资料，有类似超链接的节点
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">info gdb		//进入info页面，进入之后，N-next，P-previous，U-up</span><br></pre></td></tr></table></figure>
+
+    * TAB---next hypertext link                RET---into current link
+    * l-----go back to last node            1...9-pick the 1st-9th item in this node&apos;s menu
+    * C-g---cancel the current operation    H-----get/quit help
+6. 资料同步写入硬盘---sync</code></pre><h1 id="Part2-Linux文件-目录与硬盘格式"><a href="#Part2-Linux文件-目录与硬盘格式" class="headerlink" title="Part2 Linux文件/目录与硬盘格式"></a>Part2 Linux文件/目录与硬盘格式</h1><h2 id="Chap6-Linux文件权限于目录配置"><a href="#Chap6-Linux文件权限于目录配置" class="headerlink" title="Chap6. Linux文件权限于目录配置"></a>Chap6. Linux文件权限于目录配置</h2><ol>
+<li>所有者/所属组/密码的记录文件：<ol>
+<li>/etc/passwd        记录的是账号</li>
+<li>/etc/shadow        记录的是密码</li>
+<li>/etc/group        记录的是群组</li>
+</ol>
+</li>
+<li>权限相关命令：<ol>
+<li>chgrp    改变文件所属组, -R递归</li>
+<li>chown    改变文件所有者, -R递归, 可以同时修改所有者和所属组两个信息，<code>chown ownername:groupname filename</code></li>
+<li>chmod    改变文件的权限, SUID，SGID，SBIT<ul>
+<li><code>chmod 644 filename</code></li>
+<li><code>chmod u/g/o/a  +/-/= r/w/x</code></li>
+</ul>
+</li>
+</ol>
+</li>
+<li>目录的写权限，是对目录清单进行修改的权限，即新建/删除/重命名/移动文件的权；目录的执行权限，是是否可以进入该目录；</li>
+</ol>
+<p>Tips</p>
+<ol>
+<li><p>为什么没有写权限的人，还是可以通过强制执行写入内容，只是写之后，文件的所有者变为了执行该操作的人？ 是因为没有写权限，强制写入时，vim会删除原文件，重建同名的文件，然后把内容写入，但是写入之后文件的所有者和所属组就都变成了执行该强制操作的人了。如果不希望此文件被写入或修改，可以将拥有该文件的目录的写权限对操作者禁止，别人删除不了文件也添加不了文件了，也不会发生上述情况。</p>
+</li>
+<li><p>Linux中的文件是否可以执行和它的文件名没有关系(windows 是用扩展名.exe或其他扩展名来判断文件是否可以执行), Linux中是用x这个权限来判断文件是否时可执行文件的。</p>
+</li>
+<li><p>FHS(Filesystem hierarchy standard)</p>
+<ol>
+<li><code>/</code> :与开机系统有关；</li>
+<li><code>/usr</code>: (unix software resource)与软件安装/执行有关；</li>
+<li><code>/var</code>:（variable）与系统运行过程有关；</li>
+</ol>
+</li>
+</ol>
+<p>##Chap6 Linux档案与目录管理</p>
+<ol>
+<li><p>几个命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">head/tail		//取出前几行/后几行</span><br><span class="line">od 				//非纯文字文件</span><br><span class="line">cat/tac/nl 		//nl添加行号</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>几种时间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">modification time (mtime) 		//内容资料变更时改变</span><br><span class="line">status time (ctime) 			//权限属性变更时改变</span><br><span class="line">access time (atime) 			//被访问后改变</span><br><span class="line">touch d/t/a						//修改上述三种时间</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>预设权限与隐藏属性  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">umask 			//预设权限需要减掉的权限值</span><br><span class="line">chattr			//设定文件隐藏属性</span><br><span class="line">lsattr			//显示文件隐藏属性</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>特殊权限, SUID, SGID, SBIT, 相当于在原本的x权限上提升。</p>
+<ol>
+<li><p>SUID s权限</p>
 <ul>
-<li>atoi<br>  char[]/char* —&gt; int<br>  类似的还有atol,atof</li>
-<li>stoi<br>  std::string —&gt; int<br>  类似的还有stol,stof. 逆变换有strtol,strtof</li>
+<li>SUID仅对二进制文件有效；</li>
+<li>执行者对该文件要有x权限；</li>
+<li>本权限仅在程序的执行过程中有效；</li>
+<li>程序执行过程中，执行者的权限会变成owner的权限；</li>
 </ul>
-<ol start="3">
-<li>g++ xxx.cpp -o xxx.out -g -std=c++11    //使用c++11标准编译程序;</li>
-<li>std::string</li>
-</ol>
+</li>
+<li><p>SGID s权限</p>
 <ul>
-<li>begin()/end() return an iterator,通常用来作为循环的开头和结尾；</li>
-<li>back()/front(),返回串的最后一个/首个元素的位置，可以取出该元素，也可以对该位置赋值；</li>
-<li><code>pop_back()/push_back()</code>,弹出/压入最后一个元素；</li>
-<li>erase(),擦除元素，减小长度；</li>
+<li><p>用于文件时：</p>
+</li>
+<li><p>SGID仅对二进制文件有效；</p>
+</li>
+<li><p>执行者对该文件要有x权限；</p>
+</li>
+<li><p>本权限仅在程序的执行过程中有效；</p>
+</li>
+<li><p>程序执行过程中，执行这权限会变成group的权限；</p>
+</li>
+<li><p>用于目录时：</p>
+</li>
+<li><p>用途：使用者在本目录有w权限，则使用这在该目录下新建的文件的所属组和目录的所属组相同；</p>
+</li>
 </ul>
-<ol start="5">
-<li>gdb</li>
-</ol>
+</li>
+<li><p>SBIT (Sticky Bit) ，仅对目录有效。</p>
 <ul>
-<li><p>在子函数中如何查看父函数中的变量的值<br>using “f numberOfFunction” to change which function you are at;<br>numberOfFunction can be found by using bt command;</p>
-</li>
-<li><p>基本用法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">b-&gt;break/	s-&gt;step/	n-&gt;next/	bt-&gt;backtrace/	q-&gt;quit/</span><br><span class="line">r-&gt;run/		info b/		p-&gt;print/	c-&gt;continue/	f-&gt;frame/</span><br><span class="line">info local/	d-&gt;delete 	breakpoint/</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>反向单步调试，要在g++编译的时候添加标志：-static</p>
-</li>
+<li>当使用者对此目录具有w和x权限时，使用在该目录下新建的文件/目录，仅有自己和root可以删除；</li>
 </ul>
-<ol start="6">
-<li>iterator溢出的判断条件: it != xxx.end();</li>
-<li>The differential between ++i and i++ in for loop:<br>对于for循环来说，递增条件++i和i++是没有区别的，都是先执行for循环内的语句，最后再++，++i速度比i++快一点；</li>
-<li>递归的边界条件是什么？或者出口是什么？</li>
-<li>链表本质就是一个结点，一个指向下一节点的指针；</li>
-<li>工具：ctags代码解析/<br>逻辑错误用log，内存错误用gdb，单元测试用gtest，编译器用clang，log框架用log4cplus，性能热点用gprof，这样就没有搞不定的bug,内存错误用valgrind</li>
-</ol>
-<p>Fri Sep 14 10:40:33 CST 2018</p>
-<p>1.Learning gdb</p>
-<pre><code>restart:                    kill-&gt;run;
-see where stop:                list(l);
-modify variable:            set x = 2;
-call function:                call func();
-return from function:        finish;                //包括子函数等    
-set write watchpoint:        watch b;
-set readwatch point:         rwatch b;
-set write/read watchpoint:    awatch b;
-disable watchpoint:            disable no.;    
-
-examine stack frame:
-    info frame    //查看函数栈
-    info local     //产看据不变量
-    info args    //查看参数    
-set a temporary breakpoint:     tbreak b;        //设置临时断点
-set a class member function breakpoint:        
-    break TestClass::Testfunction();            //设置函数断点
-skip breakpoint:                ignore 2 5;        //忽略断点2和5
-
-examine memory:                    x/FMT ADDRESSS    //ADDRESS可以是变量，地址,FMT是格式化符号，具体可参考help x
-see proceesor register:         info register    
-debug with core file:            core FILENAME    //当出现了crash会给出core dump file，可以根据这个文件来debug
-see assembly code:                disassemble main    //查看main函数的汇编代码</code></pre><ol start="2">
-<li><p>How to Inspect standard container:<br> Using GDB MACRO appending it to ~/.gdbinit<br> reference to: <a href="https://gist.github.com/skyscribe/3978082" target="_blank" rel="noopener">https://gist.github.com/skyscribe/3978082</a></p>
-</li>
-<li><p>Vim 中{-&gt;跳到首行，}-&gt;跳到尾行</p>
-</li>
-<li><p>How to quickly navigate in the cpp source file</p>
-</li>
-<li><p>Backup configuration file:<br>.vimrc .gdbinit</p>
-</li>
-<li><p>std::list中的iterator可以取出值，但是可以对其进行赋值操作吗？<br>可以！<br>std::list.emplace的作用</p>
 </li>
 </ol>
-<p>Sat Sep 15 09:06:43 CST 2018</p>
+</li>
+<li><p>查看文件属性：<code>file</code></p>
+</li>
+<li><p>搜索文件</p>
 <ol>
-<li>leetcode’s tags:<br>Array                  HashTable              Linked List              Math                  Two Pointers          Heap<br>String                 Binary Search          Divide and Conquer      Dynamic Programming Backtracking          Minimax<br>Stack                  Greedy              Bit Manipulation          Tree                  Depth-frist Search     Breath-first Search<br>Union find          Graph                  Design                  Topological Sort     Trie                  Binary Indexed Tree<br>Segment Tree          Binary Search Tree  Recursion                  Brainteaser             Memoization         Queue<br>Reservoir Sampling  Map                  Geometry                  Random              Rejection Sampling    Sort          </li>
+<li><code>which executablefile</code>, -a ;        //可执行文件</li>
+<li><code>whereis filename</code>, [-lbmsu];    //在特定目录中寻赵文件 </li>
+<li><code>locate [-iclSr];                //在/var/lib/mlocate资料库中查找，带有关键字的资料，可用</code>updatedb`来更新资料库；</li>
+<li><code>find</code>,超级强大，可以加各种参数来限定查找的文件属性/user/size/权限等，但它是硬扫描，所以时间较慢；</li>
 </ol>
-<p>DATA STRUCTURE:<br>Array                  HashTable              Linked List              String                 Stack                 Tree<br>Graph                Queue                Map                     Union find            Binary Indexed Tree    Binary Search Tree<br>Segment Tree<br>ALGORITHMS:<br>Binary Search        Greedy                Depth-first Search        Breath-first Search    Recursion            Sort<br>OTHERS:<br>Math                Two Pointers        Heap                    Divide and Conquer    Dynamic Programming    Backtracking<br>Minimax                Bit Manipulation    Design                    Topological Sort    Trie                Brainteaser<br>Memoization            Reservoir Sampling    Geometry                Random                Rejection Sampling    </p>
-<p>我可以按照上述顺寻刷leetcode。第一步每个数据结构做三个，先做一遍。</p>
-<p>2.<em>p+1 and <em>(p+1) 如果用p作迭代的话别忘了之后要给p加加，熟练了之后用</em>p++/</em>(p++)一步就完成了;<br>3.how to upload my code to leetcode?</p>
-<p>4.shadowsocks of ec2 collapse:    try to connect to remote ec2 by ssh in linux:<br>    1.use a private key from windows the key is unique, and only with that key can I connect to ec2.4.shadowsocks of ec2 collapse:    try to connect to remote ec2 by ssh in linux.</p>
-<ol start="5">
-<li>“.” in vim, repeat modify as the last change.</li>
+</li>
 </ol>
-<p>Mon Sep 17 09:52:10 CST 2018</p>
+<p>##Chap7 磁盘与文件系统</p>
 <ol>
-<li>How to use vim’s register?<ol>
-<li>“ayw    //copy a word to register a;<br>“Ayw    //append a word to register a;<br>“ap        //paste register a’s content;<br>//yw can be any other command such as yy/dd/dw etc.</li>
-<li>“+yw    //copy a word to system clipboard;<br>//Make sure your vim support clipboard by typing “vim –version”, the result it +clipboard;<br>//If it don’t support clipboard, typing “sudo apt-get install gnome-vim” to install.</li>
-</ol>
-</li>
-<li>Make function main() as a test function, do not add additional function to complex problem. Focus on the PRIMARY PROBLEM.</li>
-<li>leetcode of mergeTwoSortedList:<br> Don’t forget to consider the situation this: one of list if blank;4. git ingore file: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Compile file:</span><br><span class="line">*.o</span><br><span class="line">*.out</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<p>5.How to make assignment for vector&lt;vector<int>&gt; data structure?<br>    在初始化的时候可以用 = 来赋值，其他的时候不可以，要用push_back()函数来赋值。</int></p>
-<p>Tue Sep 18 08:41:40 CST 2018</p>
+<li><p>ext2/ext3/ext4, 从ext3开始支持文件日志功能</p>
 <ol>
-<li>[if/else if/else] is equal to [switch case] ?<br> Yes. [switch case] is used with discrete value, while [if/else if/else] is often used with continous value.</li>
-<li>数组的边界问题，通常就是+/-1这样，很容易搞错，如何才能找到一个比较好的方法，是这类问题不容易搞错？</li>
+<li>Block Group —&gt; SuperBlock —&gt; inode + block</li>
+<li><code>dumpe2fs</code> 查看文件系统的描述资料 </li>
+<li><code>blkid</code> 列出UUID</li>
+<li><code>e2fsck</code> 一致性检查</li>
 </ol>
-<ol start="3">
-<li>int test = ceil((1+2)/2);<br>test = 1;</li>
-</ol>
-<p>Fri Sep 21 09:21:00 CST 2018</p>
+</li>
+<li><p>xfs 不需要预先格式化, inode/block 是在使用的过程中动态产生。</p>
 <ol>
-<li>let ycm don’t show the warning of “unused variable” <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let g:ycm_filter_diagnostics = &#123;</span><br><span class="line">  \ &quot;cpp&quot;: &#123;</span><br><span class="line">  \      &quot;regex&quot;: [ &quot;unused variable *&quot; ],</span><br><span class="line">  \      &quot;level&quot;: &quot;warning&quot;,</span><br><span class="line">  \    &#125;</span><br><span class="line">  \ &#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<p>reference: <a href="https://github.com/Valloric/YouCompleteMe">https://github.com/Valloric/YouCompleteMe</a></p>
-<ol start="2">
-<li>关于linux软链接和硬链接，用于同步备份配置文件：<br> ln  ~/.vimrc ./.vimrc.bak        //创建硬链接<br> ln -s ~/.vimrc ./.vimrc.        //创建软链接，相当于是快捷方式</li>
-<li>vim -M filename                 //open file with read only mode</li>
-<li>use shortcut to compile with “map” in vim:<ol>
-<li>current filename: %     ;</li>
-<li>object filename:    %:r    ;</li>
+<li><code>xfs_info</code> 查看文件系统的描述资料</li>
 </ol>
 </li>
-<li>Using <f5> to compile current file:<br> write into .vimrc with the following content: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">autocmd FileType cpp nnoremap &lt;buffer&gt; &lt;F5&gt; :w&lt;Bar&gt;!g++ -g % -o %:r -std=c++11&lt;CR&gt;</span><br></pre></td></tr></table></figure>
-
-
-</f5></li>
-</ol>
-<p>Sun Sep 22 09:17:24 CST 2018</p>
+<li><p>硬盘与目录的容量du/df</p>
 <ol>
-<li>Finish two leetcode;</li>
+<li><code>df</code> 列出文件系统的整体硬盘使用量, 对象是disk；</li>
+<li><code>du</code> 评估文件系统的硬盘施用量, 对象是file；</li>
 </ol>
-<p>Sun Sep 23 08:09:37 CST 2018</p>
+</li>
+<li><p>ln 可以做硬链接(hard link)/软链接(symbolic link)</p>
 <ol>
-<li><p>The source doesn’t work in .vimrc;<br> To be Done;</p>
+<li>hard link 实际上就是在目录的block中写入文件名和文件的inode，一般不会造成空间减小，它不可以对目录操作；</li>
+<li>symbolic link 是新建了inode和block，内容相当于文件的绝对路径，它可以看成是windows下的快捷方式，它不可以对目录操作。  </li>
+</ol>
 </li>
-<li><p>Test for octave function how to definition in and out of function;<br> To be Done;<br> ex: </p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">function g = sigmoid(z)</span><br><span class="line">g = 1.0 ./ (1.0 + exp(-z));</span><br></pre></td></tr></table></figure>
-
-<p> then how to define h(x), h(x) = sigmoid(theta’ * x);</p>
-<p> ex: h(x) = sigmoid(1/(1.0+exp(-z)));</p>
+<li><p>硬盘分区：</p>
+<ol>
+<li><code>lsblk</code> 列出系统上的所有硬盘列表</li>
+<li><code>blkid</code> 列出UUID</li>
+<li><code>parted</code> 列出硬盘的分区类型和分区信息</li>
+<li>分区：gdisk(for GPT)/fdisk(for MBR)</li>
+<li><code>partprobe</code> 更新Linux核心的分区信息(/proc/partitions), 避免重启；</li>
+<li><code>mkfs</code> make filesystem 综合指令，具体哪种文件系统，还需要进一步确定，使用对应的指令，如<code>mkfs.xfs</code> <code>mkfs.ext4</code>,etc. </li>
+</ol>
 </li>
-<li><p>To reformuler the typesetting of CodingLog;<br> To be Done;</p>
+<li><p>文件系统检验</p>
+<ol>
+<li><code>xfs_repair</code> 处理XFS文件系统；</li>
+<li><code>fsck.ext4</code> 处理EXT4文件系统；</li>
+</ol>
 </li>
-<li><p>largestRectangleInHistogram for 3 hours, and to be continue; </p>
-</li>
-<li><p>Vim <c-s> freeze the terminal, <c-q> to unfreeze the terminal; </c-q></c-s></p>
-</li>
-<li><p>comparison of int and unsigned int;</p>
+<li><p>挂载与卸载 mount/umount</p>
+<ol>
+<li>开机自动挂载，实际上就是在/etc/fstab文件中写入特定的分区信息，开机的时候，系统会检查fstab，根据它来挂载。此外，使用<code>mount -a</code>也会根据/etc/fstab来挂载；</li>
+<li>挂载DVD映象文件, <code>mount -o loop /tmp/CentOS-7.0-14.06_64-DVD.iso /data/centos_dvd</code>, 利用<code>mount loop</code>; </li>
+<li>制作loop文件，并将loop格式化为文件系统，最后将它挂载，这样就类似于一个新的分区(实际上不是, 只是loop文件); <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dd if=/dev/zero of=/srv/loopdev bs=1M count=512		//建立一个大块</span><br><span class="line">mkfs.xfs -f /srv/loopdev							//格式化</span><br><span class="line">blkid /srv/loopdev</span><br><span class="line">mount -o loop UUID=&quot;xxx&quot; /mnt 						//挂载</span><br><span class="line">df /mnt</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>Mon Sep 24 08:41:51 CST 2018</p>
-<ol>
-<li><p>[TBD] How to set <code>export LESS=&quot;-L&quot;</code> in bash when init the bash;</p>
 </li>
-<li><p>[D] How to indent with markdown:</p>
+<li><p>不论分区表是GPT还是MBR都可以进行分区的工具，<code>parted</code> 它是非非交互式的，而fdisk/gdisk是交互式的，所以parted可以用来脚本文件中一次性建立很多分区；</p>
+</li>
+</ol>
+<h2 id="Chap8-文件的压缩与打包"><a href="#Chap8-文件的压缩与打包" class="headerlink" title="Chap8 文件的压缩与打包"></a>Chap8 文件的压缩与打包</h2><ol>
+<li><p>压缩文档的格式： *.tar, *.tar.gz, *.tgz, *.gz, *.Z, *.bz2, *.xz; </p>
+</li>
+<li><p>压缩软件： gzip, bzip2, xz, 打包： tar; </p>
+<ol>
+<li><p>gzip, -d 解压, zcat/zmore/zless/zgrep无需解压对压缩文件操作;</p>
+</li>
+<li><p>bzip2,-d 解压, bzcat/bzmore/bzless/bzgrep, 同上；</p>
+</li>
+<li><p>xz,   -d 解压，xzcat/xzmore/xzless/xzgrep, 同上；</p>
+</li>
+<li><p>tar 打包：</p>
 <ul>
-<li>To indent with Bullet list and Numbered list;</li>
-<li>Bullet list and Numbered list <strong>CAN</strong> indent with four space or a table within these list;</li>
+<li><p>压缩：            <code>tar -jcv -f filename</code>;</p>
+</li>
+<li><p>查看tar包中文件：    <code>tar -jtv -f filename.tar.bz2</code>;</p>
+</li>
+<li><p>解压：            <code>tar -jxv -f filename.tar.bz2</code> -C directoryname`;</p>
+</li>
+<li><p>上述j代表bz，可换为z/J，z代表gzip，J代表xz, 主要差异是在压缩比和时间上，一般来说，压缩比越大，时间越长；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">time tar -zpcv -f /root/etc.tar.gz  /etc</span><br><span class="line">time tar -jpcv -f /root/etc.tar.bz2 /etc</span><br><span class="line">time tar -Jpcv -f /root/etc.tar.xz  /etc</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>仅解压tar压缩包中单个文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -jtv -f /root/etc.tar.bz2 |grep &apos;shadow&apos;	//查看包含shadow的文件</span><br><span class="line">tar -jxv -f /root/etc.tar.bz2 etc/shadow 		//解压单个文件</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>几个参数：<br>  不包含某个目录：–exclude=filename(可以有路径)<br>  仅备份比某时刻更新的文件：–newer-mtime –newer(包含mtime和ctime)<br>  将资料流一边打包一边压缩到目标目录里去</p>
+</li>
 </ul>
-</li>
-<li><p>[D] Make ycm disable in .md file, .md file “-&gt;” and “_ _” display abnormal, Solve it:</p>
-<ol>
-<li><p>The problem is because the vim will diagnose the illegal word with it own principle, we can use ycm’s principle instead. So remove following code from .vimrc, ycm will be opened when open .md files;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let g:ycm_filetype_blacklist=&#123; &apos;markdown&apos;:1&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Another way to solve the problem is: just type <code>:syntax off</code>, and then the syntax check of vim is off;</p>
 </li>
 </ol>
 </li>
-<li><p>[TBD] Solve the problem of comparison of int and unsigned int from ycm:</p>
+<li><p>文件系统的备份与还原(xfs文件系统为例)</p>
+<ol>
+<li>备份：xfsdump, 累计备份(incremental backups)</li>
+<li>还原：xfsrestore</li>
+</ol>
+</li>
+<li><p>制作映像文件</p>
+<ol>
+<li>普通iso文件：    <code>mkisofs</code></li>
+<li>可开机ios文件：</li>
+<li>光碟烧录工具：    <code>cdrecord/wodim</code></li>
+</ol>
+</li>
+<li><p>其他压缩与备份工具：</p>
+<ol>
+<li><p>dd, 可以将磁盘上的superblock/boot sector/meta data通通复制到目标文件中，因此不需要格式化。可以用来完整的备份磁盘。<br><code>dd if=&quot;input_file&quot; of=&quot;output_file&quot; bs=&quot;block_size&quot; count=&quot;number&quot;</code></p>
+</li>
+<li><p>cpio, 相当优秀的备份指令，不过需要搭配find类似指令读入要备份的文件名：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cpio -ovcB  &gt; [file|device] 		//备份</span><br><span class="line">cpio -ivcdu &lt; [file|device]			//还原</span><br><span class="line">cpio -ivct  &lt; [file|device] 		//查看</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+</li>
+</ol>
+<p>PS:<br>    1. <code>time</code> 可以列出命令运行时间；</p>
+<h1 id="Part3-Shell和Shell脚本"><a href="#Part3-Shell和Shell脚本" class="headerlink" title="Part3. Shell和Shell脚本"></a>Part3. Shell和Shell脚本</h1><p>##Chap9 vim</p>
+<ol>
+<li>dos2unix/unix2dos, DOS下换行是CRLF，Linux下是LF，所以需要转换。</li>
+</ol>
+<p>##Chap10 认识与学习BASH</p>
+<ol>
+<li><p>alias lm=’ls -al’ How to make it work every time restart host? </p>
+</li>
+<li><p>显示变量：<code>echo $variablename</code> </p>
+</li>
+<li><p>变量设定规则：</p>
+<ol>
+<li><p>=； </p>
+</li>
+<li><p>=两端不能有空格；</p>
+</li>
+<li><p>开头不能是空格；</p>
+</li>
+<li><p>单引号/双引号：</p>
 <ul>
-<li><p>Simply turn off the warning/error notification isn’t a good idea, don’t get used to it;</p>
-</li>
-<li><p>The right way is to cast <code>signed int</code> to <code>unsigned int</code> by using<code>(unsigned)i</code> force conversion:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">string s;</span><br><span class="line">for(int i = 0; (unsigned)i &lt; s.size(); ++i)&#123;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">Tue Sep 25 08:45:27 CST 2018</span><br><span class="line">1. [D]Formular output with std::cout:</span><br></pre></td></tr></table></figure>
-
-<p>int i = 0x80000001;<br>cout &lt;&lt; i &lt;&lt; “\t: 0x”&lt;&lt; hex &lt;&lt;  i &lt;&lt; endl;<br>int j = -1;<br>cout &lt;&lt; j &lt;&lt; “\t: 0x” &lt;&lt; hex &lt;&lt; j &lt;&lt; endl;<br>cin.get();</p>
-</li>
+<li>双引号保留原特性,具有变量置换功能；</li>
+<li>单引号内仅仅是字符串，不具有变量置换功能；</li>
 </ul>
 </li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">2. [TBD]Update gdb to higher version to try to solve the tui mess problem. Already update to newest version 8.2, but the problem is still here. </span><br><span class="line"></span><br><span class="line">3. 时间利用率太低了，有的时候一个算法要用5-6个小时才能完成，而且，书本或者是基础知识的学习也是很有必要的，但是有的时候要解决一个基本的问题也会困住两个多小时。每次被困住太久的时候，就会情绪上产生急躁的感觉，而且心理上有时也会有对于特定问题的排斥和逃避的情绪。所以，解决上述问题已经成为了当务之急：</span><br><span class="line">	1. 首先，近期，每天晚上的时候要学习《王道》的数据结构，先把书看一遍，大概每天有固定的两个多小时的学习时间，等学习完了这个，要把《王道》系列从头复习巩固几遍；</span><br><span class="line">	2. 每天再花固定的两个小时学习《Learn Vim the hard way》/《鸟哥的Linux》/《gdb的使用》/《Learn python the hard way》的书籍/网站，这一部分的关键是不能光看,更重要的是要跟着书本或者网站一步一步的敲代码，这样才能慢慢的形成肌肉记忆/大脑思维链接；</span><br><span class="line">	3. 每天的重要任务还是leetcode，是计算一下每天除了上述时间外还有多久的有效时间，答案是5.5小时，如果运用得到，应该能完成3个算法。关键问题在于，不能在一道题上卡太长时间，每道题的思考时间我认为一个小时就够了，如果思考不出来，可以去看别人的代码来参考，只能看思路，不能照抄照搬，每道题如果3个小时还没有做出来，就要考虑暂时放一放，回家了或空闲的时间可以思考，有思路的时候再试；</span><br><span class="line">	4. 验证一些衍生出来的其他问题，对于这类问题，我认为也要控制好时间，不要恋战，如果超过45分钟，就要考虑暂时放一放；</span><br><span class="line">4. [TBD]Learn install application:</span><br><span class="line">5. Memset&apos;s unit is size_t, what is size_t in std::c++ ? </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Wed Sep 26 08:39:23 CST 2018</span><br><span class="line">1. 2H &lt;&lt;bird&gt;&gt;</span><br><span class="line">2. [TBD] How to ignore the file without file suffix when using git push, what should i change the .gitignore file? </span><br><span class="line">3. [TBD] How to let the file name to be .out when using &lt;F5&gt; compile with gdb?  </span><br><span class="line">4. [TBD]Create a Binary Tree for testing.</span><br><span class="line">5. Finish 3 leetcode.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Thu Sep 27 08:42:26 CST 2018</span><br><span class="line">1. 2.5H &lt;&lt;vbird&gt;&gt;</span><br><span class="line">2. [TBD]关于c++变量及函数命名的首字母大小写的问题;</span><br><span class="line">3. The problem about `int arr[n]`, how to reach the goal? </span><br><span class="line">4. Member function using global function, how to make it be used? </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Fri Sep 28 11:16:20 CST 2018</span><br><span class="line"></span><br><span class="line">1. tui support in gdb 8.2: first make sure you have `libncurses5` and `libncurses5-dev`, then install from source code with following command:</span><br></pre></td></tr></table></figure>
-
-<pre><code>* ./configure --enable-gui=yes
-* make
-* make install</code></pre><pre><code>    * When notice `permission denied`, we can use `sudo` to execute above command;
-2. [TBD] Build source with multi-core when using `make`?
-3. [D] GDB print the std container readable, for example print vector like a arry;
-    * [S] Using pvector/plist/... command, these cammand is according to stl-view.gdb in .gdbinit. 
-4. 
-
-
-
-Sat Sep 29 08:49:55 CST 2018
-1. [TBD]Markdown table
-2. 2H &lt;&lt;vbird&gt;&gt;
-3. clarify an array in dump? 
-    * `int *p = new int[n]` Why do I clarify an array in dump? Because It can&apos;t clarify an unknow number of space in stack. Remember to initialize the space. Otherwise it may not initialize with 0. A good way to init is using memset, but remember setmem&apos;s unit is size_t(char);
-4. 关于用两个序列构造一棵树的心得：
-    1. 可以使用递归或者非递归的方法，如果使用非递归的方法来构造二叉树
-        1. Preorder+Inorder: 需要借助一个栈，和一个tag标签数组。具体做法：从Preorder中从前往后走，查找它在Inorder中的位置，并查看它左右两侧有没有空位置：
-            * 先把Preorder第一个元素入栈；
-            * 查看栈顶元素的标签数组；
-            * 左边空，先挂左边，入栈,修改标签；
-            * 左边不空右边空，挂右边，入栈,修改标签；
-            * 左边不空右边也不空，出栈；
-            * 直至栈为空且Preorder也走到了尾部为止；
-        2. Postorder+Inorder: 它与Preorder+Inorder的方法是类似的，只是它是从Postorder的尾巴从后往前走，每一个数也要查询他在Inorder中的位置，并查看它左右两端是否为空，另一个区别是，若左右都可以插入时，它是优先插入到右子树上的;
-        3. levelorder+Inorder: 它需要借助一个队列。
-    2. 这一类问题，如果思路不清晰的话可以花一个稍微复杂一点的图，在纸上跑几遍过程，思路就慢慢的遍清晰了。
-
-
-Sun Sep 30 14:46:56 CST 2018
-1. Vim&apos;s jumplist for jumping around and exploring code.
-2. After changing the ycm_configure_option in .vimrc, don&apos;t forget to restart the server by using the `:YcmRestartServer`;
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/LeonLH/leonlh.github.io/2018/07/26/using-hexo-and-gitpage-to-deploy-my-blog-website/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zeyuan">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="泽远的小站">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/26/using-hexo-and-gitpage-to-deploy-my-blog-website/" itemprop="url">域名和gitpage绑定的问题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-26T00:00:00+08:00">
-                2018-07-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ol>
-<li>当部署的网站显示效果和local显示效果不同的时候，有可能是缓存的问题，要清理cache:<code>hexo clean</code></li>
-<li>域名解析为gitpage，具体的，把leonlh.github.io与zeyuan.tech关联起来：<ol>
-<li>在域名商的域名管理设置里面设置<code>记录类型</code>、<code>CNAME</code>等选项；</li>
-<li>在hexo的网站主目录的source文件夹下添加CNAME文件，内容为<code>zeyuan.tech</code>;</li>
-</ol>
+<li><p>\ 转义字符将特殊符号变为普通符号；</p>
+</li>
+<li><p><code>指令</code> 或 $(指令) 可以返回指令的结果, 例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">version=$(uname -r)</span><br><span class="line">或 version=`uname -r`</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>扩增变量内容，用 “$变量名” 或 ${变量}, 例如：<br> <code>PATH=&quot;$PATH&quot;:/home/bin</code> 或 <code>PATH=${PATH}:/home/bin</code></p>
+</li>
+<li><p>以export把变量变成环境变量：<code>export PATH</code>;</p>
+</li>
+<li><p>大写系统变量，小写自定义变量；</p>
+</li>
+<li><p>取消变量：<code>unset variablename</code>;</p>
 </li>
 </ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/LeonLH/leonlh.github.io/2018/06/25/test4markdown/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zeyuan">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="泽远的小站">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/25/test4markdown/" itemprop="url">Test for markdown</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-25T00:00:00+08:00">
-                2018-06-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="The-largest-heading"><a href="#The-largest-heading" class="headerlink" title="The largest heading"></a>The largest heading</h1><h2 id="The-second-largest-heading"><a href="#The-second-largest-heading" class="headerlink" title="The second largest heading"></a>The second largest heading</h2><h4 id="The-second-smallest-heading"><a href="#The-second-smallest-heading" class="headerlink" title="The second smallest heading"></a>The second smallest heading</h4><h1 id="Styling-text"><a href="#Styling-text" class="headerlink" title="Styling text"></a>Styling text</h1><h2 id="Bold"><a href="#Bold" class="headerlink" title="Bold"></a>Bold</h2><p>** This is bold text **</p>
-<h2 id="Italic"><a href="#Italic" class="headerlink" title="Italic"></a>Italic</h2><ul>
-<li>This is Italicized text * <h2 id="Strikethrough"><a href="#Strikethrough" class="headerlink" title="Strikethrough"></a>Strikethrough</h2><del>~ This was mistaken text ~</del><h2 id="Bold-and-Italic"><a href="#Bold-and-Italic" class="headerlink" title="Bold and Italic"></a>Bold and Italic</h2></li>
-<li><ul>
-<li>This is <em>extremely</em> important **<h1 id="Quote-text"><a href="#Quote-text" class="headerlink" title="Quote text"></a>Quote text</h1></li>
-</ul>
 </li>
-</ul>
+<li><p>列出</p>
 <ol>
-<li><p>Style one<br>In the words of Abrahan]m Lincoln:</p>
+<li>env 列出环境变量；</li>
+<li>set 列出所有变量；</li>
+<li>子进程会继承父进程的环境遍历，但不会继承父进程的自定义变量，此时就可以使用，<code>export  variablename</code> 来把自己的变量分享给后来调用的子进程。而且设置完成后，关于语系的设定还是要，好好学习操作一番才能理解，暂时不用着急着设定成为中文。另外，要熟练英文的书写，多练习，慢慢地要有用英文书写交流的能力，不改成中文也可以比较好的英文学习环境。</li>
+</ol>
+</li>
+<li><p>变量的读取/数组/声明；</p>
+<ol>
+<li><code>read [-tp] variable</code>                //读取变量</li>
+<li><code>declare/typeset [-aixr] variable</code>    //声明变量类型, -/+x可以设定取消成为环境变量，-r只读，-p可以列出</li>
+</ol>
+</li>
+<li><p>限定bash使用者使用的资源(可打开的文件数/大小，CPU，RAM)，ulimit:</p>
+</li>
+<li><p>变量的删除/取代/替换：</p>
+<ol>
+<li>删除：<code>${variable#/*local/bin}</code>;        // # 表示从左到右删除最短的那个相匹配的，## 表示从左到右删除最长的匹配的，%/%% 表示从右到左删除最短/最长的</li>
+<li>取代：<code>echo ${path/sbin/SBIN}</code>;        // 如果path和sbin之间是两条斜线，则所有符合的条件都会被取代</li>
+<li>判断设定默认值：</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">`username=$&#123;username-root&#125;`		// 如果没有被设定则username默认为root</span><br><span class="line">`username=$&#123;username:-root&#125;`	// 变量为空或者未设定，都以默认为值</span><br></pre></td></tr></table></figure>
+
+<ol start="8">
+<li><p>别名, 别名的设定与变量的设定基本是一样的</p>
+<ol>
+<li><code>alias aliasname=command</code>        //set alias</li>
+<li><code>unalias aliasname</code>                //unset alias</li>
+</ol>
+</li>
+<li><p>历史命令 history</p>
+<ol>
+<li><code>!command</code> 由最近的指令开始向上搜索第一个以command开头的指令并执行；</li>
+</ol>
+</li>
+<li><p>Login-shell, Load after login with tty1-tty6. Non-login shell load by exist bash calling. </p>
+</li>
+<li><p>Ubuntu’s directory is a little different from CentOS’s, so if you don’t find files in ubuntu which it exist in CentOS, Try <code>ls | grep keyword</code> and then read the relative manual. </p>
+</li>
+<li><p>Configuration of bash:</p>
+<ol>
+<li>/etc/profile /etc/profile.d/ /etc/locale.conf</li>
+<li>~/.bash_profile  ~/.bash_login ~/.bashrc /etc/bashrc ~/.profile</li>
+<li><code>source conf_file</code> loading the configuration</li>
+</ol>
+</li>
+<li><p>Login-shell will read above file as sequence, Non-login-shell will only load the ~/.bashrc</p>
+</li>
+<li><p>Put the right info and error info into one file by using <code>2&gt;&amp;1 file</code> or <code>&amp;&gt;</code>;</p>
+</li>
+<li><p>管道符后面的指令是要能接收 standard input 才可以，例如，less/more/head/tail</p>
+</li>
+<li><p>管道相关命令——常用工具：</p>
+<ul>
+<li>cut  -d|-f|-c ;                        //截断</li>
+<li>grep -a|-c|-i|-n|-v|–color=auto ;     //筛选，整行</li>
+<li>sort -f|-b|-M|-n|-r|-u|-t|-k ;        //排序</li>
+<li>uniq -i|-c ;                            //去重</li>
+<li>wc   -l|-w|-m ;                        //统计</li>
+<li>tee  -a ;                                //双向重定向</li>
+</ul>
+</li>
+<li><p>管道相关命令——字元转换命令：</p>
+<ul>
+<li>tr   -d|-s SET1;                         //删除或替换</li>
+<li>col  -x|-b                             //TAB-&gt;空白</li>
+<li>join -t|-i|-1|-2;                     //合并两个有相关性的文本</li>
+<li>paste -d file1 file2;                 //直接粘贴在后面，TAB隔开</li>
+<li>expand -t                             //TAB-&gt;N个空白</li>
+<li>split -b|-l file PREFIX                //分割文件</li>
+<li>xargs -O|-e|-p|-n command                //把文本分隔处理后，传给命令，可以实现一次传一个(几个)参数给名令</li>
+<li>减号 - 某些命令中可以代替stdin和stdout</li>
+</ul>
+</li>
+</ol>
+<p>Note:</p>
 <blockquote>
-<p>Pardon my French. </p>
+<p>Note: Practice above command till I master it to a high level. </p>
+<p>type -a ls         // 查看ls的指令执行顺序</p>
+<p>/etc/issue 中记录着，登陆之前显示的信息，可以修改成各种格式（如，时间，本机版本等）;</p>
+<p>/etc/motd 记录着上述类似信息，只不过是出现在远程登陆端的显示界面上；</p>
+</blockquote>
+<h2 id="Chap11-正则表达式与文件格式化处理"><a href="#Chap11-正则表达式与文件格式化处理" class="headerlink" title="Chap11. 正则表达式与文件格式化处理"></a>Chap11. 正则表达式与文件格式化处理</h2><ol start="0">
+<li>Rex是以行为单位处理字符串的，Rex的练习要通过支持它的工具来练习，需要多练习思考这些工具的功能和作用，以及他们组合实现的功能和作用；</li>
+<li>[] 来搜索集合，例如，[a-z], [[:digit:]]…</li>
+<li>^ 在[]之内和在它之外是不同的，在里面表示反向选择，在外面表示以集合内某个字符开头；</li>
+<li>. 代表任意字符，不能是空； * 代表前一个字符重复任意次，可以为零次；</li>
+<li>字的长度范围{}, e.x. <code>o\{5,8\}</code> 表示o重复了5到8次；</li>
+<li>Learn the basic usage and find some exercises to practise to make me master it to a very high level. </li>
+<li>[Prac] sed (stream editor): sed [-n|e|f|r|i] [a|c|d|i|p|s] 需要掌握,通常用于一整行一整行的处理；</li>
+<li>[Prac] awk ‘条件类型1{动作1};条件类型2{动作2}…’ filename<ul>
+<li>以行为一次处理的单位，以栏位为最小处理的单位</li>
+<li>变量：$0, $1, $2, $3…,NF, NR, FS, …, BEGIN, END, …</li>
+<li>逻辑运算字符：&gt; &lt; &gt;= &lt;= == != </li>
+<li>注意每个动作与下一个条件之间的分号</li>
+</ul>
+</li>
+<li>档案对比工具：diff | cmp<ol>
+<li>diff [-b|B|i] from-file to-file 结果中：<ul>
+<li>c substitute</li>
+<li>d delete</li>
+<li>a addnew</li>
+<li>&lt; left-file</li>
+<li><blockquote>
+<p>right-file</p>
 </blockquote>
 </li>
-<li><p>Style two</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">This is another style of quote.</span><br></pre></td></tr></table></figure>
-
+</ul>
+</li>
+<li>cmp [-l] file1 file2, 对比的单位是位，diff对比的单位是行。</li>
+<li><code>patch [-R|p] &lt; patch-file</code>, 根据更新包把内容从旧内容更新成新内容，或者把新内容根据更新包还原成旧的内容：<ul>
+<li><code>diff -Naur passwd.old passwd.new &gt; passwd.patch</code>     //make update patch</li>
+<li><code>patch -pN &lt; patch-file</code>            //Update old file to new file according to patch file</li>
+<li><code>patch -R -pN &lt; patch-file</code>        //Reverse old file according to patch file</li>
+<li>the file should be named as file.old file.new file.patch</li>
+</ul>
 </li>
 </ol>
-<h1 id="Links"><a href="#Links" class="headerlink" title="Links"></a>Links</h1><p>This is a search <a href="https://www.baidu.com" target="_blank" rel="noopener">Page</a>.</p>
-<h1 id="Relative-links-image-paths-files"><a href="#Relative-links-image-paths-files" class="headerlink" title="Relative links(image_paths/files)"></a>Relative links(image_paths/files)</h1><p><img src="images/nwdae21.jpg" alt="avator"><br>Ps: This software regard the source as the root file.</p>
-<h1 id="List"><a href="#List" class="headerlink" title="List"></a>List</h1><ol>
-<li>One</li>
-<li>Two</li>
-<li>Three</li>
+</li>
+<li>文件打印准备：例如，列出每页的页码，时间等信息。<code>pr</code></li>
 </ol>
-<h1 id="Nested-Lists"><a href="#Nested-Lists" class="headerlink" title="Nested Lists"></a>Nested Lists</h1><ol>
-<li><p>First line item </p>
+<p>Note:</p>
+<blockquote>
+<p>本章内容要多练，管道符grep/sed等工具的配合使用，还有Rex的语法规则，上述内容只有通过多次练习才能逐步掌握。</p>
+</blockquote>
+<h2 id="Chap12-学习Shell-Script"><a href="#Chap12-学习Shell-Script" class="headerlink" title="Chap12 学习Shell Script"></a>Chap12 学习Shell Script</h2><ol>
+<li><p>管理一部主机的工作：</p>
 <ul>
-<li>First nested list item<ul>
-<li>Second nested list item </li>
+<li>查询登陆文件；</li>
+<li>追踪流量；</li>
+<li>监控使用者使用主机状态；</li>
+<li>主机各项硬件设备状态；</li>
+<li>主机软件更新查询；</li>
+<li>使用的其他突然要求；</li>
 </ul>
 </li>
-<li>1.2 <ul>
-<li>1.2.1</li>
+<li><p>程序的基本资料：</p>
+<ul>
+<li>内容与功能；</li>
+<li>版本信息；</li>
+<li>作者联系方式；</li>
+<li>文件创建日期；</li>
+<li>历史记录；</li>
+<li>等</li>
 </ul>
 </li>
+<li><p>环境变量的设置：PATH 和 LANG</p>
+</li>
+<li><p>运算：<code>var=$((运算内容))</code></p>
+</li>
+<li><p>利用source执行脚本是在父程序中执行，而相对/绝对路径或bash filename的方法是调用一个新的bash，在该子bash下执行。</p>
+</li>
+<li><p>[D] SGID review;</p>
+</li>
+<li><p>test 判断文件类型/权限/更新时间/两个整数大小/字符串/多重判断</p>
+<ul>
+<li>文件类型：    -e|-f|-d|-b|-c|-S|-p|-L</li>
+<li>权限：        -r|-w|-x|-u|-g|-k|-s</li>
+<li>更新时间：    -nt|-ot|-ef</li>
+<li>两整数大小：    -eq|-ne|-gt|-lt|-ge|-le</li>
+<li>字符串：        -z|-n|==|!=</li>
+<li>多重判断：    -a|-o|!</li>
 </ul>
 </li>
-<li><p>Another way of nested item</p>
+<li><p>判断符[]</p>
+<ul>
+<li>中括号内每个元件都需要有空白键来分隔；</li>
+<li>中括号内变量，最好用双引号括起来；</li>
+<li>中括号内常数，最好以单或双引号括起来；</li>
+</ul>
+</li>
+<li><p>预设变量：</p>
+<ul>
+<li>/path/to/scriptname     : $0</li>
+<li>op1                    : $1</li>
+<li>op2                    : $2</li>
+<li>op3                    : $3</li>
+<li>op4                    : $4</li>
+<li>$# | $@ | $*             : <strong>***</strong></li>
+<li>shift                    : 参数偏移</li>
+</ul>
+</li>
+<li><p>条件判断式，注意每个关键词(if, else…)之后有空格</p>
+<ol>
+<li><p>if … fi</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if [条件判断式]; then</span><br><span class="line">	语句</span><br><span class="line">else if [条件判断式]; then</span><br><span class="line">	语句</span><br><span class="line">else</span><br><span class="line">	语句</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>case … esac</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">case $变量 in</span><br><span class="line">&quot;value1&quot;)</span><br><span class="line">	语句</span><br><span class="line">	;;</span><br><span class="line">&quot;value2&quot;)</span><br><span class="line">	语句</span><br><span class="line">	;;</span><br><span class="line">&quot;value3&quot;)</span><br><span class="line">	语句</span><br><span class="line">	;;</span><br><span class="line">*)</span><br><span class="line">	语句</span><br><span class="line">	exit 1</span><br><span class="line">	;;</span><br><span class="line">esac</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>function, 由于shell脚本是从上到下执行的，所以函数要写在调用之前</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function funcname()&#123;</span><br><span class="line">	语句</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>循环: while do done(非固定循环), until do done(非固定循环), for…do…done(固定循环)</p>
 </li>
 </ol>
-<p><a href="https://help.github.com/articles/basic-writing-and-formatting-syntax/" target="_blank" rel="noopener">To bo continue</a></p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">while [条件]	# 条件满足进入循环 </span><br><span class="line">do</span><br><span class="line">	语句</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">until [条件]	# 条件满足跳出循环</span><br><span class="line">do</span><br><span class="line">	语句</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for var in con1 con2 con3 ...	# $(seq 1 100) OR &#123;1..100&#125;</span><br><span class="line">do</span><br><span class="line">	语句</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for ((init; condition; step length))</span><br><span class="line">do</span><br><span class="line">	Statement</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<ol start="11">
+<li>Debug<ol>
+<li>sh -n|-v|-x scriptname</li>
+</ol>
+</li>
+</ol>
+<p>Note: 学习脚本需要多看，多模仿，多修改别人的脚本，才会学习的快</p>
+<h1 id="Part4-Linux使用者管理"><a href="#Part4-Linux使用者管理" class="headerlink" title="Part4. Linux使用者管理"></a>Part4. Linux使用者管理</h1><h2 id="Chap13-Linux账号管理与ACL权限"><a href="#Chap13-Linux账号管理与ACL权限" class="headerlink" title="Chap13 Linux账号管理与ACL权限"></a>Chap13 Linux账号管理与ACL权限</h2><ol>
+<li><p>加入群组，只需要在/etc/group的对应群组的行的最后一项上添加上要加入的用户名即可；加入之后，要切换(newgrp)到支持的群组才能进行相关的操作，切换群组；</p>
+</li>
+<li><p>账号管理：useradd/passwd/usermod/userdel</p>
+<ul>
+<li>useradd 在建立账号的时候至少会参考：/etc/default/useradd /etc/login.defs /etc/skel/*</li>
+<li>useradd is a low level method of create a user, Instead, adduser/deluser are more higher level.</li>
+<li>chage 修改密码的详细参数</li>
+<li>usermod 账号资料的微调</li>
+<li>id</li>
+<li>finger/chfn(change finger)/chsh(change shell)</li>
+</ul>
+</li>
+<li><p>添加与移除群组</p>
+<ul>
+<li>groupadd/groupmod/groupdel</li>
+<li>gpasswd<br><code>echo user1:passwd | /usr/sbin/chpasswd</code>    — change password without get into interactive mode. </li>
+</ul>
+</li>
+<li><p>acl</p>
+<ul>
+<li><code>setfacl [-bkRd] [{-m|-x} acl parameter] file/directoryname</code></li>
+<li>getfacl filename</li>
+</ul>
+</li>
+</ol>
+<p>Note: Chap13 未完待续</p>
+<h2 id="Chap14-磁盘配额与进阶文件系统管理"><a href="#Chap14-磁盘配额与进阶文件系统管理" class="headerlink" title="Chap14 磁盘配额与进阶文件系统管理"></a>Chap14 磁盘配额与进阶文件系统管理</h2><ol>
+<li></li>
+</ol>
 
           
         
@@ -879,7 +3998,7 @@ Sun Sep 30 14:46:56 CST 2018
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -925,7 +4044,7 @@ Sun Sep 30 14:46:56 CST 2018
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
